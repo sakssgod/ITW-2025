@@ -8,8 +8,7 @@
     max-width: 100%;
     min-height: 100%;
     max-height: 100%;
-    background-image:url("./media/White-Cat-Background.jpg");
-    background-image: url("./media/White-Cat-Background.jpg");
+    background-image: url("../media/White-Cat-Background.jpg");
     background-color: rgba(196, 193, 205, 0.5);
     background-blend-mode: lighten;
     }
