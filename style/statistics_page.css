@@ -1,0 +1,61 @@
+body{
+    background-image:url("../media/White-Cat-Background.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;     
+    background-color: rgba(196, 193, 205, 0.5);
+    background-blend-mode: lighten;          
+}
+.banner_button{
+    width: 35px;
+    height: 35px;
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(231, 172, 208);
+}
+
+.banner_button_image{
+    width: 35px;
+    height: auto;
+}
+#title{
+    text-align: center;
+}
+.images_spot{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 100px;
+    margin-top: 20px; 
+}
+.image{
+    justify-content: center;
+    width: auto;
+    height: 170px;
+}
+.header{
+    display: flex;
+    justify-content: space-between; 
+}
+.content{
+    display: flex;
+    gap:100px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    
+}
+
+#table_1{
+    margin-left: 350px;
+}

@@ -3,58 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style/statistics_page.css">
         <title>RulesPage</title>
     </head>
     <body>
-        <style>
-            body{
-                background-image:url("./media/White-Cat-Background.jpg");
-                background-repeat: no-repeat;
-                background-position: center center;
-                background-attachment: fixed;
-                background-size: cover;     
-                background-color: rgba(196, 193, 205, 0.5);
-                background-blend-mode: lighten;          
-            }
-            .banner_button{
-                width: 35px;
-                height: 35px;
-                margin-top: 10px;
-                margin-left: 10px;
-                cursor: pointer;
-                border: none;
-                position: relative;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: rgb(231, 172, 208);
-            }
-
-            .banner_button_image{
-                width: 35px;
-                height: auto;
-            }
-            #title{
-                text-align: center;
-            }
-            .images_spot{
-                display: flex; 
-                justify-content: center;
-                align-items: center;
-                flex-wrap: wrap; 
-                gap: 100px;
-                margin-top: 20px; 
-            }
-            .image{
-                justify-content: center;
-                width: auto;
-                height: 170px;
-            }
-            .header{
-                display: flex;
-                justify-content: space-between; 
-            }
-        </style>
         <div class="header">
             <h3><a href="game_page.html">Game</a></h3>
             <button class="banner_button"><img src="media/game_icon.png" alt="An house to come back to the home page" id="house" class="banner_button_image"></button>
@@ -63,18 +15,27 @@
             <button class="banner_button"><img src="media/house_icon.png" alt="An house to come back to the home page" id="house" class="banner_button_image"></button>
 
         </div>
-
-        <div class="table">
-            <h2>Player name:</h2>
-            <h3>high score:</h3>
-            <h3>hours played:</h3>   
-            <h3>Games played:</h3>
-            <h3>Games won:</h3>
-            <h3>Win percentage:</h3>
-            <h3>Average score:</h3>
-            <h3>Average time per win:</h3>
-
-
+        <div class="content">
+            <div class="table" id="table_1">
+                <h2>Player name:</h2>
+                <h3>high score:</h3>
+                <h3>hours played:</h3>   
+                <h3>Games played:</h3>
+                <h3>Games won:</h3>
+                <h3>Win percentage:</h3>
+                <h3>Average score:</h3>
+                <h3>Average time per win:</h3>
+            </div>
+            <div class="Table" id="table_2">
+                <h2>High scores</h2>
+                <h3>Player name: ... Score ... </h3>
+                <h3>Player name: ... Score ... </h3>
+                <h3>Player name: ... Score ... </h3>
+                <h3>Player name: ... Score ... </h3>
+                <h3>Player name: ... Score ... </h3>
+                <h3>Player name: ... Score ... </h3>
+                <h3>Player name: ... Score ... </h3>
+            </div>
         </div>
     </body>
 </html> 

@@ -1,0 +1,55 @@
+body{
+    background-image:url("../media/cat_on_fire.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;     
+    background-color: rgba(196, 193, 205, 0.5);
+    background-blend-mode: lighten;          
+}
+.banner_button{
+    width: 35px;
+    height: 35px;
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(231, 172, 208);
+}
+
+.banner_button_image{
+    width: 35px;
+    height: auto;
+}
+#title{
+    text-align: center;
+}
+.images_spot{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 100px;
+    margin-top: 20px; 
+}
+.image{
+    justify-content: center;
+    width: auto;
+    height: 170px;
+}
+.header{
+    display: flex;
+    justify-content: space-between; 
+}
+.video_tutuorial{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 100px;
+    margin-top: 20px; 
+}
