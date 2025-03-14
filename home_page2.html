@@ -7,61 +7,32 @@
     <title>HomePage2</title>
 </head>
 <body>
-    <style>
-        h1{text-align:center;color:orangered;}
-        h3{text-align:center;color:orangered;}
-        h2{text-align:center; color: orangered;}
-        h4{color: white;}
-        body{
-            background-image:url("./media/cat_on_fire.jpg");
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
-            background-size: cover;               
-        }
-        a:link {
-            color: orangered;
-            background-color: transparent;
-            text-decoration: none;
-        }
-        a:visited {
-            color: darkorange;
-            background-color: transparent;
-            text-decoration: none;
-        }
-        a:hover {
-            color: pink;
-            background-color: transparent;
-            text-decoration: underline;
-        }
-        a:active {
-            color: darkred;
-            background-color: transparent;
-            text-decoration: underline;
-        }
-    </style>
-    <h4>Minesweeper</h4>
-    <h1>Welcome, dear User123!</h1>
-    <h2><a href="game_page.html">Play the Game!</a></h2>
+    <div class="mainWindow">
+        <div class="header">
+            <h4 class="sign">Minesweeper</h4>
+            <h1 class="welcome">Welcome, dear User123!</h1>
+            <h2 class="gotogame"><a href="game_page.html">Play the Game!</a></h2>
+        </div>
 
+        <div class="bottom">
+            <a href="statistics_page.html">
+                <img src="./media/data-analytics.png" 
+                    class="button" 
+                    id="statisticbutton"
+                    alt="Statistics"
+                    height="50"
+                    width="50">
+            </a>
 
-    <a href="statistics_page.html">
-        <img src="./media/data-analytics.png" 
-            alt="Statistics"
-            height="50"
-            width="50">
-    </a>
-    <br>
-    <br>
-    <br>
-    <br>
-    <a href="home_page.html">
-        <img src="./media/logo.png" 
-            alt="LogOut"
-            height="50"
-            width="50">
-    </a>
-    
-    
+            <a href="home_page.html">
+                <img src="./media/logo.png"
+                    class="button"
+                    id="logoutbutton" 
+                    alt="LogOut"
+                    height="50"
+                    width="50">
+            </a>
+        </div>
+    </div>
 </body>
 </html>

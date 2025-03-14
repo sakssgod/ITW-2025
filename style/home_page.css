@@ -1,33 +1,35 @@
-#content{
-    min-width: 1282px;
-    max-width: 1282px;
-    min-height: 722px;
-    max-height: 722px;
-
-    display: grid;
-    grid-template-columns: 800px 480px; 
-    grid-template-rows: 111px 20px auto;
-
+h2{text-align:center;}
+body{
+    background-image:url("../media/cat_on_fire.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;               
+}
+a:link {
+    color: orangered;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: darkorange;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: pink;
+    background-color: transparent;
+    text-decoration: underline;
+}
+a:active {
+    color: darkred;
+    background-color: transparent;
+    text-decoration: underline;
+}
+.title{
+  text-align:center;color:orangered;
 }
 
-body {
-    margin: 0;
+.subtitle{
+  text-align:center;color:orangered;
 }
-div.background {
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-  }
-  
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    min-width: 50%;
-    min-height: 50%;
-  }
