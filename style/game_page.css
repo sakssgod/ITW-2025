@@ -1,6 +1,6 @@
 .mainWindow {
     display: grid;
-    grid-template-rows: 50px auto;
+    grid-template-rows: 9vh auto;
     position: absolute;
     top: 0;
     left: 0;
@@ -8,24 +8,26 @@
     max-width: 100%;
     min-height: 100%;
     max-height: 100%;
-    background-image: url("../media/White-Cat-Background.jpg");
+    background-image: url("../media/cat_on_fire.jpg");
+    background-repeat: no-repeat;
     background-color: rgba(196, 193, 205, 0.5);
-    background-blend-mode: lighten;
+    background-size: cover;
+    background-position: right right;
     }
 
-.banner{
+.header{
     display:grid;
-    grid-template-columns: auto 100px;
+    grid-template-columns: auto 18vh;
+    margin-top: 2.5vh;
 }
 .content{
     display: grid;
-    grid-template-rows: auto 50px;
+    grid-template-rows: auto 9vh;
 }
 .banner_button{
-width: 35px;
-height: 35px;
-margin-top: 10px;
-margin-left: 10px;
+width: 6vh;
+height: 6vh;
+margin-left: 2.5vh;
 cursor: pointer;
 border: none;
 position: relative;
@@ -37,7 +39,7 @@ background-color: rgb(231, 172, 208);
 }
 
 .banner_button_image{
-width: 35px;
+width: 6vh;
 height: auto;
 }
 .game_window{
@@ -46,9 +48,9 @@ height: auto;
     align-items: center;
 }
 .game{
-    width: 600px;
-    height: 400px;
-    border: 1px solid;
+    width: 104vh;
+    height: 72vh;
+    border: 0,15vh solid;
     border-color: black;
 }
 
