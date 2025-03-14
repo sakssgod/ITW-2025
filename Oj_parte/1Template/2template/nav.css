@@ -1,0 +1,335 @@
+/* itw-2023/2024
+grupo:06
+jiayi li 62244 PL25
+Oujie Wu 62228 PL25
+Adriano Neves 62242 PL21 */
+
+@import url('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection{
+    color: black;
+    background: white;
+}
+
+nav{
+    position: fixed;
+    width: 100%;
+    padding: 10px 0 ;
+    z-index: 10;
+    background:
+    linear-gradient(
+      rgba(246,247,249,0.8),
+      rgba(246,247,249,0.8)
+    );
+    
+}
+
+nav .menu{
+    /* max-width: 1250px; */
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+}
+.menu .logo{
+    text-align: left;
+}
+.menu .logo a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.6em;
+    font-weight: 550;
+}
+
+.menu ul{
+    display: inline-flex;
+
+}
+
+.menu ul li{
+    list-style: none;
+    margin-left: 1em;
+}
+
+.menu ul li:first-child{
+    margin-left: 0px;
+}
+
+.menu ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0,3 ease;
+    background-color: rgb(80, 77, 78);
+}
+
+.menu ul li a:hover{
+    background-color: white;
+    color: black;
+
+}
+
+.menu-icon {
+    display: none; /* 确保菜单图标是隐藏的 */
+  }
+
+/* music play */
+embed{
+    visibility: hidden;
+}
+.Music-player{
+    width: 100px;
+    height: 100px;
+    background-image: url(../images/Yosuganosora_package.png);
+    background-size: cover;
+    position: fixed;
+    z-index: 11;
+    bottom: 1%;
+    left: 1%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+    
+.fa-youtube:hover{
+    color: #b7d2fc;
+}
+
+.fab{
+    color: #050d3c;
+    font-size: 40px;
+    padding: 0 5px;
+    }
+
+
+
+.imagem {
+    background-image: url(../images/1222945.jpg); /* 确保路径正确，并加上引号 */
+    background-repeat: no-repeat; /* 将no-repeat独立出来 */
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+}
+
+.imagem::before{ /* 蒙版*/
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+
+}
+
+.center{
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 0, 20px;
+    text-align: center; 
+}
+
+.center .title{
+    color: white;
+    font-size: 3.3em;
+    font-weight: 600;
+}
+
+.center .subtitle{
+    color: white;
+    font-size: 3em;
+    font-weight: 600;
+}
+
+.center .buttons{
+    margin-top: 20px;
+}
+
+.center .buttons button{
+    height: 3em;
+    width: 10em;
+    border-radius: 5px;
+    border: 2px solid white;
+    margin: 0px 15px;
+    padding: 0,10px;
+    cursor: pointer;
+    outline: none;
+    transition: all 1s ease;
+    font-size: 20px;
+}
+
+.center .buttons button:first-child{
+    color: black;
+    background: white;
+}
+
+.center .buttons button:first-child:hover{
+    color: white;
+    background: none;
+}
+
+.center .buttons button a:first-child:hover{
+    color: white;
+    background: none;
+}
+
+.center .buttons button:last-child{
+    color: black;
+    background: white;
+}
+
+.buttons a{
+    text-decoration: none;
+    color: black;
+}
+
+.GameRule{
+    position: relative ;
+    padding: 100px;
+    background-color: #354d8e;
+    z-index: 200px;
+}
+
+.GameRule h2{
+    font-size: 3.5em;
+    color: white;
+    margin-bottom: 10px;
+
+}
+
+.GameRule p{
+    font-size: 1.2em;
+    color: white;
+}
+
+
+@media only screen and (max-width:970px){
+
+
+    nav .logo{
+        margin: 10px;
+    }
+    div .center{
+        font-size:xx-small ;
+    }
+    div .subtitle{
+        font-size: xx-small;
+    }
+
+    .normal-menu {
+        display: none; /* 隐藏常规菜单项 */
+      }
+      .menu-icon {
+        display: block; /* 显示菜单图标 */
+        /* 添加你需要的菜单图标样式 */
+        cursor: pointer;
+        /* 其他样式 */
+        color: white;
+        
+      }
+
+      .menu-icon:before {
+        content: "\2630"; /* 汉堡图标的Unicode字符 */
+        font-size: 24px; /* 可根据需要调整字体大小 */
+        /* 为图标添加进一步的样式 */
+      }
+
+      .menu .logo a{
+        position: relative; /* 设置相对定位 */
+        left: -50px; /* 向左移动10px，根据需要调整这个值 */
+    }
+
+    
+    
+}
+
+
+@media only screen and (max-width:600px){
+
+      .menu .logo a{
+        position: relative; /* 设置相对定位 */
+        left: -80px; /* 向左移动10px，根据需要调整这个值 */
+    }
+
+    .menu-icon:before {
+        content: "\2630"; /* 汉堡图标的Unicode字符 */
+        font-size: 24px; /* 可根据需要调整字体大小 */
+        position: relative;
+        right: -50px;
+      }
+    
+      .menu .logo a{
+        font-weight: 300;
+    }
+
+      .center .title{
+        color: white;
+        font-size: 2.3em;
+        font-weight: 300;
+    }
+    
+    .center .subtitle{
+        color: white;
+        font-size: 1.7em;
+        font-weight: 300;
+    }
+    
+    .center .buttons button{
+        font-size: 15px;
+    }
+
+    .GameRule{
+        padding: 50px;
+    }
+
+    .GameRule h2{
+        font-size: 2.3em;
+        color: white;
+        margin-bottom: 10px;
+    
+    }
+    
+    .GameRule p{
+        font-size: 0.9em;
+        color: white;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
