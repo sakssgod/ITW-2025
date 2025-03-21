@@ -9,7 +9,7 @@ html, body * {
         rgba(246,247,249,0.8),
         rgba(246,247,249,0.8)
       ), */
-      url("/ITW-2025/media/White-Cat-Background.jpg") no-repeat center center fixed;
+      url("/media/cat_on_fire.jpg") no-repeat center center fixed;
     background-size: cover;
   }
   
