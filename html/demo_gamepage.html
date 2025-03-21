@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamePage</title>
+
+    <link rel="stylesheet" href="/style/game_page.css">
+    <script src="/script/demo_gamepage.js" defer></script>
+
+</head>
+<body>
+    <div class="mainWindow">
+        <div class="header">
+            <a href="home_page.html"><img src="/ITW-2025/media/house_icon.png" alt="Home" id="house" class="banner_button_image"></a>
+        </div>
+
+        <div class="content">
+            <div class="game_window">
+                <div id="minesweeper-wrapper">
+                    <div id="gnav">
+                        <input type="text" id="mine-total" />
+                        <input type="radio" name="level" id="level_1" onchange="select_lev(0)" checked />
+                        <label for="level_1">Facil</label>
+                        <input type="radio" name="level" id="level_2" onchange="select_lev(1)" />
+                        <label for="level_2">Intermedio</label>
+                        <input type="radio" name="level" id="level_3" onchange="select_lev(2)" />
+                        <label for="level_3">Dificil</label>
+                        <button id="btn" onclick="select_lev()">Restart</button>
+                        <input type="text" id="timer" />
+                    </div>
+                    <canvas id="mycanv"></canvas>
+                </div>
+            </div>
+
+            <div class="last_row_buttons">
+                <a href="rules_page.html"><img src="/media/info_icon.png" alt="Rules" id="info" class="banner_button_image"></a>
+                <a href="statistics_page.html"><img src="/media/stat.png" alt="Stats" id="stats" class="banner_button_image"></a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
