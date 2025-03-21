@@ -9,7 +9,7 @@ html, body * {
         rgba(246,247,249,0.8),
         rgba(246,247,249,0.8)
       ), */
-      url("/media/cat_on_fire.jpg") no-repeat center center fixed;
+      url("../media/cat_on_fire.jpg") no-repeat center center fixed;
     background-size: cover;
   }
   
@@ -50,7 +50,7 @@ html, body * {
   
     /* 1) 背景先放你的图片 */
     background:
-      url("/ITW-2025/media/White-Cat-Background.jpg")
+      url("../media/White-Cat-Background.jpg")
       no-repeat center center;
     background-size: cover;
   
