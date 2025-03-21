@@ -35,7 +35,7 @@ body{
     justify-content: center;
     width: auto;
     height: 30.5vh;
-}
+}   
 .header{
     display: flex;
     justify-content: space-between; 
@@ -43,14 +43,7 @@ body{
 .content{
     display: flex;
     gap:18vh;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 50px;
-    margin-bottom: 50px;
     flex-wrap: wrap;
+    justify-content: center;
     
-}
-
-#table_1{
-    margin-left: 350px;
 }
