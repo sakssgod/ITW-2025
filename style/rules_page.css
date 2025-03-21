@@ -12,7 +12,6 @@ body{
 .images_spot{
     display: flex; 
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap; 
     gap: 18vh;
     margin-top: 6vh; 
