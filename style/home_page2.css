@@ -45,11 +45,12 @@ a:active {
 .gotogame{
     text-align:center; color: orangered;
 }
-#statisticbutton{
-    margin-left: 10vh;
-    position: fixed;
+
+.bottom{
+        display:grid;
+        grid-template-columns: auto 18vh;
+        grid-template-rows: auto;
 }
-#logoutbutton{
-    margin-left: 200vh;
-    position: fixed;
+#statisticbutton{
+    padding-left: 8.1vh;
 }
