@@ -47,7 +47,9 @@ a:active {
 }
 #statisticbutton{
     margin-left: 10vh;
+    position: fixed;
 }
 #logoutbutton{
-    margin-left: 100vh;
+    margin-left: 200vh;
+    position: fixed;
 }
