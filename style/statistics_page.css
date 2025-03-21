@@ -7,23 +7,18 @@ body{
     background-color: rgba(196, 193, 205, 0.5);
     background-blend-mode: lighten;          
 }
-.banner_button{
+.banner_button_image{
+    width: 6vh;
+    height: auto;
     width: 6vh;
     height: 6vh;
     margin-left: 2.5vh;
-    margin-top: 2.5vh;
     cursor: pointer;
     border: none;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(231, 172, 208);
-}
-
-.banner_button_image{
-    width: 6px;
-    height: auto;
 }
 #title{
     text-align: center;

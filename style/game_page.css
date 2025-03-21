@@ -24,23 +24,23 @@
     display: grid;
     grid-template-rows: auto 9vh;
 }
-.banner_button{
-width: 6vh;
-height: 6vh;
-margin-left: 2.5vh;
-cursor: pointer;
-border: none;
-position: relative;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color: rgb(231, 172, 208);
 
-}
 
 .banner_button_image{
-width: 6vh;
-height: auto;
+    width: 6vh;
+    height: auto;
+    width: 6vh;
+    height: 6vh;
+    margin-left: 2.5vh;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#house{
+    background-color: rgb(231, 172, 208);
 }
 .game_window{
     display: flex;
@@ -56,5 +56,6 @@ height: auto;
 
 .last_row_buttons{
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto;
+    margin-left: 70vh;
 }
