@@ -83,3 +83,17 @@
     border-radius: 5px; /* 轻微圆角 */
     background-color: #ddd; /* 灰色背景，区分游戏区域 */
 }
+
+
+#gnav {
+    height: 30px;
+    text-align: center;
+}
+#mine-total {
+    width: 30px;
+    text-align: center;
+}
+#timer {
+    width: 60px;
+    text-align: center;
+}
