@@ -58,14 +58,14 @@ iframe{
     height:60vh;
 }
 
-@media screen and (min-width: 701px) and (max-width: 900px) {
+@media screen and (max-width: 550px) {
     body{
-        background-image:url("../media/cat_on_fire.jpg");
+        background-image:url("../media/equilibrismo.jpg");
         background-repeat: no-repeat;
         background-position: center center;
         background-attachment: fixed;
         background-size: cover;     
-        background-color: rgba(207, 207, 208, 0.5);
+        background-color:black(207, 207, 208, 0.5);
         background-blend-mode: lighten;          
     }
     
@@ -85,13 +85,13 @@ iframe{
     }
     .header{
         display:grid;
-        grid-template-columns: auto 18vh;
+        grid-template-columns: auto 10vh;
         grid-template-rows: auto;
     }
     #title{
         text-align: center;
         grid-row: 1/2;
-        font-size: 8.5vh;
+        font-size: 6vh;
     }
     .banner_button_image{
         width: 8.5vh;
@@ -115,7 +115,10 @@ iframe{
         margin-left: 1.5vh;
     }
     iframe{
-        width:100vh;
-        height:60vh;
+        width:auto;
+        height:auto;
     } /* Your styles here */
+    
 }
+
+
