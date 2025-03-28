@@ -33,3 +33,75 @@ a:active {
 .subtitle{
   text-align:center;color:orangered;
 }
+@media screen and (min-width: 480px) {
+    body{
+        background-image:url("../media/cat_on_fire.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;               
+    }
+    a:link {
+        color: orangered;
+        background-color: transparent;
+        text-decoration: none;
+    }
+    a:visited {
+        color: darkorange;
+        background-color: transparent;
+        text-decoration: none;
+    }
+    a:hover {
+        color: pink;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    a:active {
+        color: darkred;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    .title{
+      text-align:center;color:orangered;
+    }
+    
+    .subtitle{
+      text-align:center;color:orangered;
+    }
+}
+@media screen and (min-width: 720px) and (max-width: 900px) {
+    body{
+        background-image:url("../media/cat_on_fire.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;               
+    }
+    a:link {
+        color: orangered;
+        background-color: transparent;
+        text-decoration: none;
+    }
+    a:visited {
+        color: darkorange;
+        background-color: transparent;
+        text-decoration: none;
+    }
+    a:hover {
+        color: pink;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    a:active {
+        color: darkred;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    .title{
+      text-align:center;color:orangered;
+    }
+    
+    .subtitle{
+      text-align:center;color:orangered;
+    }
+}        

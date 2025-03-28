@@ -54,3 +54,119 @@ a:active {
 #statisticbutton{
     padding-left: 8.1vh;
 }
+@media screen and (min-width: 480px) {
+    body{
+        background-image:url("../media/cat_on_fire.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;               
+    }
+    .mainWindow {
+        display: grid;
+        grid-template-rows: auto 10vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 100%;
+        max-height: 100%;
+    }
+    a:link {
+        color: orangered;
+        background-color: transparent;
+        text-decoration: none;
+    }
+    a:visited {
+        color: darkorange;
+        background-color: transparent;
+        text-decoration: none;
+    }
+    a:hover {
+        color: pink;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    a:active {
+        color: darkred;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    .sign{
+        color: white;
+    }
+    .welcome{
+        text-align:center;color:orangered;
+    }
+    .gotogame{
+        text-align:center; color: orangered;
+    }
+
+    .bottom{
+            display:grid;
+            grid-template-columns: auto 18vh;
+            grid-template-rows: auto;
+    }
+    #statisticbutton{
+        padding-left: 8.1vh;
+    }
+}
+@media screen and (min-width: 720px) and (max-width: 900px) {
+    body{
+        background-image:url("../media/cat_on_fire.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;               
+    }
+    .mainWindow {
+        display: grid;
+        grid-template-rows: auto 10vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 100%;
+        max-height: 100%;
+    }
+    a:link {
+        color: orangered;
+        background-color: transparent;
+        text-decoration: none;
+    }
+    a:visited {
+        color: darkorange;
+        background-color: transparent;
+        text-decoration: none;
+    }
+    a:hover {
+        color: pink;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    a:active {
+        color: darkred;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    .sign{
+        color: white;
+    }
+    .welcome{
+        text-align:center;color:orangered;
+    }
+    .gotogame{
+        text-align:center; color: orangered;
+    }
+
+    .bottom{
+            display:grid;
+            grid-template-columns: auto 18vh;
+            grid-template-rows: auto;
+    }
+    #statisticbutton{
+        padding-left: 8.1vh;
+    }
+}
