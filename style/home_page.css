@@ -6,8 +6,9 @@ body{
     background-attachment: fixed;
     background-size: cover;               
 }
+
 a:link {
-    color: orangered;
+    color: rgb(173, 46, 0);
     background-color: transparent;
     text-decoration: none;
 }
@@ -17,32 +18,34 @@ a:visited {
     text-decoration: none;
 }
 a:hover {
-    color: pink;
-    background-color: transparent;
-    text-decoration: underline;
-}
-a:active {
     color: darkred;
     background-color: transparent;
     text-decoration: underline;
 }
+a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
 .title{
-  text-align:center;color:orangered;
+  text-align:center;
+  color: red;
 }
 
 .subtitle{
-  text-align:center;color:orangered;
+  text-align:center;
+  color:red;
 }
 @media screen and (min-width: 480px) {
     body{
-        background-image:url("../media/White-Cat-Background.jpg");
+        background-image:url("../media/cat_on_fire.jpg");
         background-repeat: no-repeat;
         background-position: center center;
         background-attachment: fixed;
         background-size: cover;               
     }
     a:link {
-        color: orangered;
+        color: rgb(173, 46, 0);
         background-color: transparent;
         text-decoration: none;
     }
@@ -52,21 +55,23 @@ a:active {
         text-decoration: none;
     }
     a:hover {
-        color: pink;
-        background-color: transparent;
-        text-decoration: underline;
-    }
-    a:active {
         color: darkred;
         background-color: transparent;
         text-decoration: underline;
     }
+    a:active {
+        color: red;
+        background-color: transparent;
+        text-decoration: underline;
+    }
     .title{
-      text-align:center;color:orangered;
+      text-align:center;
+      color:red;
     }
     
     .subtitle{
-      text-align:center;color:orangered;
+        text-align: center;
+        color: red;
     }
 }
 @media screen and (min-width: 720px) and (max-width: 900px) {
@@ -78,7 +83,7 @@ a:active {
         background-size: cover;               
     }
     a:link {
-        color: orangered;
+        color: rgb(173, 46, 0);
         background-color: transparent;
         text-decoration: none;
     }
@@ -88,20 +93,22 @@ a:active {
         text-decoration: none;
     }
     a:hover {
-        color: pink;
-        background-color: transparent;
-        text-decoration: underline;
-    }
-    a:active {
         color: darkred;
         background-color: transparent;
         text-decoration: underline;
     }
+    a:active {
+        color: red;
+        background-color: transparent;
+        text-decoration: underline;
+    }
     .title{
-      text-align:center;color:orangered;
+      text-align:center;
+      color:red;
     }
     
     .subtitle{
-      text-align:center;color:orangered;
+      text-align:center;
+      color: red;
     }
 }        

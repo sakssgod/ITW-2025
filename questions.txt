@@ -1,0 +1,37 @@
+1. is it okay to the first home page be that empty? 
+or i schould add something? any ideas?
+
+2. what teacher was saying about putting    ../
+
+3. if agree with colors:
+a:link {
+    color: rgb(173, 46, 0);
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: darkorange;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: darkred;
+    background-color: transparent;
+    text-decoration: underline;
+}
+a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+.title{
+  text-align:center;
+  color: red;
+}
+
+.subtitle{
+  text-align:center;
+  color:red;
+}
+
+4. home_page ->  <div class="mainwindow">  norm or no??
