@@ -8,21 +8,24 @@ body{
     background-blend-mode: lighten;          
 }
 .banner_button_image{
-    width: 6vh;
     height: auto;
-    width: 6vh;
-    height: 6vh;
-    margin-left: 2.5vh;
+    width: 8vh;
+    height: 8vh;
+    margin-bottom: 2.5vh;
     cursor: pointer;
     border: none;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
-#title{
+#title {
     text-align: center;
+    font-size: 8vh;
+    margin-top: 2.5vh;
 }
+
 .images_spot{
     display: flex; 
     justify-content: center;
@@ -46,4 +49,11 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     
+}
+#house{
+    margin-right: 5vh;
+}
+
+#game{
+    margin-left: 5vh;
 }
