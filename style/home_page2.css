@@ -27,6 +27,7 @@ a:visited {
     text-decoration: none;
 }
 a:hover {
+    cursor: pointer;
     color: pink;
     background-color: transparent;
     text-decoration: underline;
@@ -84,6 +85,7 @@ a:active {
         text-decoration: none;
     }
     a:hover {
+        cursor: pointer;
         color: pink;
         background-color: transparent;
         text-decoration: underline;
@@ -142,6 +144,7 @@ a:active {
         text-decoration: none;
     }
     a:hover {
+        cursor: pointer;
         color: pink;
         background-color: transparent;
         text-decoration: underline;
