@@ -7,7 +7,7 @@ body{
 }
 .mainWindow {
     display: grid;
-    grid-template-rows: auto 10vh;
+    grid-template-rows: 20vh auto 10vh;
     position: absolute;
     top: 0;
     left: 0;
@@ -17,7 +17,7 @@ body{
     max-height: 100%;
 }
 a:link {
-    color: orangered;
+    color: rgb(173, 46, 0);
     background-color: transparent;
     text-decoration: none;
 }
@@ -28,26 +28,37 @@ a:visited {
 }
 a:hover {
     cursor: pointer;
-    color: pink;
-    background-color: transparent;
-    text-decoration: underline;
-}
-a:active {
     color: darkred;
     background-color: transparent;
     text-decoration: underline;
 }
+a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+.title{
+    text-align:center;
+    color: firebrick;
+  }
+  
+  .subtitle{
+    text-align:center;
+    color:rgb(235, 14, 14);
+  }
 .sign{
     color: white;
 }
-.welcome{
-    text-align:center;color:orangered;
-}
-.gotogame{
-    text-align:center; color: orangered;
+
+#gogamebutton{
+ display: block;
+ margin: auto;
+ width: 25%;
+ height: 35%;
 }
 
-.bottom{
+
+footer{
         display:grid;
         grid-template-columns: auto 18vh;
         grid-template-rows: auto;
@@ -65,7 +76,7 @@ a:active {
     }
     .mainWindow {
         display: grid;
-        grid-template-rows: auto 10vh;
+        grid-template-rows: 20vh auto 10vh;
         position: absolute;
         top: 0;
         left: 0;
@@ -75,7 +86,7 @@ a:active {
         max-height: 100%;
     }
     a:link {
-        color: orangered;
+        color: rgb(173, 46, 0);
         background-color: transparent;
         text-decoration: none;
     }
@@ -86,26 +97,37 @@ a:active {
     }
     a:hover {
         cursor: pointer;
-        color: pink;
-        background-color: transparent;
-        text-decoration: underline;
-    }
-    a:active {
         color: darkred;
         background-color: transparent;
         text-decoration: underline;
     }
+    a:active {
+        color: red;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    .title{
+        text-align:center;
+        color: firebrick;
+      }
+      
+      .subtitle{
+        text-align:center;
+        color:rgb(235, 14, 14);
+      }
     .sign{
         color: white;
     }
-    .welcome{
-        text-align:center;color:orangered;
-    }
-    .gotogame{
-        text-align:center; color: orangered;
+
+    #gogamebutton{
+        display: block;
+        margin: auto;
+        width: 25%;
+        height: 35%;
     }
 
-    .bottom{
+
+    footer{
             display:grid;
             grid-template-columns: auto 18vh;
             grid-template-rows: auto;
@@ -124,7 +146,7 @@ a:active {
     }
     .mainWindow {
         display: grid;
-        grid-template-rows: auto 10vh;
+        grid-template-rows: 20vh auto 10vh;
         position: absolute;
         top: 0;
         left: 0;
@@ -134,7 +156,7 @@ a:active {
         max-height: 100%;
     }
     a:link {
-        color: orangered;
+        color: rgb(173, 46, 0);
         background-color: transparent;
         text-decoration: none;
     }
@@ -145,26 +167,40 @@ a:active {
     }
     a:hover {
         cursor: pointer;
-        color: pink;
-        background-color: transparent;
-        text-decoration: underline;
-    }
-    a:active {
         color: darkred;
         background-color: transparent;
         text-decoration: underline;
     }
+    a:active {
+        color: red;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    .title{
+        text-align:center;
+        color: firebrick;
+      }
+      
+      .subtitle{
+        text-align:center;
+        color:rgb(235, 14, 14);
+      }
     .sign{
         color: white;
     }
-    .welcome{
-        text-align:center;color:orangered;
+
+    #gogamebutton{
+        display: block;
+        margin: auto;
+        width: 25%;
+        height: 35%;
     }
-    .gotogame{
-        text-align:center; color: orangered;
+       
+    h2{
+        text-align: center;
     }
 
-    .bottom{
+    footer{
             display:grid;
             grid-template-columns: auto 18vh;
             grid-template-rows: auto;
