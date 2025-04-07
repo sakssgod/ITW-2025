@@ -30,12 +30,12 @@ a:active {
 }
 .title{
   text-align:center;
-  color: red;
+  color: firebrick;
 }
 
 .subtitle{
   text-align:center;
-  color:red;
+  color:rgb(235, 14, 14);
 }
 @media screen and (min-width: 480px) {
     body{
@@ -68,12 +68,12 @@ a:active {
     }
     .title{
       text-align:center;
-      color:red;
+      color:firebrick;
     }
     
     .subtitle{
         text-align: center;
-        color: red;
+        color: rgb(235, 14, 14);
     }
 }
 @media screen and (min-width: 720px) and (max-width: 900px) {
@@ -107,11 +107,11 @@ a:active {
     }
     .title{
       text-align:center;
-      color:red;
+      color:firebrick;
     }
     
     .subtitle{
       text-align:center;
-      color: red;
+      color: rgb(235, 14, 14);
     }
 }        
