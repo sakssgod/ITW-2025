@@ -23,6 +23,7 @@ nav a{
 #forget{
     color: rgb(146, 77, 77);
     text-align: center;
+    text-decoration: none;
 
 }
 
@@ -86,7 +87,7 @@ input::placeholder {
     }
     
     nav a{
-        color: rgb(146, 77, 77);
+        color: white;
         background-color: transparent;
         text-decoration: none;
     }
@@ -94,7 +95,7 @@ input::placeholder {
     #forget{
         color: rgb(146, 77, 77);
         text-align: center;
-    
+        text-decoration: none;
     }
     
     
@@ -165,7 +166,7 @@ input::placeholder {
     #forget{
         color: rgb(146, 77, 77);
         text-align: center;
-    
+        text-decoration: none;
     }
     
     
