@@ -1,8 +1,8 @@
-Grupo 06  
+Grupo 36  
 Participantes:  
 Oujie Wu 62228  
-Ruben 62244  
-Viktoriia  
+Ruben Pereira 58378
+Viktoriia Ivanova 60882
 
 O projeto contém as seguintes páginas com HTML e CSS:
 
