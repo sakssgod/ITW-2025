@@ -24,7 +24,7 @@ nav {
     left: 1em;
 }
 
-section {
+.content{
     display: block;
     flex-direction: column;
     gap: 3vh;
@@ -118,7 +118,7 @@ input::placeholder {
         left: 1em;
     }
     
-    section {
+    .content{
         display: block;
         flex-direction: column;
         gap: 3vh;
@@ -214,7 +214,7 @@ input::placeholder {
         left: 1em;
     }
     
-    section {
+    .content{
         display: block;
         flex-direction: column;
         gap: 3vh;
