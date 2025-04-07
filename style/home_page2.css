@@ -53,8 +53,8 @@ a:active {
 #gogamebutton{
     display: block;
     margin: auto;
-    width: 5vh;
-    height: 30vh;
+    width: 30%;
+    height: 30%;
 }
 
 
@@ -63,6 +63,12 @@ footer{
         grid-template-columns: auto auto 18vh;
         grid-template-rows: auto;
 }
+
+.icon{
+    width: 6vh;
+    height: 6vh;
+}
+
 #statisticbutton{
     padding-left: 8.1vh;
 }
@@ -122,8 +128,8 @@ footer{
     #gogamebutton{
         display: block;
         margin: auto;
-        width: 30%;
-        height: 30%;
+        width: 50%;
+        height: 50%;
     }
 
 
@@ -132,6 +138,12 @@ footer{
             grid-template-columns: auto auto 13vh;
             grid-template-rows: auto;
     }
+
+    .icon{
+        width: 6vh;
+        height: 6vh;
+    }
+
     #statisticbutton{
         padding-left: 8.1vh;
     }
@@ -192,8 +204,8 @@ footer{
     #gogamebutton{
         display: block;
         margin: auto;
-        width: 30%;
-        height: 30%;
+        width: 50%;
+        height: 50%;
     }
        
     h2{
@@ -205,6 +217,12 @@ footer{
             grid-template-columns: auto auto 18vh;
             grid-template-rows: auto;
     }
+
+    .icon{
+        width: 6vh;
+        height: 6vh;
+    }
+
     #statisticbutton{
         padding-left: 8.1vh;
     }
