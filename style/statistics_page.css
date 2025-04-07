@@ -15,8 +15,8 @@ body{
 }
 .banner_button_image{
     height: auto;
-    width: 8vh;
-    height: 8vh;
+    width: 6vh;
+    height: 6vh;
     margin-bottom: 2.5vh;
     cursor: pointer;
     border: none;
@@ -46,11 +46,11 @@ body{
     width: auto;
     height: 30.5vh;
 }   
-.header{
+header{
     display: flex;
     justify-content: space-between; 
 }
-.content{
+section{
     display: flex;
     gap:18vh;
     flex-wrap: wrap;
@@ -61,15 +61,14 @@ body{
     margin-right: 5vh;
 }
 
-#game{
-    margin-left: 5vh;
-}
+
 #bomb{
     width: 15vh;
     height: auto;
     margin-top: -5vh;
-    margin-left: 3vh;
+    margin-left: 0.5vh;
 }
+
 @media screen  and (max-width: 720px) {
     title{
         font-size: 4.5vh;

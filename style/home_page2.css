@@ -57,9 +57,9 @@ a:active {
 
 
 footer{
-        display:grid;
-        grid-template-columns: auto auto 18vh;
-        grid-template-rows: auto;
+    display:grid;
+    grid-template-columns: auto auto 18vh;
+    grid-template-rows: auto;
 }
 
 .icon{
