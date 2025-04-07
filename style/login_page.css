@@ -13,10 +13,10 @@ nav {
     right: 1em;
 }
 
-nav a{
-    color: white;
-    background-color: transparent;
-    text-decoration: none;
+.icon{
+    width: 6vh;
+    height: 6vh;
+    margin-left: 1.5vh;
 }
 
 
@@ -86,10 +86,10 @@ input::placeholder {
         right: 1em;
     }
     
-    nav a{
-        color: white;
-        background-color: transparent;
-        text-decoration: none;
+    .icon{
+        width: 6vh;
+        height: 6vh;
+        margin-left: 1.5vh;
     }
     
     #forget{
@@ -157,10 +157,10 @@ input::placeholder {
         right: 1em;
     }
     
-    nav a{
-        color: white;
-        background-color: transparent;
-        text-decoration: none;
+    .icon{
+        width: 6vh;
+        height: 6vh;
+        margin-left: 1.5vh;
     }
     
     #forget{
