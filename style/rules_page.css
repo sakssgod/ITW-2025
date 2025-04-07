@@ -27,19 +27,26 @@ body{
 }
 header{
     display:grid;
-    grid-template-columns: auto 18vh;
+    grid-template-columns: 18vh auto 18vh;
     grid-template-rows: auto;
 }
 h1{
     text-align: center;
     grid-row: 1/2;
+    grid-column: 2/3;
     font-size: 8.5vh;
-    margin-left: 17vh;
     margin-top: 1.5vh;
 }
 .banner_button_image{
     width: 8.5vh;
     height: auto;
+    justify-content: space-between;
+}
+
+#bomb{
+    width: 15vh;
+    margin-top: -4vh;
+    margin-left: 3vh;
 }
 .video_tutuorial{
     display: flex; 

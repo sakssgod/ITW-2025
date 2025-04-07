@@ -9,7 +9,7 @@ body{
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;        
-    background-color: rgba(196, 193, 205, 0.25);
+    background-color: rgba(196, 193, 205, 0.3);
     background-size: cover;
     background-blend-mode: lighten;          
 }
@@ -62,4 +62,10 @@ body{
 
 #game{
     margin-left: 5vh;
+}
+#bomb{
+    width: 15vh;
+    height: auto;
+    margin-top: -5vh;
+    margin-left: 3vh;
 }
