@@ -50,7 +50,7 @@ header{
 .game{
     width: 90vh;
     height: 64vh;
-    border: 0,15vh solid;
+    border: 0.15vh solid;
     border-color: black;
 }
 
