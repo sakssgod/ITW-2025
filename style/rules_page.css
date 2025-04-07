@@ -22,7 +22,7 @@ body{
     width: auto;
     height: 34.5vh;
 }
-.header{
+header{
     display:grid;
     grid-template-columns: auto 18vh;
     grid-template-rows: auto;
@@ -35,7 +35,6 @@ body{
 .banner_button_image{
     width: 8.5vh;
     height: auto;
-    margin-top: 3.5vh;
 }
 .video_tutuorial{
     display: flex; 
@@ -53,7 +52,7 @@ body{
 .subtitle{
     margin-left: 1.5vh;
 }
-iframe{
+video{
     width:100vh;
     height:60vh;
 }
@@ -107,7 +106,7 @@ iframe{
         width: auto;
         height: 34.5vh;
     }
-    .header{
+    header{
         display:grid;
         grid-template-columns: auto 10vh;
         grid-template-rows: auto;
@@ -138,8 +137,8 @@ iframe{
     .subtitle{
         margin-left: 1.5vh;
     }
-    iframe{
+    video{
         width:100vh;
         height:60vh;
-    } /* Your styles here */
+    }
 }
