@@ -26,6 +26,7 @@ header{
     font-size: 8.5vh;
     margin-left: 17vh;
     margin-top: 1.5vh;
+    color: darkred;
 }
 
 .content{
@@ -107,9 +108,28 @@ footer {
 }
 
 .cell {
-    border-top: 3px solid #ffffff;
-    border-left: 3px solid #ffffff;
-    border-right: 3px solid #7b7b7b;
-    border-bottom: 3px solid #7b7b7b;
+    border-top: 0.278vh solid #ffffff;
+    border-left: 0.278vh solid #ffffff;
+    border-right: 0.278vh solid #7b7b7b;
+    border-bottom: 0.278vh solid #7b7b7b;
 }
 
+@media screen and (max-width: 720px) {
+    #title{
+        font-size: 6vh;
+    }
+    .banner_button_image{
+        width: 6vh;
+        height: auto;
+    }
+}
+@media screen and (min-width: 720px) and (max-width: 900px) {
+    #title{
+        font-size: 7vh;
+    }
+    .banner_button_image{
+        width: 7vh;
+        height: auto;
+    }  
+    
+}

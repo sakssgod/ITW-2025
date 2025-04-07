@@ -30,6 +30,7 @@ body{
     text-align: center;
     font-size: 8vh;
     margin-top: 2.5vh;
+    color: darkred;
 }
 
 .images_spot{
@@ -68,4 +69,9 @@ body{
     height: auto;
     margin-top: -5vh;
     margin-left: 3vh;
+}
+@media screen  and (max-width: 720px) {
+    title{
+        font-size: 4.5vh;
+    }
 }

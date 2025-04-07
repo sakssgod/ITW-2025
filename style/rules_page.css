@@ -20,10 +20,10 @@ body{
     margin-top: 6vh; 
     margin-bottom: 7vh;
 }
-.image{
+img{
     justify-content: center;
     width: auto;
-    height: 34.5vh;
+    height: 30.5vh;
 }
 header{
     display:grid;
@@ -36,6 +36,10 @@ h1{
     grid-column: 2/3;
     font-size: 8.5vh;
     margin-top: 1.5vh;
+    color: darkred;
+}
+h2{
+    color: darkred;
 }
 .banner_button_image{
     width: 8.5vh;
@@ -109,7 +113,7 @@ video{
         margin-top: 6vh; 
         margin-bottom: 7vh;
     }
-    .image{
+    img{
         justify-content: center;
         width: auto;
         height: 34.5vh;
