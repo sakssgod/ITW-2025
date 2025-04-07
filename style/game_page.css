@@ -15,52 +15,19 @@
     background-position: right right;
     }
 
-header{
-    display:grid;
-    grid-template-columns: auto 18vh;
-    margin-top: 2.5vh;
-    justify-content: left;
-    margin-left: 2.5vh; 
+header {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    padding: 2.5vh 2.5vh;
 }
 
-#house {
-    position: relative; /* Importante: precisa ser relative para posicionar o pseudo-elemento */
-}
-
-#house::after {
-    content: "Casa"; /* O texto que vai aparecer */
-    position: absolute; /* Posicionamento absoluto em relação ao elemento pai */
-    bottom: 100%; /* Posiciona acima do elemento */
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translateX(-50%); /* Ajuste fino da centralização */
-    
-    /* Estilo visual */
-    background-color: black;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 14px;
-    
-    /* Inicialmente invisível */
-    opacity: 0;
-    visibility: hidden; /* Importante adicionar isso também */
-    
-    /* Transição suave */
-    transition: opacity 0.3s, visibility 0.3s;
-    
-    /* Evita quebra de linha */
-    white-space: nowrap;
-    
-    /* Garantir que fique acima de outros elementos */
-    z-index: 100;
-    
-    /* Pequeno espaçamento */
-    margin-bottom: 5px;
-}
-
-#house:hover::after {
-    opacity: 1;
-    visibility: visible;
+#title {
+    text-align: center;
+    justify-self: center;
+    margin-right: 68vh;
+    font-size: 8vh;
+    margin-top: 0px;
 }
 .content{
     display: grid;
@@ -152,3 +119,4 @@ footer {
     border-right: 3px solid #7b7b7b;
     border-bottom: 3px solid #7b7b7b;
 }
+
