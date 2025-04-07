@@ -9,10 +9,8 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-    min-width: 100%;
-    max-width: 100%;
-    min-height: 100%;
-    max-height: 100%;
+    width: 99%;
+    height: 98%;
 }             
 
 
@@ -132,8 +130,8 @@ footer{
     }
 
     .icon{
-        width: 6vh;
-        height: 6vh;
+        width: 8vh;
+        height: 8vh;
     }
 
     #statisticbutton{
