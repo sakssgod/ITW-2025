@@ -1,0 +1,212 @@
+body{
+    background-image:url("../media/cat_on_fire.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;               
+}
+
+
+nav {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+}
+
+nav a{
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+
+#forget{
+    color: rgb(146, 77, 77);
+    text-align: center;
+
+}
+
+
+.sign{
+    color: white;
+    top: 1em;
+    left: 1em;
+}
+
+
+section {
+    display: block;
+    flex-direction: column;
+    gap: 3vh;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 4vh;
+}
+
+label {
+    display: block;
+    margin-bottom: 1vh;
+    margin-top: 3vh;
+    color: firebrick;
+    font-weight: bold;
+    font-size: 3vh;
+}
+
+input {
+    width: 40vh;
+    padding: 1.5vh;
+    border: 0.2vh solid #ccc;
+    border-radius: 1.5vh;
+    background-color: rgba(255, 255, 255, 0.6);
+    font-size: 2vh;
+    outline: none;
+}
+
+input::placeholder {
+    color: rgb(199, 112, 80);
+}
+
+@media screen and (min-width: 480px) {
+
+    body{
+        background-image:url("../media/cat_on_fire.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;               
+    }
+    
+    
+    nav {
+        position: fixed;
+        top: 1em;
+        right: 1em;
+    }
+    
+    nav a{
+        color: rgb(146, 77, 77);
+        background-color: transparent;
+        text-decoration: none;
+    }
+    
+    #forget{
+        color: rgb(146, 77, 77);
+        text-align: center;
+    
+    }
+    
+    
+    .sign{
+        color: white;
+    }
+    
+    
+    section {
+        display: block;
+        flex-direction: column;
+        gap: 3vh;
+        text-align: center;
+    }
+    
+    .input-group {
+        margin-bottom: 4vh;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 1vh;
+        margin-top: 3vh;
+        color: firebrick;
+        font-weight: bold;
+        font-size: 3vh;
+    }
+    
+    input {
+        width: 40vh;
+        padding: 1.5vh;
+        border: 0.2vh solid #ccc;
+        border-radius: 1.5vh;
+        background-color: rgba(255, 255, 255, 0.6);
+        font-size: 2vh;
+        outline: none;
+    }
+    
+    input::placeholder {
+        color: rgb(199, 112, 80);
+    }
+
+}
+
+@media screen and (min-width: 720px) and (max-width: 900px) {
+
+    body{
+        background-image:url("../media/cat_on_fire.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;               
+    }
+    
+    
+    nav {
+        position: fixed;
+        top: 1em;
+        right: 1em;
+    }
+    
+    nav a{
+        color: white;
+        background-color: transparent;
+        text-decoration: none;
+    }
+    
+    #forget{
+        color: rgb(146, 77, 77);
+        text-align: center;
+    
+    }
+    
+    
+    .sign{
+        color: white;
+    }
+    
+    
+    section {
+        display: block;
+        flex-direction: column;
+        gap: 3vh;
+        text-align: center;
+    }
+    
+    .input-group {
+        margin-bottom: 4vh;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 1vh;
+        margin-top: 3vh;
+        color: firebrick;
+        font-weight: bold;
+        font-size: 3vh;
+    }
+    
+    input {
+        width: 40vh;
+        padding: 1.5vh;
+        border: 0.2vh solid #ccc;
+        border-radius: 1.5vh;
+        background-color: rgba(255, 255, 255, 0.6);
+        font-size: 2vh;
+        outline: none;
+    }
+    
+    input::placeholder {
+        color: rgb(199, 112, 80);
+    }
+
+}
+
