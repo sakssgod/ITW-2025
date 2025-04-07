@@ -35,3 +35,10 @@ a:active {
 }
 
 4. home_page ->  <div class="mainwindow">  norm or no??
+
+5. figure out with the picture of bomb on the home page 2
+
+6.about game page: schould we put the sign"minesweeper" on the left? 
+then the icon og the house? schould it be icon or just "Home"?
+
+7. background statistics
