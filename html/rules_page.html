@@ -7,11 +7,11 @@
         <title>RulesPage</title>
     </head>
     <body>
-        <div class="header">
+        <header>
             <h3><a href="game_page.html"><img src="../media/game_icon.png" alt="An house to come back to the home page" id="house" class="banner_button_image"></a></h3>
             <h1 id="title">Minesweeper rules</h1>
-        </div>
-        <div class="content">
+        </header>
+        <section class="content">
             <h2 class="subtitle">Normal mode</h2>
             <p class="rules_text">Minesweeper is a game where mines are hidden in a grid of squares. Safe squares have numbers telling you how many mines touch the square. You can use the number clues to solve the game by opening all of the safe squares. If you click on a mine you lose the game!</p>
             <p class="rules_text">Windows Minesweeper always makes the first click safe. You open squares with the left mouse button and put flags on mines with the right mouse button. Pressing the right mouse button again changes your flag into a questionmark. When you open a square that does not touch any mines, it will be empty and the adjacent squares will automatically open in all directions until reaching squares that contain numbers. A common strategy for starting games is to randomly click until you get a big opening with lots of numbers.</p>  
@@ -24,8 +24,11 @@
             <h2 class="subtitle">Tuturial - video</h2>
             <div class="video_tutuorial">
                 <br>
-                <iframe src="../media/How to play Minesweeper.mp4"> </iframe>
+                <video controls width="600">
+                    O teu navegador não suporta a reprodução de vídeos. 
+                    <a href="../media/How to play Minesweeper.mp4">Clica aqui para descarregar o vídeo.</a>
+                </video>            
             </div>
-        </div>
+        </section>
     </body>
 </html> 

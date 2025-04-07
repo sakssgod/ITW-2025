@@ -15,32 +15,71 @@
     background-position: right right;
     }
 
-.header{
+header{
     display:grid;
     grid-template-columns: auto 18vh;
     margin-top: 2.5vh;
+    justify-content: left;
+    margin-left: 2.5vh; 
+}
+
+#house {
+    position: relative; /* Importante: precisa ser relative para posicionar o pseudo-elemento */
+}
+
+#house::after {
+    content: "Casa"; /* O texto que vai aparecer */
+    position: absolute; /* Posicionamento absoluto em relação ao elemento pai */
+    bottom: 100%; /* Posiciona acima do elemento */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajuste fino da centralização */
+    
+    /* Estilo visual */
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    
+    /* Inicialmente invisível */
+    opacity: 0;
+    visibility: hidden; /* Importante adicionar isso também */
+    
+    /* Transição suave */
+    transition: opacity 0.3s, visibility 0.3s;
+    
+    /* Evita quebra de linha */
+    white-space: nowrap;
+    
+    /* Garantir que fique acima de outros elementos */
+    z-index: 100;
+    
+    /* Pequeno espaçamento */
+    margin-bottom: 5px;
+}
+
+#house:hover::after {
+    opacity: 1;
+    visibility: visible;
 }
 .content{
     display: grid;
-    grid-template-rows: auto 9vh;
+    grid-template-rows: auto 11.5vh;
 }
 
 
 .banner_button_image{
-    width: 6vh;
     height: auto;
-    width: 6vh;
-    height: 6vh;
-    margin-left: 2.5vh;
+    width: 8vh;
+    height: 8vh;
+    margin-bottom: 2.5vh;
     cursor: pointer;
     border: none;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-#house{
-    background-color: rgb(231, 172, 208);
+    
 }
 .game_window{
     display: flex;
@@ -48,16 +87,17 @@
     align-items: center;
 }
 .game{
-    width: 104vh;
-    height: 72vh;
+    width: 90vh;
+    height: 64vh;
     border: 0,15vh solid;
     border-color: black;
 }
 
-.last_row_buttons{
-    display: grid;
-    grid-template-columns: auto auto;
-    margin-left: 70vh;
+footer {
+    display: flex; /* Mudança de grid para flex */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 60vh; /* Espaço entre os botões */
+
 }
 
 #minesweeper-wrapper {
@@ -96,4 +136,19 @@
 #timer {
     width: 60px;
     text-align: center;
+}
+.game{
+    border-style: solid;
+    background-color: rgba(196, 193, 205, 0.8);
+    border-color: black;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+}
+
+.cell {
+    border-top: 3px solid #ffffff;
+    border-left: 3px solid #ffffff;
+    border-right: 3px solid #7b7b7b;
+    border-bottom: 3px solid #7b7b7b;
 }
