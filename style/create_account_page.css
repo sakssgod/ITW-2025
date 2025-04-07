@@ -12,10 +12,10 @@ nav {
     right: 1em;
 }
 
-nav a{
-    color: white;
-    background-color: transparent;
-    text-decoration: none;
+.icon{
+    width: 6vh;
+    height: 6vh;
+    margin-left: 1.5vh;
 }
 
 .sign{
@@ -106,10 +106,10 @@ input::placeholder {
         right: 1em;
     }
     
-    nav a{
-        color: white;
-        background-color: transparent;
-        text-decoration: none;
+    .icon{
+        width: 6vh;
+        height: 6vh;
+        margin-left: 1.5vh;
     }
     
     .sign{
@@ -202,10 +202,10 @@ input::placeholder {
         right: 1em;
     }
     
-    nav a{
-        color: rgb(146, 77, 77);
-        background-color: transparent;
-        text-decoration: none;
+    .icon{
+        width: 6vh;
+        height: 6vh;
+        margin-left: 1.5vh;
     }
     
     .sign{
