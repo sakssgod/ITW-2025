@@ -3,9 +3,7 @@ body{
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
-    background-size: cover;               
-}
-.mainWindow {
+    background-size: cover;  
     display: grid;
     grid-template-rows: 20vh auto 10vh;
     position: absolute;
@@ -15,7 +13,9 @@ body{
     max-width: 100%;
     min-height: 100%;
     max-height: 100%;
-}
+}             
+
+
 a:link {
     color: rgb(173, 46, 0);
     background-color: transparent;
