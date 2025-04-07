@@ -1,9 +1,12 @@
 body{
+    position: absolute;
+    top: 0;
+    left: 0;
     background-image:url("../media/cat_on_fire.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
-    background-size: cover;     
+    background-size: cover;        
     background-color: rgba(207, 207, 208, 0.5);
     background-blend-mode: lighten;          
 }
@@ -27,11 +30,12 @@ header{
     grid-template-columns: auto 18vh;
     grid-template-rows: auto;
 }
-#title{
+h1{
     text-align: center;
     grid-row: 1/2;
     font-size: 8.5vh;
     margin-left: 17vh;
+    margin-top: 1.5vh;
 }
 .banner_button_image{
     width: 8.5vh;
@@ -58,11 +62,7 @@ video{
     height:60vh;
 }
 
-@media screen and (min-width: 480px) {
-    body{
-        background-image:url("../media/equilibrismo.jpg");
-        
-    }
+@media screen and (max-width: 720px) {
     
     
 
@@ -73,7 +73,7 @@ video{
     }
     #title{
 
-        font-size: 6vh;
+        font-size: 6vh; 
     }
 
 
@@ -141,5 +141,8 @@ video{
     video{
         width:100vh;
         height:60vh;
+    }
+    h1 {
+        font-size: 8.5vh; 
     }
 }

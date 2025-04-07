@@ -50,11 +50,11 @@ a:active {
     color: white;
 }
 
-#gogamebutton{
+#gogamebutton {
     display: block;
     margin: auto;
-    width: 30%;
-    height: 30%;
+    width: 35vh;
+    height: auto;
 }
 
 
@@ -125,14 +125,6 @@ footer{
         color: white;
     }
 
-    #gogamebutton{
-        display: block;
-        margin: auto;
-        width: 50%;
-        height: 50%;
-    }
-
-
     footer{
             display:grid;
             grid-template-columns: auto auto 13vh;
@@ -201,13 +193,6 @@ footer{
         color: white;
     }
 
-    #gogamebutton{
-        display: block;
-        margin: auto;
-        width: 50%;
-        height: 50%;
-    }
-       
     h2{
         text-align: center;
     }
