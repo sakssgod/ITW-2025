@@ -42,3 +42,17 @@ a:active {
 then the icon og the house? schould it be icon or just "Home"?
 
 7. background statistics
+
+
+
+Viktoriia's page: figure out with the size fucking bomb
+
+LEIAME.txt ????????
+
+schould we put a text "PLAY" on the bomb? which color? white/yellow?
+
+game page: place home icon on the right
+
+rules page: home icon on the right, bomb icon on the left, background
+
+statistic page: place bomb, background
