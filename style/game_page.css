@@ -44,12 +44,20 @@ header{
 }
 .game_window{
     display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-rows: auto auto;
+    place-items: center; /* isto combina justify e align */
+
+
+}
+
+.timer{
+    margin-bottom: -7vh;
     align-items: center;
 }
 .game{
-    width: 90vh;
-    height: 64vh;
+    width: 88vh;
+    height: 63vh;
     border: 0.15vh solid;
     border-color: black;
 }
