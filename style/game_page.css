@@ -55,11 +55,15 @@ header{
     margin-bottom: -7vh;
     align-items: center;
 }
-.game{
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
     width: 88vh;
     height: 63vh;
-    border: 0.15vh solid;
-    border-color: black;
+    border: 0.15vh solid black;
+    background-color: rgba(196, 193, 205, 0.8);
 }
 
 footer {
@@ -120,6 +124,12 @@ footer {
     border-left: 0.278vh solid #ffffff;
     border-right: 0.278vh solid #7b7b7b;
     border-bottom: 0.278vh solid #7b7b7b;
+}
+
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
 }
 
 @media screen and (max-width: 720px) {
