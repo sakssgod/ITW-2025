@@ -7,60 +7,76 @@ function saveUsers(users) {
     localStorage.setItem('minesweeper_users', JSON.stringify(users));
 }
 
-
 function showError(message) {
-
-    const existingError = document.getElementById('error-message');
+  
+    const existingError = document.getElementById('error-container');
     if (existingError) {
         existingError.remove();
     }
     
-
+   
+    const container = document.createElement('div');
+    container.id = 'error-container';
+    container.className = 'message-container';
+    
+  
     const errorMsg = document.createElement('div');
     errorMsg.id = 'error-message';
     errorMsg.textContent = message;
-    errorMsg.className = 'error-message';
+    errorMsg.className = 'message-base error-message';
+    
+
+    container.appendChild(errorMsg);
     
 
     const inputGroup = document.querySelector('.input-group');
     if (inputGroup) {
-        inputGroup.after(errorMsg);
+        inputGroup.after(container);
     } else {
-
-        document.body.appendChild(errorMsg);
+        document.body.appendChild(container);
     }
     
-
-    setTimeout(() => errorMsg.remove(), 3000);
+   
+    setTimeout(() => {
+        errorMsg.classList.add('message-fadeout');
+        setTimeout(() => container.remove(), 300);
+    }, 2700);
 }
 
-
 function showSuccess(message) {
-
-    const existingMsg = document.getElementById('success-message');
+  
+    const existingMsg = document.getElementById('success-container');
     if (existingMsg) {
         existingMsg.remove();
     }
     
-
+  
+    const container = document.createElement('div');
+    container.id = 'success-container';
+    container.className = 'message-container';
+    
+ 
     const successMsg = document.createElement('div');
     successMsg.id = 'success-message';
     successMsg.textContent = message;
-    successMsg.style.color = 'green';
-    successMsg.style.padding = '10px';
-    successMsg.style.marginTop = '10px';
-    successMsg.style.textAlign = 'center';
+    successMsg.className = 'message-base success-message';
+    
+
+    container.appendChild(successMsg);
     
 
     const inputGroup = document.querySelector('.input-group');
     if (inputGroup) {
-        inputGroup.after(successMsg);
+        inputGroup.after(container);
     } else {
-        document.body.appendChild(successMsg);
+        document.body.appendChild(container);
     }
     
 
-    setTimeout(() => successMsg.remove(), 2000);
+    setTimeout(() => {
+        successMsg.classList.add('message-fadeout');
+        setTimeout(() => container.remove(), 300);
+    }, 1700);
 }
 
 

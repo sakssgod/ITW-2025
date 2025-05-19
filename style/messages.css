@@ -1,0 +1,75 @@
+.message-container {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+
+.message-base {
+    padding: 10px 20px;
+    text-align: center;
+    font-weight: 500;
+    display: inline-block;
+    width: auto;
+    min-width: 150px;
+    max-width: 80%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 1.5vh;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+.error-message {
+    background-color: rgba(160, 30, 30, 0.9);
+    color: white;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.error-message:hover {
+    background-color: rgba(190, 40, 40, 0.9);
+    transform: scale(1.02);
+}
+
+
+.success-message {
+    background-color: rgba(30, 160, 60, 0.9);
+    color: white;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.success-message:hover {
+    background-color: rgba(40, 180, 70, 0.9);
+    transform: scale(1.02);
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+
+.message-fadeout {
+    animation: fadeOut 0.3s ease-in-out forwards;
+}
