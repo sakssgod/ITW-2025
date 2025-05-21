@@ -1,58 +1,9 @@
-1. is it okay to the first home page be that empty? 
-or i schould add something? any ideas?
+1. in messages.css put media
+2. change all the fucking style(text? background? put frames?)
+3. connect game page and statistics
+4. connect login/create acc and home page 2 for it to write a name while saying welcome
+5. forget password is not transferring to the needed page
+6. game page is not counting scores
+7. message game over need to be exactly on the page, not brouser
+8. implement all the functionallity to statistics page
 
-2. what teacher was saying about putting    ../
-
-3. if agree with colors:
-a:link {
-    color: rgb(173, 46, 0);
-    background-color: transparent;
-    text-decoration: none;
-}
-a:visited {
-    color: darkorange;
-    background-color: transparent;
-    text-decoration: none;
-}
-a:hover {
-    color: darkred;
-    background-color: transparent;
-    text-decoration: underline;
-}
-a:active {
-    color: red;
-    background-color: transparent;
-    text-decoration: underline;
-}
-.title{
-  text-align:center;
-  color: red;
-}
-
-.subtitle{
-  text-align:center;
-  color:red;
-}
-
-4. home_page ->  <div class="mainwindow">  norm or no??
-
-5. figure out with the picture of bomb on the home page 2
-
-6.about game page: schould we put the sign"minesweeper" on the left? 
-then the icon og the house? schould it be icon or just "Home"?
-
-7. background statistics
-
-
-
-Viktoriia's page: figure out with the size fucking bomb
-
-LEIAME.txt ????????
-
-schould we put a text "PLAY" on the bomb? which color? white/yellow?
-
-game page: place home icon on the right
-
-rules page: home icon on the right, bomb icon on the left, background
-
-statistic page: place bomb, background
