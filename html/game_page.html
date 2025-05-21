@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style/game_page.css">
-    <script src="../script/timer.js"></script>
-    <script src="../script/tabuleiro.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GamePage</title>
 </head>
@@ -16,8 +14,10 @@
 
     </header>
     <section class="content">
+
         <div class="game_window">
             <div class="timer" id="timer">00:00:00</div>
+            <button id="restartButton" style="display: none;">Restart</button>
             <div class="game" id="gameBoard"></div>
         </div>
         <footer>
@@ -25,5 +25,7 @@
             <a href="statistics_page.html"><img src="../media/data-analytics.png" alt="An icon of two pages with a Magnifying glass representing a button to go to the statistics page" title="Statistics" id="stats" class="banner_button_image"></a>
         </footer>
     </section>
+    <script src="../script/timer.js"></script>
+    <script src="../script/tabuleiro.js"></script>
 </body>
 </html>

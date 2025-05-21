@@ -40,6 +40,50 @@ window.addEventListener("DOMContentLoaded", () => {
     initializeGameBoard();
 });
 
+document.getElementById("restartButton").addEventListener("click", function () {
+    restartGame();
+});
+
+function restartGame() {
+    document.getElementById("restartButton").style.display = "none";
+    stopTimer();
+    seconds = 0;
+    document.getElementById('timer').textContent = "00:00:00";
+    gameOver = false;
+    gameStarted = false;
+
+    const boardElement = document.getElementById("gameBoard");
+    boardElement.innerHTML = "";
+
+    const currentDifficulty = DIFFICULTY[0];
+    const rows = currentDifficulty.rows;
+    const cols = currentDifficulty.columns;
+
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+            const cell = document.createElement("div");
+            cell.classList.add("cell");
+            cell.dataset.row = r;
+            cell.dataset.col = c;
+
+            cell.addEventListener("click", function () {
+                handleCellClick(r, c);
+            });
+
+            cell.addEventListener("contextmenu", function (e) {
+                e.preventDefault();
+                handleRightClick(r, c);
+            });
+
+            boardElement.appendChild(cell);
+        }
+    }
+
+    initializeGameBoard();
+    startTimer();
+}
+
+
 function initializeGameBoard() {
     const currentDifficulty = DIFFICULTY[0];
     const rows = currentDifficulty.rows;
@@ -222,8 +266,9 @@ function checkForWin() {
 // End the game
 function endGame(isWin) {
     gameOver = true;
-    stopTimer();
+    stopTimer();    
     revealAllMines();
+    document.getElementById("restartButton").style.display = "block";
     setTimeout(() => {
         if (isWin) {
             alert("Parabéns! Você venceu!");
