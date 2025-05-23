@@ -6,4 +6,6 @@
 6. game page is not counting scores
 7. message game over need to be exactly on the page, not brouser
 8. implement all the functionallity to statistics page
+9. avatar and birth date(preset photos)
+gimp (application for changing color)
 
