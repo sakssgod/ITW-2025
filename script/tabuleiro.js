@@ -649,6 +649,9 @@ function handleRightClick(row, col) {
     
     checkForWin();
 }
+// TODO 
+// funtion MakeNoise() {}
+
 
 function revealSurroundingCells(row, col) {
     const currentDifficulty = DIFFICULTY[currentDifficultyIndex];
