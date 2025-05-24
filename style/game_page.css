@@ -13,7 +13,7 @@ body {
     background-color: rgba(196, 193, 205, 0.15);
     background-size: cover;
     background-blend-mode: lighten;    
-    }
+}
 
 header{
     display:grid;
@@ -36,24 +36,18 @@ header{
 
 #house{
     margin-top: 3vh;
-
 }
+
 .banner_button_image{
     width: 8.5vh;
     height: auto;
 }
+
 .game_window{
     display: flex;
     display: grid;
     grid-template-rows: auto auto;
     place-items: center; /* isto combina justify e align */
-
-
-}
-
-.timer{
-    margin-bottom: -7vh;
-    align-items: center;
 }
 
 .game {
@@ -70,7 +64,6 @@ footer {
     display: flex; /* Mudança de grid para flex */
     justify-content: center; /* Centraliza os itens horizontalmente */
     gap: 60vh; /* Espaço entre os botões */
-
 }
 
 #minesweeper-wrapper {
@@ -78,7 +71,6 @@ footer {
     flex-direction: column;
     align-items: center;
 }
-
 
 #minesweeper-wrapper {
     display: flex;
@@ -97,7 +89,6 @@ footer {
     background-color: #ddd; /* 灰色背景，区分游戏区域 */
 }
 
-
 #gnav {
     height: 30px;
     text-align: center;
@@ -106,10 +97,7 @@ footer {
     width: 30px;
     text-align: center;
 }
-#timer {
-    width: 60px;
-    text-align: center;
-}
+
 .game{
     border-style: solid;
     background-color: rgba(196, 193, 205, 0.8);
@@ -149,9 +137,7 @@ footer {
         width: 7vh;
         height: auto;
     }  
-    
 }
-
 
 /* Additional CSS styles for cell states */
 
@@ -190,6 +176,26 @@ footer {
 .cell.adjacent-7 { color: black; }
 .cell.adjacent-8 { color: gray; }
 
+/* Start Button Styles */
+#startButton {
+    position: absolute;
+    margin-top: 5vh;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#startButton:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
 
 #restartButton {
     position: absolute;
@@ -197,5 +203,325 @@ footer {
     background-color: #f44336;
     color: white;
     border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
     cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#restartButton:hover {
+    background-color: #da190b;
+    transform: scale(1.05);
+}
+
+/* Game board overlay when not started */
+.game-not-started {
+    pointer-events: none;
+    opacity: 0.5;
+    position: relative;
+}
+
+.game_info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* 🆕 允许换行 */
+    
+}
+
+.timer{
+    font-size: 18px;
+    font-weight: bold;
+    color: darkred;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 2px solid darkred;
+}
+
+.mine_counter {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* 🆕 允许换行 */
+}
+
+.flag_info {
+    border-color: #4444ff;
+    color: #0000cc;
+}
+
+/* Flagged cell style */
+.cell.flagged {
+    background-color: #ffdddd;
+    border-color: #ff6666;
+}
+
+/* 在你的 .mine_info, .flag_info 样式后面添加这些 */
+
+.mine_info, .flag_info, .explored_info, .lives_info {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 2px solid #666;
+}
+
+.mine_info {
+    border-color: #ff4444;
+    color: #cc0000;
+}
+
+.flag_info {
+    border-color: #4444ff;
+    color: #0000cc;
+}
+
+/* 新增：探索格子计数器样式 */
+.explored_info {
+    border-color: #44aa44;
+    color: #006600;
+}
+
+/* 🆕 新增：生命计数器样式 */
+.lives_info {
+    border-color: #e91e63;
+    color: #c2185b;
+    animation: none; /* 默认无动画 */
+}
+
+/* 🆕 失去生命时的震动动画 */
+.lives_info.life_lost {
+    animation: lifeLost 0.6s ease-in-out;
+}
+
+@keyframes lifeLost {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+    20%, 40%, 60%, 80% { transform: translateX(3px); }
+}
+
+/* Questioned cell style */
+.cell.questioned {
+    background-color: #ffffdd;
+    border-color: #ffcc66;
+}
+
+/* End Button Styles - 放在右边和计数器一起 */
+#endButton {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 8px 12px;        /* ✅ 更小的padding */
+    font-size: 14px;          /* ✅ 更小的字体 */
+    border-radius: 6px;       /* ✅ 更小的圆角 */
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);  /* ✅ 更小的阴影 */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;        /* ✅ 新增粗体 */
+}
+
+#endButton:hover {
+    background-color: #f57c00;
+    transform: scale(1.05);
+}
+
+/* ========== 🆕 游戏模式选择样式 ========== */
+
+.mode_selection {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.mode_btn {
+    padding: 10px 20px;
+    border: 2px solid #666;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    text-align: center;
+}
+
+.mode_btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.mode_btn.active {
+    background-color: #2196F3;
+    color: white;
+    border-color: #1976D2;
+    box-shadow: 0 2px 4px rgba(33, 150, 243, 0.3);
+}
+
+.mode_btn.active:hover {
+    background-color: #1976D2;
+}
+
+/* ========== 在你现有CSS文件末尾添加这些样式 ========== */
+
+/* 游戏区域布局：左边按钮，右边游戏板 */
+.game_area {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 20px;
+    /* 移除 position: absolute */
+}
+
+/* 难度按钮容器：竖着排列 */
+.difficulty_buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* 难度按钮样式 */
+.difficulty_btn {
+    padding: 12px 20px;
+    border: 2px solid #666;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;              /* 改小字体 */
+    transition: all 0.3s ease;
+    min-width: 100px;             /* 增加最小宽度 */
+    text-align: center;
+    line-height: 1.3;             /* 新增行高 */
+}
+
+/* 新增：小字体样式 */
+.difficulty_btn small {
+    font-size: 10px;
+    font-weight: normal;
+    color: #666;
+}
+
+.difficulty_btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.difficulty_btn.active {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #45a049;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* 新增：激活状态下的小字体颜色 */
+.difficulty_btn.active small {
+    color: #e8f5e8;
+}
+
+.difficulty_btn.active:hover {
+    background-color: #45a049;
+}
+
+/* 小屏幕响应式 */
+@media screen and (max-width: 720px) {
+    .game_area {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .difficulty_buttons {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .difficulty_btn {
+        min-width: 70px;
+        padding: 8px 12px;
+        font-size: 10px;
+    }
+    
+    .difficulty_btn small {
+        font-size: 8px;
+    }
+
+    /* 🆕 小屏幕下的模式选择 */
+    .mode_selection {
+        gap: 10px;
+    }
+    
+    .mode_btn {
+        min-width: 100px;
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+    
+    .game_info {
+        gap: 15px;
+    }
+    
+    .mine_counter {
+        gap: 10px;
+    }
+}
+
+/* 禁用状态的难度按钮样式 */
+.difficulty_btn.disabled,
+.difficulty_btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background-color: rgba(200, 200, 200, 0.5) !important;
+    color: #999 !important;
+    border-color: #ccc !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.difficulty_btn.disabled:hover,
+.difficulty_btn:disabled:hover {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background-color: rgba(200, 200, 200, 0.5) !important;
+    color: #999 !important;
+    border-color: #ccc !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.difficulty_btn.disabled small,
+.difficulty_btn:disabled small {
+    color: #bbb !important;
+}
+
+/* 🆕 临时消息样式 */
+.temporary-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 1000;
+    animation: messageAnimation 0.3s ease;
+}
+
+@keyframes messageAnimation {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 }

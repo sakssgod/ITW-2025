@@ -10,16 +10,49 @@
     <header>
         <h1 id="title">Minesweeper</h1>
         <a href="home_page2.html"><img src="../media/house_red.png" alt="An house to come back to the home page" title="House-page" id="house" class="banner_button_image"></a>
-
-
     </header>
     <section class="content">
-
         <div class="game_window">
-            <div class="timer" id="timer">00:00:00</div>
+            <!-- 🆕 游戏模式选择 -->
+            <div class="mode_selection">
+                <button class="mode_btn active" id="classicModeBtn" onclick="switchGameMode(false)">
+                    🎯 Classic Mode
+                </button>
+                <button class="mode_btn" id="livesModeBtn" onclick="switchGameMode(true)">
+                    💖 Lives Mode (3 lives)
+                </button>
+            </div>
+
+            <div class="game_info">
+                <div class="timer" id="timer">00:00:00</div>
+                <div class="mine_counter">
+                    <span class="mine_info">💣 <span id="totalMines">10</span></span>
+                    <span class="flag_info">🚩 <span id="flagsLeft">10</span></span>
+                    <span class="explored_info">🔍 <span id="exploredCells">0</span>/<span id="totalSafeCells">71</span></span>
+                    <!-- 🆕 生命显示 -->
+                    <span class="lives_info" id="livesDisplay" style="display: none;">
+                        <span id="livesValue">💖💖💖</span>
+                    </span>
+                </div>
+                <button id="endButton" style="display: none;">End Game</button>
+            </div>
+            <button id="startButton">Start Game</button>
             <button id="restartButton" style="display: none;">Restart</button>
-            <div class="game" id="gameBoard"></div>
+            
+            <!-- 游戏区域：左边难度按钮，右边游戏板 -->
+            <div class="game_area">
+                <!-- 难度选择按钮 -->
+                <div class="difficulty_buttons">
+                    <button class="difficulty_btn active" id="easyBtn">Easy<br><small>9×9, 10 mines</small></button>
+                    <button class="difficulty_btn" id="mediumBtn">Medium<br><small>16×16, 40 mines</small></button>
+                    <button class="difficulty_btn" id="hardBtn">Hard<br><small>30×16, 99 mines</small></button>
+                </div>
+                
+                <!-- 游戏板 -->
+                <div class="game" id="gameBoard"></div>
+            </div>
         </div>
+        
         <footer>
             <a href="rules_page.html"><img src="../media/info_red.png" alt="An icon representing a button to go to the rules page" title="Rules" id="info" class="banner_button_image"> </a>
             <a href="statistics_page.html"><img src="../media/data-analytics.png" alt="An icon of two pages with a Magnifying glass representing a button to go to the statistics page" title="Statistics" id="stats" class="banner_button_image"></a>
