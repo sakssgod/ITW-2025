@@ -46,7 +46,7 @@ header{
     display: flex;
     display: grid;
     grid-template-rows: auto auto;
-    place-items: center; /* isto combina justify e align */
+    place-items: center;
 
 
 }
@@ -115,8 +115,6 @@ footer {
     background-color: rgba(196, 193, 205, 0.8);
     border-color: black;
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
-    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
 }
 
 .cell {
@@ -140,6 +138,10 @@ footer {
         width: 6vh;
         height: auto;
     }
+    /* Smaller font size for mobile */
+    .cell {
+        font-size: 2.5vh;
+    }
 }
 @media screen and (min-width: 720px) and (max-width: 900px) {
     #title{
@@ -148,8 +150,11 @@ footer {
     .banner_button_image{
         width: 7vh;
         height: auto;
-    }  
-    
+    }
+    /* Medium font size for tablets */
+    .cell {
+        font-size: 3vh;
+    }
 }
 
 
@@ -168,7 +173,7 @@ footer {
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 1.5vh;
+    font-size: 3.5vh; /* Increased from 1.5vh to 3.5vh for larger numbers, bombs, and flags */
     user-select: none;
     background-color: #c0c0c0;
     cursor: pointer;
@@ -180,16 +185,33 @@ footer {
     background-color: #d9d9d9;
 }
 
-/* Adjacent mine count colors */
-.cell.adjacent-1 { color: blue; }
-.cell.adjacent-2 { color: green; }
-.cell.adjacent-3 { color: red; }
-.cell.adjacent-4 { color: darkblue; }
-.cell.adjacent-5 { color: darkred; }
-.cell.adjacent-6 { color: teal; }
-.cell.adjacent-7 { color: black; }
-.cell.adjacent-8 { color: gray; }
+/* Adjacent mine count colors - made more vibrant for better visibility */
+.cell.adjacent-1 { color: #0066ff; font-weight: bold; }
+.cell.adjacent-2 { color: #00aa00; font-weight: bold; }
+.cell.adjacent-3 { color: #ff0000; font-weight: bold; }
+.cell.adjacent-4 { color: #000080; font-weight: bold; }
+.cell.adjacent-5 { color: #800000; font-weight: bold; }
+.cell.adjacent-6 { color: #008080; font-weight: bold; }
+.cell.adjacent-7 { color: #000000; font-weight: bold; }
+.cell.adjacent-8 { color: #666666; font-weight: bold; }
 
+/* Flag image styling */
+.cell.flagged {
+    font-size: 0; /* Hide any text */
+    background-image: url("../media/catflag.png"); /* Flag image */
+    background-size: 75%; /* Adjust size to fit nicely in cell */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Bomb image styling */
+.cell.mine {
+    font-size: 0; /* Hide any text */
+    background-image: url("../media/bombcat.png"); /* Bomb image */
+    background-size: 80%; /* Adjust size to fit nicely in cell */
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 #restartButton {
     position: absolute;

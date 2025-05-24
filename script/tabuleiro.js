@@ -44,46 +44,6 @@ document.getElementById("restartButton").addEventListener("click", function () {
     restartGame();
 });
 
-function restartGame() {
-    document.getElementById("restartButton").style.display = "none";
-    stopTimer();
-    seconds = 0;
-    document.getElementById('timer').textContent = "00:00:00";
-    gameOver = false;
-    gameStarted = false;
-
-    const boardElement = document.getElementById("gameBoard");
-    boardElement.innerHTML = "";
-
-    const currentDifficulty = DIFFICULTY[0];
-    const rows = currentDifficulty.rows;
-    const cols = currentDifficulty.columns;
-
-    for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
-            const cell = document.createElement("div");
-            cell.classList.add("cell");
-            cell.dataset.row = r;
-            cell.dataset.col = c;
-
-            cell.addEventListener("click", function () {
-                handleCellClick(r, c);
-            });
-
-            cell.addEventListener("contextmenu", function (e) {
-                e.preventDefault();
-                handleRightClick(r, c);
-            });
-
-            boardElement.appendChild(cell);
-        }
-    }
-
-    initializeGameBoard();
-    startTimer();
-}
-
-
 function initializeGameBoard() {
     const currentDifficulty = DIFFICULTY[0];
     const rows = currentDifficulty.rows;
@@ -175,7 +135,8 @@ function handleCellClick(row, col) {
     
     if (gameBoard[row][col].hasMine) {
         cellElement.classList.add("mine");
-        cellElement.innerHTML = "💣";
+        // Clear any content - CSS will handle the bomb image
+        cellElement.innerHTML = "";
         
         endGame(false);
     } else {
@@ -203,10 +164,10 @@ function handleRightClick(row, col) {
         cellElement.classList.remove("flagged");
         cellElement.innerHTML = "";
     } else {
-        // Colocar a bandeira
+        // Colocar a bandeira - CSS will handle the flag image
         gameBoard[row][col].isFlagged = true;
         cellElement.classList.add("flagged");
-        cellElement.innerHTML = "🚩";
+        cellElement.innerHTML = ""; // Clear content, let CSS show the image
     }
     
     // Verificar se o jogador venceu após colocar ou remover uma bandeira
@@ -284,7 +245,46 @@ function revealAllMines() {
         
         if (!gameBoard[r][c].isRevealed) {
             cellElement.classList.add("revealed", "mine");
-            cellElement.innerHTML = "💣";
+            cellElement.innerHTML = ""; // Clear content - CSS will handle the bomb image
         }
     });
+}
+
+function restartGame() {
+    document.getElementById("restartButton").style.display = "none";
+    stopTimer();
+    seconds = 0;
+    document.getElementById('timer').textContent = "00:00:00";
+    gameOver = false;
+    gameStarted = false;
+
+    const boardElement = document.getElementById("gameBoard");
+    boardElement.innerHTML = "";
+
+    const currentDifficulty = DIFFICULTY[0];
+    const rows = currentDifficulty.rows;
+    const cols = currentDifficulty.columns;
+
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+            const cell = document.createElement("div");
+            cell.classList.add("cell");
+            cell.dataset.row = r;
+            cell.dataset.col = c;
+
+            cell.addEventListener("click", function () {
+                handleCellClick(r, c);
+            });
+
+            cell.addEventListener("contextmenu", function (e) {
+                e.preventDefault();
+                handleRightClick(r, c);
+            });
+
+            boardElement.appendChild(cell);
+        }
+    }
+
+    initializeGameBoard();
+    startTimer();
 }
