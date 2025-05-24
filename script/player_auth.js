@@ -243,36 +243,36 @@ function setupLogin() {
 }
 
 
-function displayCurrentPlayer() {
-    const currentPlayer = localStorage.getItem('current_player');
+// function displayCurrentPlayer() {
+//     const currentPlayer = localStorage.getItem('current_player');
     
-    if (currentPlayer && window.location.href.includes('home_page2.html')) {
-        console.log("Displaying current player:", currentPlayer);
+//     if (currentPlayer && window.location.href.includes('home_page2.html')) {
+//         console.log("Displaying current player:", currentPlayer);
         
         
-        const playerContainer = document.createElement('div');
-        playerContainer.className = 'player-container';
+//         const playerContainer = document.createElement('div');
+//         playerContainer.className = 'player-container';
         
       
-        const playerInfo = document.createElement('div');
-        playerInfo.textContent = `Player: ${currentPlayer}`;
-        playerInfo.className = 'player-info';
-        playerContainer.appendChild(playerInfo);
+//         const playerInfo = document.createElement('div');
+//         playerInfo.textContent = `Player: ${currentPlayer}`;
+//         playerInfo.className = 'player-info';
+//         playerContainer.appendChild(playerInfo);
         
         
-        const logoutBtn = document.createElement('button');
-        logoutBtn.textContent = 'Logout';
-        logoutBtn.className = 'button-link';  
-        playerContainer.appendChild(logoutBtn);
+//         const logoutBtn = document.createElement('button');
+//         logoutBtn.textContent = 'Logout';
+//         logoutBtn.className = 'button-link';  
+//         playerContainer.appendChild(logoutBtn);
         
        
-        document.body.appendChild(playerContainer);
+//         document.body.appendChild(playerContainer);
         
-        logoutBtn.addEventListener('click', function() {
-            window.location.href = '../html/home_page.html';
-        });
-    }
-}
+//         logoutBtn.addEventListener('click', function() {
+//             window.location.href = '../html/home_page.html';
+//         });
+//     }
+// }
 
 
 function checkLocalStorage() {
