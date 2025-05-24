@@ -25,11 +25,6 @@ img{
     width: auto;
     height: 30.5vh;
 }
-header{
-    display:grid;
-    grid-template-columns: 18vh auto 18vh;
-    grid-template-rows: auto;
-}
 h1{
     text-align: center;
     grid-row: 1/2;
