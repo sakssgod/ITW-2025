@@ -282,3 +282,55 @@ input::placeholder {
     }
 
 }
+
+ 
+/* 头像选择样式 */
+.avatar-selection {
+    margin: 2vh 0;
+}
+
+.avatar-options {
+    display: flex;
+    justify-content: center;
+    gap: 1vh;
+    flex-wrap: wrap;
+    margin-top: 1vh;
+}
+
+.avatar-option {
+    cursor: pointer;
+    border: 0.3vh solid transparent;
+    border-radius: 50%;
+    transition: border-color 0.3s ease;
+}
+
+.avatar-option img {
+    width: 8vh;
+    height: 8vh;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.avatar-option.selected {
+    border-color: firebrick;
+}
+
+.avatar-option:hover {
+    border-color: rgba(160, 30, 30, 0.7);
+}
+
+/* 日期输入样式 */
+input[type="date"] {
+    width: 40vh;
+    padding: 1.5vh;
+    border: 0.2vh solid #ccc;
+    border-radius: 1.5vh;
+    background-color: rgba(255, 255, 255, 0.6);
+    font-size: 2vh;
+    outline: none;
+    color: rgb(199, 112, 80);
+}
+
+input[type="date"]:focus {
+    background-color: rgba(255, 255, 255, 0.8);
+}

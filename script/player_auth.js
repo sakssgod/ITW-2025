@@ -81,12 +81,10 @@ function showSuccess(message) {
 
 
 function setupRegistration() {
-
     if (!document.getElementById('passwordc')) return;
     
     console.log("Registration setup initiated");
     
-
     const submitLink = document.querySelector('.button-link');
     if (submitLink) {
         console.log("Submit button found");
@@ -95,15 +93,24 @@ function setupRegistration() {
             e.preventDefault();
             console.log("Registration button clicked");
             
-          
+            // 获取所有表单数据
             const username = document.getElementById('username').value.trim();
             const email = document.getElementById('email').value.trim();
+            const birthdate = document.getElementById('birthdate').value;
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('passwordc').value;
             
+            // 获取选中的头像
+            const selectedAvatar = getSelectedAvatar();
             
-            if (!username || !email || !password || !confirmPassword) {
+            // 验证所有字段
+            if (!username || !email || !birthdate || !password || !confirmPassword) {
                 showError("Please fill in all fields");
+                return;
+            }
+            
+            if (!selectedAvatar) {
+                showError("Please select an avatar");
                 return;
             }
             
@@ -112,37 +119,62 @@ function setupRegistration() {
                 return;
             }
             
+            // 验证邮箱格式
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showError("Please enter a valid email address");
+                return;
+            }
+            
+            // 验证出生日期（必须是过去的日期）
+            const today = new Date();
+            const birthDate = new Date(birthdate);
+            if (birthDate >= today) {
+                showError("Please enter a valid birth date");
+                return;
+            }
+            
             try {
                 const users = getUsers();
                 console.log("Current users:", users);
                 
+                // 检查用户名是否已存在
                 if (users.some(user => user.username === username)) {
                     showError("Username already exists");
                     return;
                 }
                 
-               
+                // 检查邮箱是否已存在
+                if (users.some(user => user.email === email)) {
+                    showError("Email already exists");
+                    return;
+                }
+                
+                // 创建新用户对象
                 const newUser = {
                     username: username,
                     email: email,
+                    birthdate: birthdate,
+                    avatar: selectedAvatar,
                     password: password,
-                    score: 0
+                    score: 0,
+                    gamesPlayed: 0,
+                    gamesWon: 0,
+                    totalTime: 0,
+                    registrationDate: new Date().toISOString()
                 };
                 
                 users.push(newUser);
                 saveUsers(users);
                 console.log("User saved:", newUser);
                 
+                // 显示成功消息
+                showSuccess("Account created successfully! Please login.");
                 
-                localStorage.setItem('current_player', username);
-                
-               
-                showSuccess("Account created successfully!");
-                
-               
+                // 跳转到登录页面而不是直接登录
                 setTimeout(() => {
-                    window.location.href = '../html/home_page2.html';
-                }, 1000);
+                    window.location.href = '../html/login_page.html';
+                }, 1500);
                 
             } catch (error) {
                 console.error("Error during registration:", error);
@@ -156,41 +188,34 @@ function setupRegistration() {
 
 
 function setupLogin() {
-    
+    // 检查是否在登录页面（有密码字段但没有确认密码字段）
     if (!document.getElementById('password') || document.getElementById('passwordc')) return;
     
     console.log("Login setup initiated");
     
-   
-    const loginLink = document.querySelector('.button-link');
-    if (loginLink) {
-        loginLink.addEventListener('click', function(e) {
+    // 使用 ID 选择器来精确定位 Log In 按钮
+    const loginBtn = document.getElementById('login-btn');
+    if (loginBtn) {
+        loginBtn.addEventListener('click', function(e) {
             e.preventDefault();
             console.log("Login button clicked");
             
-           
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value;
             
-         
             if (!username || !password) {
                 showError("Please enter both username and password");
                 return;
             }
             
             try {
-                
                 const users = getUsers();
                 console.log("Users for login:", users);
                 const user = users.find(u => u.username === username && u.password === password);
                 
                 if (user) {
-                    
                     localStorage.setItem('current_player', username);
-                    
-                   
                     showSuccess("Login successful!");
-                    
                     
                     setTimeout(() => {
                         window.location.href = '../html/home_page2.html';
@@ -204,8 +229,9 @@ function setupLogin() {
                 showError("An error occurred. Please try again.");
             }
         });
+    } else {
+        console.log("Login button not found - might be on a different page");
     }
-    
     
     const forgotLink = document.getElementById('forget');
     if (forgotLink) {

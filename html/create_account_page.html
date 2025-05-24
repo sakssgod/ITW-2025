@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <link rel="stylesheet" href="../style/create_account_page.css">
     <script src="../script/player_auth.js"></script>
     <link rel="stylesheet" href="../style/messages.css">
@@ -12,15 +11,11 @@
 </head>
 
 <body>
-
     <header>
-
         <h4 class="sign">Minesweeper</h4>
-
     </header>
 
     <nav>
-
         <a href="../html/home_page.html">
             <img src="../media/house_red.png"
                 class="icon"
@@ -28,28 +23,72 @@
                 alt="Home icon to go home(go to the first page)"
                 title="Home">
         </a>
-        
     </nav>
 
     <section class="content">
-
         <div class="input-group">
-
             <label for="username">Username:</label>
             <input type="text" id="username" placeholder="Type your name" required>
-            <label for="email">Email adress:</label>
-            <input type="text" id="email" placeholder="Type your emaiil adress" required>
+            
+            <label for="email">Email address:</label>
+            <input type="email" id="email" placeholder="Type your email address" required>
+            
+            <label for="birthdate">Date of Birth:</label>
+            <input type="date" id="birthdate" required>
+            
+            <div class="avatar-selection">
+                <label>Choose your Avatar:</label>
+                <div class="avatar-options">
+                    <div class="avatar-option" data-avatar="../media/cat1.jpeg">
+                        <img src="../media/cat1.jpeg" alt="Avatar 1">
+                    </div>
+                    <div class="avatar-option" data-avatar="../media/cat4.gif">
+                        <img src="../media/cat4.gif" alt="Avatar 2">
+                    </div>
+                    <div class="avatar-option" data-avatar="../media/cat6.jpeg">
+                        <img src="../media/cat6.jpeg" alt="Avatar 3">
+                    </div>
+                    <div class="avatar-option" data-avatar="../media/pokemon-gif-10.gif">
+                        <img src="../media/pokemon-gif-10.gif" alt="Avatar 4">
+                    </div>
+                </div>
+            </div>
+            
             <label for="password">Password:</label>
             <input type="password" id="password" placeholder="Type your password" required>
+            
             <label for="passwordc">Confirm password:</label>
             <input type="password" id="passwordc" placeholder="Type your password one more time" required>
-        
         </div>
 
-        <h3><a href="../html/home_page2.html" class="button-link">Submit</a></h3>
-
+        <h3><button class="button-link">Submit</button></h3>
     </section>
 
-
+    <script>
+        // 头像选择功能
+        let selectedAvatar = null;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const avatarOptions = document.querySelectorAll('.avatar-option');
+            
+            avatarOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // 移除之前选中的样式
+                    avatarOptions.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // 添加选中样式
+                    this.classList.add('selected');
+                    
+                    // 保存选中的头像
+                    selectedAvatar = this.dataset.avatar;
+                });
+            });
+        });
+        
+        // 获取选中的头像（供 player_auth.js 使用）
+        function getSelectedAvatar() {
+            return selectedAvatar;
+        }
+    </script>
 </body>
 </html>

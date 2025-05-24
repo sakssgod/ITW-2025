@@ -10,67 +10,462 @@ body{
     background-attachment: fixed;
     background-size: cover;        
     background-color: rgba(196, 193, 205, 0.3);
-    background-size: cover;
-    background-blend-mode: lighten;          
+    background-blend-mode: lighten;
+    margin: 0;
+    padding: 0;
 }
-.banner_button_image{
-    height: auto;
-    width: 6vh;
-    height: 6vh;
-    margin-bottom: 2.5vh;
-    cursor: pointer;
-    border: none;
-    position: relative;
+
+/* Header Navigation */
+header {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 1rem 0;
+    backdrop-filter: blur(5px);
+}
+
+.top-nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
+
+.banner_button_image {
+    width: 8.5vh;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.banner_button_image:hover {
+    transform: scale(1.1);
+}
+
 #title {
     text-align: center;
-    font-size: 8vh;
-    margin-top: 2.5vh;
+    font-size: 8.5vh;
     color: darkred;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.images_spot{
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap; 
-    gap: 18vh;
-    margin-top: 3.5vh; 
-}
-.image{
-    justify-content: center;
-    width: auto;
-    height: 30.5vh;
-}   
-header{
-    display: flex;
-    justify-content: space-between; 
-}
-section{
-    display: flex;
-    gap:18vh;
-    flex-wrap: wrap;
-    justify-content: center;
-    
-}
-#house{
-    margin-right: 5vh;
-}
-
-
-#bomb{
+#bomb {
     width: 15vh;
-    height: auto;
-    margin-top: -5vh;
-    margin-left: 0.5vh;
+    margin-top: -4vh;
 }
 
-@media screen  and (max-width: 720px) {
-    title{
-        font-size: 4.5vh;
+/* Main Content */
+.content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* 3D表格轮播样式 */
+.table-carousel-3d {
+    position: relative;
+    width: 100%;
+    height: 650px;
+    margin: 2rem auto;
+    perspective: 1200px;
+    overflow: visible;
+}
+
+/* 3D容器 */
+.carousel-3d-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+/* 3D轨道 */
+.carousel-3d-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+/* 3D幻灯片 */
+.carousel-3d-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform-style: preserve-3d;
+    transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+    backface-visibility: hidden;
+}
+
+/* 激活状态 */
+.carousel-3d-slide.active {
+    opacity: 1;
+    z-index: 10;
+    transform: rotateY(0deg) translateZ(0px);
+    pointer-events: all;
+}
+
+/* 前一个幻灯片 */
+.carousel-3d-slide.prev {
+    opacity: 0;
+    z-index: 5;
+    transform: rotateY(-90deg) translateZ(-200px) translateX(-50%);
+    pointer-events: none;
+}
+
+/* 后一个幻灯片 */
+.carousel-3d-slide.next {
+    opacity: 0;
+    z-index: 5;
+    transform: rotateY(90deg) translateZ(-200px) translateX(50%);
+    pointer-events: none;
+}
+
+/* 隐藏的幻灯片 */
+.carousel-3d-slide.hidden {
+    opacity: 0;
+    z-index: 1;
+    transform: rotateY(180deg) translateZ(-400px);
+    pointer-events: none;
+}
+
+/* 幻灯片内容 */
+.slide-content {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.15); /* 从0.95改为0.15，更透明 */
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* 稍微减少阴影强度 */
+    backdrop-filter: blur(15px) saturate(180%); /* 增强模糊和饱和度效果 */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* 稍微增加边框透明度 */
+    overflow-y: auto;
+    transform-style: preserve-3d;
+    /* 添加暖色调背景渐变，契合火焰主题 */
+    background-image: linear-gradient(
+        135deg, 
+        rgba(255, 223, 186, 0.1) 0%,    /* 暖色调1 */
+        rgba(255, 255, 255, 0.05) 50%,  /* 中间透明白色 */
+        rgba(255, 206, 158, 0.1) 100%   /* 暖色调2 */
+    );
+}
+
+/* 轮播箭头 */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, darkred, #8B0000);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.4);
+}
+
+.carousel-arrow:hover {
+    background: linear-gradient(135deg, #8B0000, darkred);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(139, 0, 0, 0.6);
+}
+
+.carousel-arrow:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-left {
+    left: -80px;
+}
+
+.carousel-right {
+    right: -80px;
+}
+
+.carousel-arrow span {
+    display: block;
+    line-height: 1;
+}
+
+/* 指示器 */
+.carousel-indicators {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 20;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(139, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background-color: darkred;
+    transform: scale(1.2);
+}
+
+.indicator:hover {
+    background-color: rgba(139, 0, 0, 0.7);
+}
+
+/* Player Statistics Section */
+.slide-content.player-stats h2,
+.slide-content.leaderboard h2,
+.slide-content.difficulty-stats h2 {
+    color: darkred;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(220, 220, 220, 0.8);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid darkred;
+}
+
+.stat-label {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.stat-value {
+    font-size: 1.2rem;
+    color: darkred;
+    font-weight: bold;
+}
+
+/* Sort Controls */
+.sort-controls {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.sort-controls label {
+    font-weight: bold;
+    color: darkred;
+    margin-right: 1rem;
+    font-size: 1.1rem;
+}
+
+.sort-controls select {
+    padding: 0.5rem 1rem;
+    border: 2px solid darkred;
+    border-radius: 5px;
+    background-color: white;
+    color: darkred;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+}
+
+.sort-controls select:hover,
+.sort-controls select:focus {
+    background-color: rgba(139, 0, 0, 0.1);
+}
+
+.table-container {
+    overflow-x: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#leaderboardTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+#leaderboardTable th {
+    background-color: darkred;
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+#leaderboardTable td {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+#leaderboardTable tbody tr:hover {
+    background-color: rgba(139, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+#leaderboardTable tbody tr:nth-child(even) {
+    background-color: rgba(248, 248, 248, 0.8);
+}
+
+/* Rank styling */
+.rank-1 { 
+    background-color: rgba(255, 215, 0, 0.3) !important; 
+    font-weight: bold;
+}
+.rank-2 { 
+    background-color: rgba(192, 192, 192, 0.3) !important; 
+    font-weight: bold;
+}
+.rank-3 { 
+    background-color: rgba(205, 127, 50, 0.3) !important; 
+    font-weight: bold;
+}
+
+/* Difficulty Controls */
+.difficulty-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.difficulty-btn {
+    padding: 0.8rem 2rem;
+    border: 2px solid darkred;
+    background-color: transparent;
+    color: darkred;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.difficulty-btn:hover,
+.difficulty-btn.active {
+    background-color: darkred;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.difficulty-content {
+    min-height: 200px;
+    padding: 1rem;
+}
+
+.difficulty-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.difficulty-stat {
+    background-color: rgba(240, 240, 240, 0.8);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    border-left: 4px solid darkred;
+}
+
+.difficulty-stat .label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.difficulty-stat .value {
+    font-size: 1.5rem;
+    color: darkred;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .table-carousel-3d {
+        height: 500px;
+        margin: 1rem auto;
+    }
+    
+    .slide-content {
+        padding: 1rem;
+    }
+    
+    .slide-content.player-stats h2,
+    .slide-content.leaderboard h2,
+    .slide-content.difficulty-stats h2 {
+        font-size: 2rem;
+    }
+    
+    .carousel-arrow {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .carousel-left {
+        left: -60px;
+    }
+    
+    .carousel-right {
+        right: -60px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .difficulty-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .difficulty-btn {
+        width: 200px;
+    }
+    
+    #leaderboardTable th,
+    #leaderboardTable td {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (min-width: 720px) and (max-width: 900px) {
+    #title {
+        font-size: 7vh;
+    }
+    
+    .banner_button_image {
+        width: 7vh;
     }
 }

@@ -13,54 +13,140 @@
     <body>
 
         <header>
+            <nav class="top-nav">
 
-            <h3><a href="game_page.html">
+                <a href="home_page2.html">
+                    <img src="../media/house_red.png" 
+                    alt="An house to come back to the home page" 
+                    title="Home page" 
+                    id="house" 
+                    class="banner_button_image">
+                </a>
+
+                <h1 id="title">Statistics</h1>
+
+                <a href="game_page.html">
                     <img src="../media/bomba_white.png" 
                     alt="An icon with bomb with the word play" 
                     id="bomb" 
-                    class="banner_button_image"></a></h3>
-
-            <h1 id="title">Statistics</h1>
-
-            <h3><a href="home_page2.html">
-                    <img src="../media/house_red.png" 
-                    alt="An house to come back to the home page" 
-                    title = "Home page" 
-                    id="house" 
-                    class="banner_button_image"></a></h3>
-
+                    class="banner_button_image">
+                </a>
+            </nav>
         </header>
 
-        <section>
+        <main class="content">
+            <!-- 3D表格轮播容器 -->
+            <section class="table-carousel-3d">
+                <!-- 左箭头 -->
+                <button class="carousel-arrow carousel-left" id="prevTable">
+                    <span>‹</span>
+                </button>
+                
+                <!-- 3D轮播容器 -->
+                <div class="carousel-3d-container">
+                    <div class="carousel-3d-track" id="carousel3dTrack">
+                        
+                        <!-- 第一个表格：当前玩家统计 -->
+                        <div class="carousel-3d-slide active" data-slide="0">
+                            <div class="slide-content player-stats">
+                                <h2>Your Statistics</h2>
+                                <div class="stats-grid">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Player Name:</span>
+                                        <span class="stat-value" id="playerName">-</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Best Time:</span>
+                                        <span class="stat-value" id="bestTime">-</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Total Games:</span>
+                                        <span class="stat-value" id="totalGames">-</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Games Won:</span>
+                                        <span class="stat-value" id="gamesWon">-</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Win Rate:</span>
+                                        <span class="stat-value" id="winRate">-</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Average Time:</span>
+                                        <span class="stat-value" id="avgTime">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="table" id="table_1">
+                        <!-- 第二个表格：排行榜 -->
+                        <div class="carousel-3d-slide" data-slide="1">
+                            <div class="slide-content leaderboard">
+                                <h2>Leaderboard</h2>
+                                
+                                <!-- 排序选择器 -->
+                                <div class="sort-controls">
+                                    <label for="sortBy">Sort by:</label>
+                                    <select id="sortBy">
+                                        <option value="bestTime">Best Time</option>
+                                        <option value="gamesWon">Games Won</option>
+                                        <option value="winRate">Win Rate</option>
+                                        <option value="totalGames">Total Games</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="table-container">
+                                    <table id="leaderboardTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Rank</th>
+                                                <th>Player</th>
+                                                <th>Best Time</th>
+                                                <th>Games Won</th>
+                                                <th>Win Rate</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="leaderboardBody">
+                                            <!-- 动态生成的排行榜数据 -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
-                <h2>Player name:</h2>
-                <h3>high score:</h3>
-                <h3>hours played:</h3>   
-                <h3>Games played:</h3>
-                <h3>Games won:</h3>
-                <h3>Win percentage:</h3>
-                <h3>Average score:</h3>
-                <h3>Average time per win:</h3>
+                        <!-- 第三个表格：难度级别统计 -->
+                        <div class="carousel-3d-slide" data-slide="2">
+                            <div class="slide-content difficulty-stats">
+                                <h2>Statistics by Difficulty</h2>
+                                <nav class="difficulty-nav">
+                                    <button class="difficulty-btn active" data-difficulty="easy">Easy</button>
+                                    <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+                                    <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+                                </nav>
+                                <div class="difficulty-content" id="difficultyContent">
+                                    <!-- 动态生成的难度统计 -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右箭头 -->
+                <button class="carousel-arrow carousel-right" id="nextTable">
+                    <span>›</span>
+                </button>
+                
+                <!-- 指示器 -->
+                <div class="carousel-indicators">
+                    <div class="indicator active" data-slide="0"></div>
+                    <div class="indicator" data-slide="1"></div>
+                    <div class="indicator" data-slide="2"></div>
+                </div>
+            </section>
+        </main>
 
-            </div>
-
-            <div class="Table" id="table_2">
-
-                <h2>High scores</h2>
-                <h3>Player name: ... Score ... </h3>
-                <h3>Player name: ... Score ... </h3>
-                <h3>Player name: ... Score ... </h3>
-                <h3>Player name: ... Score ... </h3>
-                <h3>Player name: ... Score ... </h3>
-                <h3>Player name: ... Score ... </h3>
-                <h3>Player name: ... Score ... </h3>
-
-            </div>
-
-        </section>
+        <script src="../script/statistics.js"></script>
 
     </body>
 
-</html> 
+</html>

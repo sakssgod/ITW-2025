@@ -11,9 +11,28 @@ body{
     left: 0;
     width: 99%;
     height: 98%;
-}             
+}
 
+/* 内联头像样式 */
+.inline-avatar {
+    width: 4vh;
+    height: 4vh;
+    border-radius: 50%;
+    border: 0.2vh solid white;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: 1vh;
+    box-shadow: 0 0 0.5vh rgba(0, 0, 0, 0.3);
+}
 
+.title{
+    text-align: center;
+    color: firebrick;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
 a:link {
     color: rgb(173, 46, 0);
     background-color: transparent;
@@ -35,15 +54,12 @@ a:active {
     background-color: transparent;
     text-decoration: underline;
 }
-.title{
-    text-align:center;
-    color: firebrick;
-  }
-  
-  .subtitle{
-    text-align:center;
-    color:rgb(235, 14, 14);
-  }
+
+.subtitle{
+    text-align: center;
+    color: rgb(235, 14, 14);
+}
+
 .sign{
     color: white;
 }
@@ -55,9 +71,8 @@ a:active {
     height: auto;
 }
 
-
 footer{
-    display:grid;
+    display: grid;
     grid-template-columns: auto auto 18vh;
     grid-template-rows: auto;
 }
@@ -70,6 +85,7 @@ footer{
 #statisticbutton{
     padding-left: 8.1vh;
 }
+
 @media screen and (min-width: 480px) {
     body{
         background-image:url("../media/cat_on_fire.jpg");
@@ -111,22 +127,26 @@ footer{
         text-decoration: underline;
     }
     .title{
-        text-align:center;
+        text-align: center;
         color: firebrick;
-      }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+    }
       
-      .subtitle{
-        text-align:center;
-        color:rgb(235, 14, 14);
-      }
+    .subtitle{
+        text-align: center;
+        color: rgb(235, 14, 14);
+    }
     .sign{
         color: white;
     }
 
     footer{
-            display:grid;
-            grid-template-columns: auto auto 13vh;
-            grid-template-rows: auto;
+        display: grid;
+        grid-template-columns: auto auto 13vh;
+        grid-template-rows: auto;
     }
 
     .icon{
@@ -137,7 +157,20 @@ footer{
     #statisticbutton{
         padding-left: 8.1vh;
     }
+    
+    /* 内联头像样式 - 响应式 */
+    .inline-avatar {
+        width: 5vh;
+        height: 5vh;
+        border-radius: 50%;
+        border: 0.2vh solid white;
+        object-fit: cover;
+        vertical-align: middle;
+        margin-right: 1vh;
+        box-shadow: 0 0 0.5vh rgba(0, 0, 0, 0.3);
+    }
 }
+
 @media screen and (min-width: 720px) and (max-width: 900px) {
     body{
         background-image:url("../media/cat_on_fire.jpg");
@@ -179,14 +212,18 @@ footer{
         text-decoration: underline;
     }
     .title{
-        text-align:center;
+        text-align: center;
         color: firebrick;
-      }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+    }
       
-      .subtitle{
-        text-align:center;
-        color:rgb(235, 14, 14);
-      }
+    .subtitle{
+        text-align: center;
+        color: rgb(235, 14, 14);
+    }
     .sign{
         color: white;
     }
@@ -196,9 +233,9 @@ footer{
     }
 
     footer{
-            display:grid;
-            grid-template-columns: auto auto 18vh;
-            grid-template-rows: auto;
+        display: grid;
+        grid-template-columns: auto auto 18vh;
+        grid-template-rows: auto;
     }
 
     .icon{
@@ -209,4 +246,21 @@ footer{
     #statisticbutton{
         padding-left: 8.1vh;
     }
+    
+    /* 内联头像样式 - 大屏幕响应式 */
+    .inline-avatar {
+        width: 4vh;
+        height: 4vh;
+        border-radius: 50%;
+        border: 0.2vh solid white;
+        object-fit: cover;
+        vertical-align: middle;
+        margin-right: 1vh;
+        box-shadow: 0 0 0.5vh rgba(0, 0, 0, 0.3);
+    }
+}
+
+#user-info {
+    gap: 1vh;
+    color: black;
 }

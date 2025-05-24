@@ -37,6 +37,10 @@ a:active {
   text-align:center;
   color:rgb(235, 14, 14);
 }
+
+
+
+
 @media screen and (max-width: 480px) {
     body{
         background-image:url("../media/cat_on_fire.jpg");
