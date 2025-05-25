@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style/game_page.css">
+    <link rel="stylesheet" href="../style/keyboardController.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GamePage</title>
 </head>
@@ -13,7 +14,7 @@
     </header>
     <section class="content">
         <div class="game_window">
-            <!-- 🆕 游戏模式选择 -->
+            <!-- 游戏模式选择（包含键盘控制） -->
             <div class="mode_selection">
                 <button class="mode_btn active" id="classicModeBtn" onclick="switchGameMode(false)">
                     🎯 Classic Mode
@@ -21,6 +22,32 @@
                 <button class="mode_btn" id="livesModeBtn" onclick="switchGameMode(true)">
                     💖 Lives Mode (3 lives)
                 </button>
+                
+                <!-- 键盘控制部分 -->
+                <div class="keyboard_section">
+                    <button id="keyboardModeBtn" onclick="toggleKeyboardMode()">
+                        ⌨️ Keyboard OFF
+                    </button>
+                    <div id="keyboardStatus">
+                        WASD:Move, J:Explore, K:Flag, ESC:Exit
+                    </div>
+                </div>
+            </div>
+
+            <!-- 键盘控制说明（仅在键盘模式激活时显示） -->
+            <div class="keyboard_controls_info" id="keyboardControlsInfo" style="display: none;">
+                <div class="control_item">
+                    <span class="key">W</span><span class="key">A</span><span class="key">S</span><span class="key">D</span> Move cursor
+                </div>
+                <div class="control_item">
+                    <span class="key">J</span> Explore cell
+                </div>
+                <div class="control_item">
+                    <span class="key">K</span> Flag/Unflag
+                </div>
+                <div class="control_item">
+                    <span class="key">ESC</span> Toggle keyboard mode
+                </div>
             </div>
 
             <div class="game_info">
@@ -29,13 +56,14 @@
                     <span class="mine_info">💣 <span id="totalMines">10</span></span>
                     <span class="flag_info">🚩 <span id="flagsLeft">10</span></span>
                     <span class="explored_info">🔍 <span id="exploredCells">0</span>/<span id="totalSafeCells">71</span></span>
-                    <!-- 🆕 生命显示 -->
+                    <!-- 生命显示 -->
                     <span class="lives_info" id="livesDisplay" style="display: none;">
                         <span id="livesValue">💖💖💖</span>
                     </span>
                 </div>
                 <button id="endButton" style="display: none;">End Game</button>
             </div>
+            
             <button id="startButton">Start Game</button>
             <button id="restartButton" style="display: none;">Restart</button>
             
@@ -49,7 +77,9 @@
                 </div>
                 
                 <!-- 游戏板 -->
-                <div class="game" id="gameBoard"></div>
+                <div class="game" id="gameBoard">
+                    <!-- 键盘光标将动态添加到这里 -->
+                </div>
             </div>
         </div>
         
@@ -60,5 +90,6 @@
     </section>
     <script src="../script/timer.js"></script>
     <script src="../script/tabuleiro.js"></script>
+    <script src="../script/keyboardController.js"></script> <!-- 新增：键盘控制器 -->
 </body>
 </html>
