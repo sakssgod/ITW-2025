@@ -154,7 +154,7 @@ footer {
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 1.5vh;
+    font-size: 2.5vh;
     user-select: none;
     background-color: #c0c0c0;
     cursor: pointer;
@@ -166,15 +166,32 @@ footer {
     background-color: #d9d9d9;
 }
 
+
 /* Adjacent mine count colors */
-.cell.adjacent-1 { color: blue; }
-.cell.adjacent-2 { color: green; }
-.cell.adjacent-3 { color: red; }
-.cell.adjacent-4 { color: darkblue; }
-.cell.adjacent-5 { color: darkred; }
-.cell.adjacent-6 { color: teal; }
-.cell.adjacent-7 { color: black; }
-.cell.adjacent-8 { color: gray; }
+.cell.adjacent-1 { color: #0066ff; font-weight: bold; }
+.cell.adjacent-2 { color: #00aa00; font-weight: bold; }
+.cell.adjacent-3 { color: #ff0000; font-weight: bold; }
+.cell.adjacent-4 { color: #000080; font-weight: bold; }
+.cell.adjacent-5 { color: #800000; font-weight: bold; }
+.cell.adjacent-6 { color: #008080; font-weight: bold; }
+.cell.adjacent-7 { color: #000000; font-weight: bold; }
+.cell.adjacent-8 { color: #666666; font-weight: bold; }
+
+.cell.mine {
+    font-size: 2.5vh;
+    text-align: center;
+    line-height: 1;
+    background-image: none;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Estilo alternativo: imagem bombcat.png */
+.cell.mine.bomb-image {
+    font-size: 0; /* Esconde o emoji */
+    background-image: url("../media/bombcat.png");
+}
 
 /* Start Button Styles */
 #startButton {
