@@ -20,6 +20,8 @@ let mineLocations = [];
 let gameStarted = false;
 let gameOver = false;
 let firstClickMade = false; // 跟踪是否已经进行了第一次点击
+let useBombImage = false;
+
 
 // 🆕 生命模式相关变量
 let livesMode = false;        // 是否为生命模式
@@ -126,9 +128,16 @@ function loseLife(row, col) {
     const cellElement = getCellElement(row, col);
     if (cellElement) {
         cellElement.classList.add("mine");
-        cellElement.innerHTML = "💣";
+        if (useBombImage) {
+            cellElement.classList.add("bomb-image");
+            cellElement.innerHTML = "";
+        } else {
+            cellElement.classList.remove("bomb-image");
+            cellElement.innerHTML = "💣";
+        }
         cellElement.style.backgroundColor = "#ff6666";
     }
+
     
     // 更新生命显示
     updateLivesDisplay();
@@ -543,17 +552,19 @@ function calculateAdjacentMines() {
 
 // 🆕 修改 handleCellClick 函数以支持无风险开始和生命模式
 function handleCellClick(row, col) {
-    // 检查游戏状态
+    // Verifica se o jogo já começou (se o tabuleiro tem a classe 'game-not-started', bloqueia o clique)
     const gameBoardElement = document.getElementById("gameBoard");
     if (gameBoardElement && gameBoardElement.classList.contains("game-not-started")) {
-        return; // 如果游戏未开始，不响应点击
+        return; // Jogo não iniciado, ignora clique
     }
     
+    // Ignora se jogo acabou ou célula já foi revelada
     if (gameOver || gameBoard[row][col].isRevealed) return;
-    // 如果格子被标记为旗帜或问号，不能左键点击
+    
+    // Ignora clique se célula está marcada com bandeira ou ponto de interrogação
     if (gameBoard[row][col].isFlagged || gameBoard[row][col].isQuestioned) return;
     
-    // 关键逻辑：如果这是第一次点击，先放置地雷
+    // Na primeira jogada, coloca as minas depois do clique
     if (!firstClickMade) {
         console.log(`First click position: (${row}, ${col})`);
         placeMinesAfterFirstClick(row, col);
@@ -566,20 +577,27 @@ function handleCellClick(row, col) {
     gameBoard[row][col].isRevealed = true;
     cellElement.classList.add("revealed");
     
-    // 增加探索格子计数
+    // Incrementa contador de células exploradas (se existir essa função)
     if (typeof addExploredCell === 'function') {
         addExploredCell();
     }
     
     if (gameBoard[row][col].hasMine) {
-        // 🆕 根据游戏模式处理踩雷
+        // Se tem mina, dependendo do modo de jogo:
         if (livesMode && currentLives > 1) {
-            // 生命模式：扣除生命但继续游戏
+            // Modo vidas: perde vida mas continua
             loseLife(row, col);
         } else {
-            // 经典模式 或 生命模式生命用尽：结束游戏
+            // Modo clássico ou sem vidas: revela a mina e termina jogo
             cellElement.classList.add("mine");
-            cellElement.innerHTML = "💣";
+            if (useBombImage) {
+                cellElement.classList.add("bomb-image");
+                cellElement.innerHTML = "";
+            } else {
+                cellElement.classList.remove("bomb-image");
+                cellElement.innerHTML = "💣";
+            }
+
             if (livesMode) {
                 endGame(false, 'Out of lives! Game over!');
             } else {
@@ -587,6 +605,7 @@ function handleCellClick(row, col) {
             }
         }
     } else {
+        // Se não tem mina, mostra o número de minas adjacentes ou revela células ao redor
         const adjacentMines = gameBoard[row][col].adjacentMines;
         if (adjacentMines > 0) {
             cellElement.textContent = adjacentMines;
@@ -597,6 +616,7 @@ function handleCellClick(row, col) {
         checkForWin();
     }
 }
+
 
 function handleRightClick(row, col) {
     // 检查游戏状态
@@ -817,7 +837,13 @@ function revealAllMines() {
         
         if (!gameBoard[r][c].isRevealed) {
             cellElement.classList.add("revealed", "mine");
-            cellElement.innerHTML = "💣";
+            if (useBombImage) {
+                cellElement.classList.add("bomb-image");
+                cellElement.innerHTML = "";
+            } else {
+                cellElement.classList.remove("bomb-image");
+                cellElement.innerHTML = "💣";
+            }
         }
     });
 }
@@ -839,3 +865,28 @@ function resetGameBoard() {
     // 🆕 更新生命显示
     updateLivesDisplay();
 }
+
+function toggleBombStyle() {
+    useBombImage = !useBombImage;
+
+    // Atualizar todas as minas reveladas
+    mineLocations.forEach(([r, c]) => {
+        const cell = getCellElement(r, c);
+        if (cell && cell.classList.contains("mine")) {
+            if (useBombImage) {
+                cell.classList.add("bomb-image");
+                cell.innerHTML = "";
+            } else {
+                cell.classList.remove("bomb-image");
+                cell.innerHTML = "💣";
+            }
+        }
+    });
+
+    // Atualizar botão
+    const btn = document.getElementById("toggleBombStyleBtn");
+    if (btn) {
+        btn.textContent = useBombImage ? "💣 Normal bombs" : "🐱 Cute cat bombs";
+    }
+}
+
