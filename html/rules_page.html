@@ -3,30 +3,46 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../style/rules_page.css">
+        <link rel="stylesheet" href="../style/game-nav.css">
         <link rel="stylesheet" href="../style/statistics_page.css">
+        <link rel="stylesheet" href="../style/rules_page.css">
         <title>RulesPage</title>
     </head>
     <body>
         <header>
-           <nav class="top-nav">
-
-                <a href="home_page2.html">
-                    <img src="../media/house_red.png" 
-                    alt="An house to come back to the home page" 
-                    title="Home page" 
-                    id="house" 
-                    class="banner_button_image">
-                </a>
-
-                <h1 id="title">Minesweeper Rules</h1>
-
-                <a href="game_page.html">
-                    <img src="../media/bomba_white.png" 
-                    alt="An icon with bomb with the word play" 
-                    id="bomb" 
-                    class="banner_button_image">
-                </a>
+            <nav class="game-nav">
+                <div class="nav-left">
+                    <a href="home_page2.html">
+                        <img src="../media/house_red.png" 
+                        alt="Home" 
+                        title="Home page" 
+                        class="nav-icon">
+                    </a>
+                </div>
+                <div class="page-title-container">
+                    <h1 id="page-title">Rules </h1>
+                </div>
+                
+                <div class="nav-right">
+                    <div id="user-display" class="desktop-only">
+                        <span id="username-display">sakss</span>
+                        <img id="avatar-display" src="../media/cat1.jpeg" class="user-avatar" alt="User Avatar">
+                    </div>
+                    
+                    <a href="game_page.html" class="desktop-only">
+                        <img src="../media/bomba_white.png" 
+                        alt="Play Game" 
+                        title="Play Game" 
+                        class="nav-icon game-icon">
+                    </a>
+                    
+                    <!-- 移动端菜单图标 -->
+                    <div class="mobile-menu-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
             </nav>
         </header>
         <section class="content">

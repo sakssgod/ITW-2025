@@ -25,14 +25,6 @@ img{
     width: auto;
     height: 30.5vh;
 }
-h1{
-    text-align: center;
-    grid-row: 1/2;
-    grid-column: 2/3;
-    font-size: 8.5vh;
-    margin-top: 1.5vh;
-    color: darkred;
-}
 h2{
     color: darkred;
 }
@@ -40,6 +32,9 @@ h2{
     width: 8.5vh;
     height: auto;
     justify-content: space-between;
+}
+.page-title-container{
+    margin-top: 1vh;
 }
 
 #bomb{
