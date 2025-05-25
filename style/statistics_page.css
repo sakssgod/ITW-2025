@@ -68,11 +68,12 @@ header {
 /* 3D表格轮播样式 */
 .table-carousel-3d {
     position: relative;
-    width: 40%;
-    height: 500px;
+    width: 50%; /* 稍微增加宽度以容纳更多内容 */
+    height: 600px; /* 增加高度 */
     margin: 2rem auto;
     perspective: 1200px;
     overflow: visible;
+
 }
 
 /* 3D容器 */
@@ -140,20 +141,19 @@ header {
 .slide-content {
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.15); /* 从0.95改为0.15，更透明 */
+    background-color: rgba(255, 255, 255, 0.15);
     border-radius: 15px;
-    padding: 2rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* 稍微减少阴影强度 */
-    backdrop-filter: blur(15px) saturate(180%); /* 增强模糊和饱和度效果 */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* 稍微增加边框透明度 */
+    padding: 1.5rem; /* 减少padding以容纳更多内容 */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     overflow-y: auto;
     transform-style: preserve-3d;
-    /* 添加暖色调背景渐变，契合火焰主题 */
     background-image: linear-gradient(
         135deg, 
-        rgba(255, 223, 186, 0.1) 0%,    /* 暖色调1 */
-        rgba(255, 255, 255, 0.05) 50%,  /* 中间透明白色 */
-        rgba(255, 206, 158, 0.1) 100%   /* 暖色调2 */
+        rgba(255, 223, 186, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 206, 158, 0.1) 100%
     );
 }
 
@@ -191,7 +191,7 @@ header {
 }
 
 .carousel-right {
-    right: -80px;
+    right: -130px;
 }
 
 .carousel-arrow span {
@@ -202,21 +202,22 @@ header {
 /* 指示器 */
 .carousel-indicators {
     position: absolute;
-    bottom: -60px;
+    bottom: -80px; /* 调整位置以容纳7个指示器 */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
+    gap: 8px; /* 减少间距 */
     z-index: 20;
 }
 
 .indicator {
-    width: 12px;
-    height: 12px;
+    width: 10px; /* 稍微减小指示器大小 */
+    height: 10px;
     border-radius: 50%;
     background-color: rgba(139, 0, 0, 0.3);
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .indicator.active {
@@ -228,20 +229,36 @@ header {
     background-color: rgba(139, 0, 0, 0.7);
 }
 
+/* 指示器tooltip */
+.indicator:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 30;
+}
+
 /* Player Statistics Section */
 .slide-content.player-stats h2,
 .slide-content.leaderboard h2,
 .slide-content.difficulty-stats h2 {
     color: darkred;
     text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2.5rem;
+    margin-bottom: 1.5rem; /* 减少margin */
+    font-size: 2rem; /* 稍微减小字体 */
 }
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 调整最小宽度 */
+    gap: 1rem; /* 减少gap */
 }
 
 .stat-item {
@@ -249,43 +266,60 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: rgba(220, 220, 220, 0.8);
-    padding: 1rem 1.5rem;
-    border-radius: 10px;
+    padding: 0.8rem 1.2rem; /* 减少padding */
+    border-radius: 8px;
     border-left: 4px solid darkred;
 }
 
 .stat-label {
     font-weight: bold;
     color: #333;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .stat-value {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: darkred;
+    font-weight: bold;
+}
+
+/* 模式区域样式 */
+.mode-section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mode-section h3 {
+    color: darkred;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
 /* Sort Controls */
 .sort-controls {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem; /* 减少margin */
 }
 
 .sort-controls label {
     font-weight: bold;
     color: darkred;
     margin-right: 1rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .sort-controls select {
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem; /* 减少padding */
     border: 2px solid darkred;
     border-radius: 5px;
     background-color: white;
     color: darkred;
-    font-size: 1rem;
+    font-size: 0.9rem;
     cursor: pointer;
     outline: none;
 }
@@ -297,37 +331,68 @@ header {
 
 .table-container {
     overflow-x: auto;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-height: 300px; /* 限制表格高度 */
+    overflow-y: auto;
 }
 
-#leaderboardTable {
+#leaderboardTable,
+#classicLeaderboardTable,
+#livesLeaderboardTable,
+#classicFailedLeaderboardTable,
+#livesFailedLeaderboardTable,
+#overallLeaderboardTable {
     width: 100%;
     border-collapse: collapse;
     background-color: white;
+    font-size: 0.9rem; /* 减小字体 */
 }
 
-#leaderboardTable th {
+#leaderboardTable th,
+#classicLeaderboardTable th,
+#livesLeaderboardTable th,
+#classicFailedLeaderboardTable th,
+#livesFailedLeaderboardTable th,
+#overallLeaderboardTable th {
     background-color: darkred;
     color: white;
-    padding: 1rem;
+    padding: 0.8rem;
     text-align: left;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-#leaderboardTable td {
-    padding: 1rem;
+#leaderboardTable td,
+#classicLeaderboardTable td,
+#livesLeaderboardTable td,
+#classicFailedLeaderboardTable td,
+#livesFailedLeaderboardTable td,
+#overallLeaderboardTable td {
+    padding: 0.8rem;
     border-bottom: 1px solid #ddd;
-    font-size: 1rem;
+    font-size: 0.85rem;
 }
 
-#leaderboardTable tbody tr:hover {
+#leaderboardTable tbody tr:hover,
+#classicLeaderboardTable tbody tr:hover,
+#livesLeaderboardTable tbody tr:hover,
+#classicFailedLeaderboardTable tbody tr:hover,
+#livesFailedLeaderboardTable tbody tr:hover,
+#overallLeaderboardTable tbody tr:hover {
     background-color: rgba(139, 0, 0, 0.1);
     cursor: pointer;
 }
 
-#leaderboardTable tbody tr:nth-child(even) {
+#leaderboardTable tbody tr:nth-child(even),
+#classicLeaderboardTable tbody tr:nth-child(even),
+#livesLeaderboardTable tbody tr:nth-child(even),
+#classicFailedLeaderboardTable tbody tr:nth-child(even),
+#livesFailedLeaderboardTable tbody tr:nth-child(even),
+#overallLeaderboardTable tbody tr:nth-child(even) {
     background-color: rgba(248, 248, 248, 0.8);
 }
 
@@ -349,18 +414,19 @@ header {
 .difficulty-nav {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    gap: 0.8rem; /* 减少gap */
+    margin-bottom: 1.5rem;
 }
 
 .difficulty-btn {
-    padding: 0.8rem 2rem;
+    padding: 0.6rem 1.5rem; /* 减少padding */
     border: 2px solid darkred;
     background-color: transparent;
     color: darkred;
-    border-radius: 25px;
+    border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 0.9rem;
     transition: all 0.3s ease;
 }
 
@@ -372,20 +438,20 @@ header {
 }
 
 .difficulty-content {
-    min-height: 200px;
-    padding: 1rem;
+    min-height: 150px; /* 减少高度 */
+    padding: 0.8rem;
 }
 
 .difficulty-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 调整最小宽度 */
+    gap: 0.8rem; /* 减少gap */
 }
 
 .difficulty-stat {
     background-color: rgba(240, 240, 240, 0.8);
-    padding: 1rem;
-    border-radius: 10px;
+    padding: 0.8rem;
+    border-radius: 8px;
     text-align: center;
     border-left: 4px solid darkred;
 }
@@ -394,30 +460,64 @@ header {
     font-weight: bold;
     color: #333;
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
 }
 
 .difficulty-stat .value {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: darkred;
     font-weight: bold;
 }
 
+/* 失败排行榜特殊样式 */
+.slide-content.leaderboard p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 1rem;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
 /* Responsive Design */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .table-carousel-3d {
-        height: 500px;
-        margin: 1rem auto;
+        width: 60%;
+        height: 550px;
     }
     
     .slide-content {
         padding: 1rem;
     }
     
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .difficulty-info {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .table-carousel-3d {
+        width: 60%;
+        height: 500px;
+        margin: 1rem auto;
+    }
+    
+    .slide-content {
+        padding: 0.8rem;
+    }
+    
     .slide-content.player-stats h2,
     .slide-content.leaderboard h2,
     .slide-content.difficulty-stats h2 {
-        font-size: 2rem;
+        font-size: 1.5rem;
+    }
+    
+    .mode-section h3 {
+        font-size: 1.2rem;
     }
     
     .carousel-arrow {
@@ -431,7 +531,7 @@ header {
     }
     
     .carousel-right {
-        right: -60px;
+        right: -90px;
     }
     
     .stats-grid {
@@ -441,22 +541,154 @@ header {
     .stat-item {
         flex-direction: column;
         text-align: center;
-        gap: 0.5rem;
+        gap: 0.4rem;
+        padding: 0.6rem;
     }
     
     .difficulty-nav {
         flex-direction: column;
         align-items: center;
+        gap: 0.5rem;
     }
     
     .difficulty-btn {
-        width: 200px;
+        width: 150px;
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .difficulty-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .table-container {
+        max-height: 250px;
     }
     
     #leaderboardTable th,
-    #leaderboardTable td {
-        padding: 0.5rem;
+    #leaderboardTable td,
+    #classicLeaderboardTable th,
+    #classicLeaderboardTable td,
+    #livesLeaderboardTable th,
+    #livesLeaderboardTable td,
+    #classicFailedLeaderboardTable th,
+    #classicFailedLeaderboardTable td,
+    #livesFailedLeaderboardTable th,
+    #livesFailedLeaderboardTable td,
+    #overallLeaderboardTable th,
+    #overallLeaderboardTable td {
+        padding: 0.4rem;
+        font-size: 0.75rem;
+    }
+    
+    .sort-controls {
+        margin-bottom: 0.8rem;
+    }
+    
+    .sort-controls label {
+        display: block;
+        margin-bottom: 0.5rem;
         font-size: 0.9rem;
+    }
+    
+    .sort-controls select {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    .mode-section {
+        margin-bottom: 1.5rem;
+        padding: 0.8rem;
+    }
+    
+    .carousel-indicators {
+        bottom: -70px;
+        gap: 6px;
+    }
+    
+    .indicator {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .table-carousel-3d {
+        width: 95%;
+        height: 450px;
+    }
+    
+    .slide-content {
+        padding: 0.6rem;
+    }
+    
+    .slide-content.player-stats h2,
+    .slide-content.leaderboard h2,
+    .slide-content.difficulty-stats h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .mode-section h3 {
+        font-size: 1.1rem;
+    }
+    
+    .carousel-left {
+        left: -50px;
+    }
+    
+    .carousel-right {
+        right: -50px;
+    }
+    
+    .carousel-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .stat-item {
+        padding: 0.5rem;
+    }
+    
+    .stat-label,
+    .stat-value {
+        font-size: 0.85rem;
+    }
+    
+    .difficulty-btn {
+        width: 120px;
+        font-size: 0.75rem;
+    }
+    
+    .table-container {
+        max-height: 200px;
+    }
+    
+    #leaderboardTable th,
+    #leaderboardTable td,
+    #classicLeaderboardTable th,
+    #classicLeaderboardTable td,
+    #livesLeaderboardTable th,
+    #livesLeaderboardTable td,
+    #classicFailedLeaderboardTable th,
+    #classicFailedLeaderboardTable td,
+    #livesFailedLeaderboardTable th,
+    #livesFailedLeaderboardTable td,
+    #overallLeaderboardTable th,
+    #overallLeaderboardTable td {
+        padding: 0.3rem;
+        font-size: 0.7rem;
+    }
+    
+    .carousel-indicators {
+        bottom: -60px;
+        gap: 4px;
+    }
+    
+    .indicator {
+        width: 6px;
+        height: 6px;
     }
 }
 
@@ -468,4 +700,69 @@ header {
     .banner_button_image {
         width: 7vh;
     }
+    
+    .table-carousel-3d {
+        width: 60%;
+    }
+}
+
+/* 滚动条样式 */
+.table-container::-webkit-scrollbar,
+.slide-content::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track,
+.slide-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb,
+.slide-content::-webkit-scrollbar-thumb {
+    background: rgba(139, 0, 0, 0.6);
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover,
+.slide-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 0, 0, 0.8);
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-item,
+.difficulty-stat {
+    animation: fadeInUp 0.3s ease-out;
+}
+
+/* 加载状态 */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: #666;
+    font-style: italic;
+}
+
+.loading::after {
+    content: "Loading...";
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
 }
