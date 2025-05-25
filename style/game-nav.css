@@ -1,0 +1,215 @@
+/* 游戏导航栏样式 - 可在所有游戏页面共用 */
+.game-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.15); /* 更透明 */
+    backdrop-filter: blur(5px);
+    box-sizing: border-box;
+    max-height: 120px;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right {
+    justify-content: flex-end;
+    gap: 1.5rem;
+}
+
+/* 标题容器 - 固定居中 */
+.page-title-container {
+    position: fixed;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 90; /* 低于导航栏，确保导航栏在上层 */
+    pointer-events: none; /* 允许点击穿透到下面的元素 */
+}
+
+#page-title {
+    font-size: 8.5vh;
+    color: darkred;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    display: inline-block;
+}
+
+.nav-icon {
+    width: 8.5vh;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.nav-icon:hover {
+    transform: scale(1.1);
+}
+
+.game-icon {
+    width: 15vh;
+    margin-top: -1vh;
+}
+
+#user-display {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#username-display {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.user-avatar {
+    width: 4vh;
+    height: 4vh;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: cover;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* 移动端菜单图标 - 三横线 */
+.mobile-menu-icon {
+    display: none; /* 默认隐藏 */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.mobile-menu-icon span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* 移动端菜单 */
+.mobile-menu {
+    display: none; /* 默认隐藏 */
+    position: fixed;
+    top: 0;
+    right: -250px; /* 初始在屏幕外 */
+    width: 250px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 200;
+    padding: 2rem 1rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease;
+}
+
+.mobile-menu.active {
+    right: 0; /* 显示菜单 */
+}
+
+.mobile-menu-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 1.5rem;
+}
+
+#mobile-username {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.mobile-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-item .menu-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 1000px) {
+    /* 隐藏桌面版内容 */
+    .desktop-only {
+        display: none !important;
+    }
+    
+    /* 显示移动端菜单图标 */
+    .mobile-menu-icon {
+        display: flex;
+    }
+    
+    /* 调整标题大小 */
+    #page-title {
+        font-size: 7vh;
+    }
+    
+    /* 确保移动端内容可见 */
+    .mobile-menu.active {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 801px) {
+    /* 隐藏移动端内容 */
+    .mobile-menu {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .game-nav {
+        padding: 0.5rem 1rem;
+    }
+    
+    #page-title {
+        font-size: 5vh;
+        top: 0.5rem;
+    }
+    
+    .nav-icon {
+        width: 6vh;
+    }
+}
+
+/* 菜单图标变X动画 */
+.mobile-menu-icon span.active:nth-child(1) {
+    transform: translateY(10.5px) rotate(45deg);
+}
+
+.mobile-menu-icon span.active:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-icon span.active:nth-child(3) {
+    transform: translateY(-10.5px) rotate(-45deg);
+}

@@ -7,33 +7,63 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../style/statistics_page.css">
         <link rel="stylesheet" href="../style/playerRadarChart.css">
+        <link rel="stylesheet" href="../style/game-nav.css">
         <title>StatisticsPage</title>
 
     </head>
 
     <body>
 
-        <header>
-            <nav class="top-nav">
-
+    <header>
+        <nav class="game-nav">
+            <div class="nav-left">
                 <a href="home_page2.html">
                     <img src="../media/house_red.png" 
-                    alt="An house to come back to the home page" 
+                    alt="Home" 
                     title="Home page" 
-                    id="house" 
-                    class="banner_button_image">
+                    class="nav-icon">
                 </a>
-
-                <h1 id="title">Statistics</h1>
-
-                <a href="game_page.html">
+            </div>
+            
+            <div class="nav-right">
+                <div id="user-display" class="desktop-only">
+                    <span id="username-display">sakss</span>
+                    <img id="avatar-display" src="../media/cat1.jpeg" class="user-avatar" alt="User Avatar">
+                </div>
+                
+                <a href="game_page.html" class="desktop-only">
                     <img src="../media/bomba_white.png" 
-                    alt="An icon with bomb with the word play" 
-                    id="bomb" 
-                    class="banner_button_image">
+                    alt="Play Game" 
+                    title="Play Game" 
+                    class="nav-icon game-icon">
                 </a>
-            </nav>
-        </header>
+                
+                <!-- 移动端菜单图标 -->
+                <div class="mobile-menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- 标题单独居中固定 -->
+        <div class="page-title-container">
+            <h1 id="page-title">Statistics</h1>
+        </div>
+        
+        <!-- 移动端菜单（默认隐藏） -->
+        <div class="mobile-menu">
+            <div class="mobile-menu-user">
+                <img id="mobile-avatar" src="../media/cat1.jpeg" class="user-avatar" alt="User Avatar">
+                <span id="mobile-username">sakss</span>
+            </div>
+            <a href="game_page.html" class="mobile-menu-item">
+                <img src="../media/bomba_white.png" class="menu-icon" alt="Play Game"> Play Game
+            </a>
+            <!-- 可以添加更多菜单项 -->
+        </div>
+    </header>
 
         <main class="content">
             <!-- 3D表格轮播容器 -->
@@ -305,6 +335,7 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <!-- 自定义脚本 -->
         <script src="../script/playerRadarChart.js"></script>
+        <script src="../script/game-nav.js"></script>
 
     </body>
 
