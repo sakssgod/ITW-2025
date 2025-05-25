@@ -6,6 +6,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../style/statistics_page.css">
+        <link rel="stylesheet" href="../style/playerRadarChart.css">
         <title>StatisticsPage</title>
 
     </head>
@@ -46,7 +47,7 @@
                 <div class="carousel-3d-container">
                     <div class="carousel-3d-track" id="carousel3dTrack">
                         
-                        <!-- 第一个表格：当前玩家统计 -->
+                        <!-- 第1个表格：当前玩家统计 -->
                         <div class="carousel-3d-slide active" data-slide="0">
                             <div class="slide-content player-stats">
                                 <h2>Your Statistics</h2>
@@ -75,19 +76,57 @@
                                         <span class="stat-label">Average Time:</span>
                                         <span class="stat-value" id="avgTime">-</span>
                                     </div>
+
+                                    <div id="playerRadarWrapper">
+                                        <canvas id="playerRadarChart" width="400" height="400"></canvas>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
 
-                        <!-- 第二个表格：排行榜 -->
+                        <!-- 第2个表格：按难度统计（分经典和生命模式） -->
                         <div class="carousel-3d-slide" data-slide="1">
+                            <div class="slide-content difficulty-stats">
+                                <h2>Statistics by Difficulty</h2>
+                                
+                                <!-- 经典模式区域 -->
+                                <div class="mode-section">
+                                    <h3>🏆 Classic Mode</h3>
+                                    <nav class="difficulty-nav">
+                                        <button class="difficulty-btn classic-btn active" data-difficulty="easy" data-mode="classic">Easy</button>
+                                        <button class="difficulty-btn classic-btn" data-difficulty="medium" data-mode="classic">Medium</button>
+                                        <button class="difficulty-btn classic-btn" data-difficulty="hard" data-mode="classic">Hard</button>
+                                    </nav>
+                                    <div class="difficulty-content" id="classicDifficultyContent">
+                                        <!-- 动态生成的经典模式难度统计 -->
+                                    </div>
+                                </div>
+
+                                <!-- 生命模式区域 -->
+                                <div class="mode-section">
+                                    <h3>💖 Lives Mode</h3>
+                                    <nav class="difficulty-nav">
+                                        <button class="difficulty-btn lives-btn active" data-difficulty="easy" data-mode="lives">Easy</button>
+                                        <button class="difficulty-btn lives-btn" data-difficulty="medium" data-mode="lives">Medium</button>
+                                        <button class="difficulty-btn lives-btn" data-difficulty="hard" data-mode="lives">Hard</button>
+                                    </nav>
+                                    <div class="difficulty-content" id="livesDifficultyContent">
+                                        <!-- 动态生成的生命模式难度统计 -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 第3个表格：经典模式排行榜 -->
+                        <div class="carousel-3d-slide" data-slide="2">
                             <div class="slide-content leaderboard">
-                                <h2>Leaderboard</h2>
+                                <h2>🏆 Classic Mode Leaderboard</h2>
                                 
                                 <!-- 排序选择器 -->
                                 <div class="sort-controls">
-                                    <label for="sortBy">Sort by:</label>
-                                    <select id="sortBy">
+                                    <label for="classicSortBy">Sort by:</label>
+                                    <select id="classicSortBy">
                                         <option value="bestTime">Best Time</option>
                                         <option value="gamesWon">Games Won</option>
                                         <option value="winRate">Win Rate</option>
@@ -96,7 +135,7 @@
                                 </div>
                                 
                                 <div class="table-container">
-                                    <table id="leaderboardTable">
+                                    <table id="classicLeaderboardTable">
                                         <thead>
                                             <tr>
                                                 <th>Rank</th>
@@ -106,25 +145,137 @@
                                                 <th>Win Rate</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="leaderboardBody">
-                                            <!-- 动态生成的排行榜数据 -->
+                                        <tbody id="classicLeaderboardBody">
+                                            <!-- 动态生成的经典模式排行榜数据 -->
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- 第三个表格：难度级别统计 -->
-                        <div class="carousel-3d-slide" data-slide="2">
-                            <div class="slide-content difficulty-stats">
-                                <h2>Statistics by Difficulty</h2>
-                                <nav class="difficulty-nav">
-                                    <button class="difficulty-btn active" data-difficulty="easy">Easy</button>
-                                    <button class="difficulty-btn" data-difficulty="medium">Medium</button>
-                                    <button class="difficulty-btn" data-difficulty="hard">Hard</button>
-                                </nav>
-                                <div class="difficulty-content" id="difficultyContent">
-                                    <!-- 动态生成的难度统计 -->
+                        <!-- 第4个表格：生命模式排行榜 -->
+                        <div class="carousel-3d-slide" data-slide="3">
+                            <div class="slide-content leaderboard">
+                                <h2>💖 Lives Mode Leaderboard</h2>
+                                
+                                <!-- 排序选择器 -->
+                                <div class="sort-controls">
+                                    <label for="livesSortBy">Sort by:</label>
+                                    <select id="livesSortBy">
+                                        <option value="bestTime">Best Time</option>
+                                        <option value="gamesWon">Games Won</option>
+                                        <option value="winRate">Win Rate</option>
+                                        <option value="totalGames">Total Games</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="table-container">
+                                    <table id="livesLeaderboardTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Rank</th>
+                                                <th>Player</th>
+                                                <th>Best Time</th>
+                                                <th>Games Won</th>
+                                                <th>Win Rate</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="livesLeaderboardBody">
+                                            <!-- 动态生成的生命模式排行榜数据 -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 第5个表格：经典模式失败排行榜 -->
+                        <div class="carousel-3d-slide" data-slide="4">
+                            <div class="slide-content leaderboard">
+                                <h2>🏆 Classic Failed Games Ranking</h2>
+                                <p style="text-align: center; color: #666; margin-bottom: 1rem;">
+                                    Ranking by exploration rate and efficiency
+                                </p>
+                                
+                                <div class="table-container">
+                                    <table id="classicFailedLeaderboardTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Rank</th>
+                                                <th>Player</th>
+                                                <th>Exploration Rate</th>
+                                                <th>Time Survived</th>
+                                                <th>Total Failed Games</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="classicFailedLeaderboardBody">
+                                            <!-- 动态生成的经典模式失败排行榜数据 -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 第6个表格：生命模式失败排行榜 -->
+                        <div class="carousel-3d-slide" data-slide="5">
+                            <div class="slide-content leaderboard">
+                                <h2>💖 Lives Failed Games Ranking</h2>
+                                <p style="text-align: center; color: #666; margin-bottom: 1rem;">
+                                    Ranking by exploration rate and efficiency
+                                </p>
+                                
+                                <div class="table-container">
+                                    <table id="livesFailedLeaderboardTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Rank</th>
+                                                <th>Player</th>
+                                                <th>Exploration Rate</th>
+                                                <th>Time Survived</th>
+                                                <th>Total Failed Games</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="livesFailedLeaderboardBody">
+                                            <!-- 动态生成的生命模式失败排行榜数据 -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 第7个表格：综合排行榜 -->
+                        <div class="carousel-3d-slide" data-slide="6">
+                            <div class="slide-content leaderboard">
+                                <h2>🏅 Overall Leaderboard</h2>
+                                <p style="text-align: center; color: #666; margin-bottom: 1rem;">
+                                    Combined rankings from all game modes
+                                </p>
+                                
+                                <!-- 排序选择器 -->
+                                <div class="sort-controls">
+                                    <label for="overallSortBy">Sort by:</label>
+                                    <select id="overallSortBy">
+                                        <option value="bestTime">Best Time</option>
+                                        <option value="gamesWon">Games Won</option>
+                                        <option value="winRate">Win Rate</option>
+                                        <option value="totalGames">Total Games</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="table-container">
+                                    <table id="overallLeaderboardTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Rank</th>
+                                                <th>Player</th>
+                                                <th>Best Time</th>
+                                                <th>Games Won</th>
+                                                <th>Win Rate</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="overallLeaderboardBody">
+                                            <!-- 动态生成的综合排行榜数据 -->
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -138,14 +289,22 @@
                 
                 <!-- 指示器 -->
                 <div class="carousel-indicators">
-                    <div class="indicator active" data-slide="0"></div>
-                    <div class="indicator" data-slide="1"></div>
-                    <div class="indicator" data-slide="2"></div>
+                    <div class="indicator active" data-slide="0" title="Your Statistics"></div>
+                    <div class="indicator" data-slide="1" title="Statistics by Difficulty"></div>
+                    <div class="indicator" data-slide="2" title="Classic Mode Leaderboard"></div>
+                    <div class="indicator" data-slide="3" title="Lives Mode Leaderboard"></div>
+                    <div class="indicator" data-slide="4" title="Classic Failed Games"></div>
+                    <div class="indicator" data-slide="5" title="Lives Failed Games"></div>
+                    <div class="indicator" data-slide="6" title="Overall Leaderboard"></div>
                 </div>
             </section>
         </main>
 
         <script src="../script/statistics.js"></script>
+        <!-- Chart.js CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!-- 自定义脚本 -->
+        <script src="../script/playerRadarChart.js"></script>
 
     </body>
 

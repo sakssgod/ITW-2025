@@ -111,6 +111,12 @@ function calculateWinRate(gamesWon, totalGames) {
     return ((gamesWon / totalGames) * 100).toFixed(1);
 }
 
+// 计算探索率
+function calculateExplorationRate(exploredCells, totalSafeCells) {
+    if (!totalSafeCells || totalSafeCells === 0) return 0;
+    return ((exploredCells / totalSafeCells) * 100).toFixed(1);
+}
+
 // 显示当前玩家统计
 function displayCurrentPlayerStats() {
     const playerStats = getCurrentPlayerStats();
@@ -135,12 +141,80 @@ function displayCurrentPlayerStats() {
     }
 }
 
-// 生成排行榜
-function generateLeaderboard(sortBy = 'bestTime') {
+// ====== 经典模式排行榜 ======
+function generateClassicLeaderboard(sortBy = 'bestTime') {
     const allData = getAllGameData();
     const playerMap = new Map();
     
-    // 收集所有玩家的数据
+    // 只收集经典模式的数据
+    ['easy', 'medium', 'hard'].forEach(diff => {
+        allData.classic[diff].forEach(game => {
+            if (!playerMap.has(game.player)) {
+                playerMap.set(game.player, {
+                    username: game.player,
+                    totalGames: 0,
+                    gamesWon: 0,
+                    bestTime: Infinity,
+                    totalTime: 0
+                });
+            }
+            
+            const playerData = playerMap.get(game.player);
+            playerData.totalGames++;
+            playerData.totalTime += game.totalSeconds || 0;
+            
+            if (game.isWin) {
+                playerData.gamesWon++;
+                if (game.totalSeconds < playerData.bestTime) {
+                    playerData.bestTime = game.totalSeconds;
+                }
+            }
+        });
+    });
+    
+    generateLeaderboardTable(playerMap, sortBy, 'classicLeaderboardBody', '🏆');
+}
+
+// ====== 生命模式排行榜 ======
+function generateLivesLeaderboard(sortBy = 'bestTime') {
+    const allData = getAllGameData();
+    const playerMap = new Map();
+    
+    // 只收集生命模式的数据
+    ['easy', 'medium', 'hard'].forEach(diff => {
+        allData.lives[diff].forEach(game => {
+            if (!playerMap.has(game.player)) {
+                playerMap.set(game.player, {
+                    username: game.player,
+                    totalGames: 0,
+                    gamesWon: 0,
+                    bestTime: Infinity,
+                    totalTime: 0
+                });
+            }
+            
+            const playerData = playerMap.get(game.player);
+            playerData.totalGames++;
+            playerData.totalTime += game.totalSeconds || 0;
+            
+            if (game.isWin) {
+                playerData.gamesWon++;
+                if (game.totalSeconds < playerData.bestTime) {
+                    playerData.bestTime = game.totalSeconds;
+                }
+            }
+        });
+    });
+    
+    generateLeaderboardTable(playerMap, sortBy, 'livesLeaderboardBody', '💖');
+}
+
+// ====== 综合排行榜 ======
+function generateOverallLeaderboard(sortBy = 'bestTime') {
+    const allData = getAllGameData();
+    const playerMap = new Map();
+    
+    // 收集所有模式的数据
     ['easy', 'medium', 'hard'].forEach(diff => {
         // 处理经典模式数据
         allData.classic[diff].forEach(game => {
@@ -203,7 +277,111 @@ function generateLeaderboard(sortBy = 'bestTime') {
         });
     });
     
-    // 转换为数组并排序
+    generateLeaderboardTable(playerMap, sortBy, 'overallLeaderboardBody', '🏅', true);
+}
+
+// ====== 失败游戏排行榜 ======
+function generateFailedLeaderboard(mode = 'classic') {
+    const allData = getAllGameData();
+    const playerMap = new Map();
+    const dataSource = mode === 'classic' ? allData.classic : allData.lives;
+    
+    ['easy', 'medium', 'hard'].forEach(diff => {
+        dataSource[diff].forEach(game => {
+            if (!game.isWin) { // 只统计失败的游戏
+                if (!playerMap.has(game.player)) {
+                    playerMap.set(game.player, {
+                        username: game.player,
+                        totalFailedGames: 0,
+                        totalExploredCells: 0,
+                        totalTime: 0,
+                        bestExplorationRate: 0,
+                        bestTimeEfficiency: Infinity
+                    });
+                }
+                
+                const playerData = playerMap.get(game.player);
+                playerData.totalFailedGames++;
+                
+                const exploredCells = game.exploredCells || 0;
+                const totalSafeCells = game.totalSafeCells || 1;
+                const explorationRate = (exploredCells / totalSafeCells) * 100;
+                
+                playerData.totalExploredCells += exploredCells;
+                
+                // 记录最佳探索率
+                if (explorationRate > playerData.bestExplorationRate) {
+                    playerData.bestExplorationRate = explorationRate;
+                }
+                
+                // 记录最佳时间效率（探索率相同时比较时间）
+                if (explorationRate >= playerData.bestExplorationRate && 
+                    game.totalSeconds < playerData.bestTimeEfficiency) {
+                    playerData.bestTimeEfficiency = game.totalSeconds;
+                }
+                
+                playerData.totalTime += game.totalSeconds || 0;
+            }
+        });
+    });
+    
+    const players = Array.from(playerMap.values());
+    
+    // 按探索率和时间效率排序
+    players.sort((a, b) => {
+        // 主要按最佳探索率排序（越高越好）
+        if (Math.abs(a.bestExplorationRate - b.bestExplorationRate) > 0.1) {
+            return b.bestExplorationRate - a.bestExplorationRate;
+        }
+        // 探索率相近时按时间效率排序（越短越好）
+        return a.bestTimeEfficiency - b.bestTimeEfficiency;
+    });
+    
+    const tableBodyId = mode === 'classic' ? 'classicFailedLeaderboardBody' : 'livesFailedLeaderboardBody';
+    const leaderboardBody = document.getElementById(tableBodyId);
+    
+    if (leaderboardBody) {
+        leaderboardBody.innerHTML = '';
+        
+        if (players.length === 0) {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td colspan="5" style="text-align: center; padding: 2rem; color: #666;">
+                    No failed game data available.
+                </td>
+            `;
+            leaderboardBody.appendChild(row);
+            return;
+        }
+        
+        players.forEach((player, index) => {
+            const row = document.createElement('tr');
+            const rank = index + 1;
+            
+            // 为前三名添加特殊样式
+            if (rank <= 3) {
+                row.classList.add(`rank-${rank}`);
+            }
+            
+            const avgTime = player.totalFailedGames > 0 ? player.totalTime / player.totalFailedGames : 0;
+            
+            row.innerHTML = `
+                <td>${rank}</td>
+                <td>${player.username}</td>
+                <td>${player.bestExplorationRate.toFixed(1)}%</td>
+                <td>${formatTime(player.bestTimeEfficiency === Infinity ? avgTime : player.bestTimeEfficiency)}</td>
+                <td>${player.totalFailedGames}</td>
+            `;
+            
+            row.title = `Best exploration: ${player.bestExplorationRate.toFixed(1)}%\nAverage time: ${formatTime(avgTime)}`;
+            
+            leaderboardBody.appendChild(row);
+        });
+    }
+}
+
+// ====== 通用排行榜表格生成函数 ======
+function generateLeaderboardTable(playerMap, sortBy, tableBodyId, icon = '', showModeIcons = false) {
     const players = Array.from(playerMap.values());
     
     // 处理没有获胜记录的玩家
@@ -238,7 +416,7 @@ function generateLeaderboard(sortBy = 'bestTime') {
         }
     });
     
-    const leaderboardBody = document.getElementById('leaderboardBody');
+    const leaderboardBody = document.getElementById(tableBodyId);
     if (leaderboardBody) {
         leaderboardBody.innerHTML = '';
         
@@ -265,57 +443,95 @@ function generateLeaderboard(sortBy = 'bestTime') {
             const winRate = calculateWinRate(player.gamesWon, player.totalGames);
             const bestTimeDisplay = player.gamesWon > 0 ? formatTime(player.bestTime) : '-';
             
-            // 添加模式标识
+            // 添加模式标识（仅用于综合排行榜）
             let modeIcons = '';
-            if (player.classicWins > 0) modeIcons += '🏆';
-            if (player.livesWins > 0) modeIcons += '💖';
+            if (showModeIcons) {
+                if (player.classicWins > 0) modeIcons += '🏆';
+                if (player.livesWins > 0) modeIcons += '💖';
+            }
             
             row.innerHTML = `
                 <td>${rank}</td>
-                <td>${player.username} ${modeIcons}</td>
+                <td>${icon} ${player.username} ${modeIcons}</td>
                 <td>${bestTimeDisplay}</td>
                 <td>${player.gamesWon}</td>
                 <td>${winRate}%</td>
             `;
             
             // 添加tooltip显示详细信息
-            row.title = `Classic: ${player.classicGames} games, ${player.classicWins} wins\nLives: ${player.livesGames} games, ${player.livesWins} wins`;
+            if (showModeIcons && player.classicGames !== undefined) {
+                row.title = `Classic: ${player.classicGames} games, ${player.classicWins} wins\nLives: ${player.livesGames} games, ${player.livesWins} wins`;
+            }
             
             leaderboardBody.appendChild(row);
         });
     }
 }
 
-// 显示难度统计
-function displayDifficultyStats(difficulty = 'easy') {
+// ====== 难度统计显示 ======
+function displayDifficultyStats(difficulty = 'easy', mode = 'classic') {
     const playerStats = getCurrentPlayerStats();
-    const difficultyContent = document.getElementById('difficultyContent');
+    const contentId = mode === 'classic' ? 'classicDifficultyContent' : 'livesDifficultyContent';
+    const difficultyContent = document.getElementById(contentId);
     
     if (difficultyContent) {
         if (playerStats && playerStats.difficulty && playerStats.difficulty[difficulty]) {
             const diffStats = playerStats.difficulty[difficulty];
-            const totalGames = diffStats.games + diffStats.livesGames;
-            const totalWins = diffStats.wins + diffStats.livesWins;
+            
+            // 根据模式选择数据
+            let totalGames, totalWins, totalTime;
+            if (mode === 'classic') {
+                totalGames = diffStats.games;
+                totalWins = diffStats.wins;
+                totalTime = diffStats.totalTime;
+            } else {
+                totalGames = diffStats.livesGames;
+                totalWins = diffStats.livesWins;
+                totalTime = 0; // 生命模式的时间统计需要从原始数据获取
+            }
+            
             const winRate = calculateWinRate(totalWins, totalGames);
-            const avgTime = totalGames > 0 ? diffStats.totalTime / totalGames : 0;
+            const avgTime = totalGames > 0 ? totalTime / totalGames : 0;
             
             // 获取该难度的详细数据用于额外统计
             const allData = getAllGameData();
-            const classicGames = allData.classic[difficulty].filter(game => 
-                game.player === playerStats.username
-            );
-            const livesGames = allData.lives[difficulty].filter(game => 
+            const dataSource = mode === 'classic' ? allData.classic : allData.lives;
+            
+            const playerGames = dataSource[difficulty].filter(game => 
                 game.player === playerStats.username
             );
             
             // 计算平均探索率
-            const allGames = [...classicGames, ...livesGames];
-            const avgExplorationRate = allGames.length > 0 ? 
-                (allGames.reduce((sum, game) => sum + parseFloat(game.explorationRate || 0), 0) / allGames.length).toFixed(1) : 0;
+            const avgExplorationRate = playerGames.length > 0 ? 
+                (playerGames.reduce((sum, game) => sum + parseFloat(game.explorationRate || 0), 0) / playerGames.length).toFixed(1) : 0;
             
-            // 计算生命模式统计
-            const avgLivesLost = livesGames.length > 0 ? 
-                (livesGames.reduce((sum, game) => sum + (game.livesLost || 0), 0) / livesGames.length).toFixed(1) : 0;
+            // 生命模式特有统计
+            let modeSpecificStats = '';
+            if (mode === 'lives') {
+                const avgLivesLost = playerGames.length > 0 ? 
+                    (playerGames.reduce((sum, game) => sum + (game.livesLost || 0), 0) / playerGames.length).toFixed(1) : 0;
+                
+                const totalLivesTime = playerGames.reduce((sum, game) => sum + (game.totalSeconds || 0), 0);
+                const avgLivesTime = playerGames.length > 0 ? totalLivesTime / playerGames.length : 0;
+                
+                modeSpecificStats = `
+                    <div class="difficulty-stat">
+                        <span class="label">Avg Lives Lost</span>
+                        <span class="value">${avgLivesLost}</span>
+                    </div>
+                    <div class="difficulty-stat">
+                        <span class="label">Average Time</span>
+                        <span class="value">${formatTime(avgLivesTime)}</span>
+                    </div>
+                `;
+            } else {
+                modeSpecificStats = `
+                    <div class="difficulty-stat">
+                        <span class="label">Average Time</span>
+                        <span class="value">${formatTime(avgTime)}</span>
+                    </div>
+                `;
+            }
             
             difficultyContent.innerHTML = `
                 <div class="difficulty-info">
@@ -335,34 +551,20 @@ function displayDifficultyStats(difficulty = 'easy') {
                         <span class="label">Best Time</span>
                         <span class="value">${formatTime(diffStats.bestTime)}</span>
                     </div>
-                    <div class="difficulty-stat">
-                        <span class="label">Average Time</span>
-                        <span class="value">${formatTime(avgTime)}</span>
-                    </div>
-                    <div class="difficulty-stat">
-                        <span class="label">Classic Mode</span>
-                        <span class="value">${diffStats.games}G/${diffStats.wins}W</span>
-                    </div>
-                    <div class="difficulty-stat">
-                        <span class="label">Lives Mode</span>
-                        <span class="value">${diffStats.livesGames}G/${diffStats.livesWins}W</span>
-                    </div>
+                    ${modeSpecificStats}
                     <div class="difficulty-stat">
                         <span class="label">Avg Exploration</span>
                         <span class="value">${avgExplorationRate}%</span>
                     </div>
-                    <div class="difficulty-stat">
-                        <span class="label">Avg Lives Lost</span>
-                        <span class="value">${avgLivesLost}</span>
-                    </div>
                 </div>
             `;
         } else {
+            const modeText = mode === 'classic' ? 'Classic' : 'Lives';
             difficultyContent.innerHTML = `
                 <div class="difficulty-info">
                     <div class="difficulty-stat">
                         <span class="label">No data available</span>
-                        <span class="value">Start playing ${difficulty} mode!</span>
+                        <span class="value">Start playing ${modeText} ${difficulty} mode!</span>
                     </div>
                 </div>
             `;
@@ -370,30 +572,64 @@ function displayDifficultyStats(difficulty = 'easy') {
     }
 }
 
-// 设置难度按钮事件
+// ====== 事件处理设置 ======
+
+// 设置难度按钮事件（分经典和生命模式）
 function setupDifficultyButtons() {
-    const difficultyButtons = document.querySelectorAll('.difficulty-btn');
-    
-    difficultyButtons.forEach(button => {
+    // 经典模式难度按钮
+    const classicButtons = document.querySelectorAll('.classic-btn');
+    classicButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // 移除所有按钮的active类
-            difficultyButtons.forEach(btn => btn.classList.remove('active'));
+            // 移除同组按钮的active类
+            classicButtons.forEach(btn => btn.classList.remove('active'));
             // 给当前按钮添加active类
             this.classList.add('active');
             
             // 显示对应难度的统计
             const difficulty = this.dataset.difficulty;
-            displayDifficultyStats(difficulty);
+            displayDifficultyStats(difficulty, 'classic');
+        });
+    });
+    
+    // 生命模式难度按钮
+    const livesButtons = document.querySelectorAll('.lives-btn');
+    livesButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // 移除同组按钮的active类
+            livesButtons.forEach(btn => btn.classList.remove('active'));
+            // 给当前按钮添加active类
+            this.classList.add('active');
+            
+            // 显示对应难度的统计
+            const difficulty = this.dataset.difficulty;
+            displayDifficultyStats(difficulty, 'lives');
         });
     });
 }
 
 // 设置排序控件事件
 function setupSortControls() {
-    const sortSelect = document.getElementById('sortBy');
-    if (sortSelect) {
-        sortSelect.addEventListener('change', function() {
-            generateLeaderboard(this.value);
+    // 经典模式排序
+    const classicSortSelect = document.getElementById('classicSortBy');
+    if (classicSortSelect) {
+        classicSortSelect.addEventListener('change', function() {
+            generateClassicLeaderboard(this.value);
+        });
+    }
+    
+    // 生命模式排序
+    const livesSortSelect = document.getElementById('livesSortBy');
+    if (livesSortSelect) {
+        livesSortSelect.addEventListener('change', function() {
+            generateLivesLeaderboard(this.value);
+        });
+    }
+    
+    // 综合排行榜排序
+    const overallSortSelect = document.getElementById('overallSortBy');
+    if (overallSortSelect) {
+        overallSortSelect.addEventListener('change', function() {
+            generateOverallLeaderboard(this.value);
         });
     }
 }
@@ -410,7 +646,7 @@ function initializeMockData() {
     if (!hasData) {
         console.log('No real game data found, creating demo data...');
         
-        const demoData = [
+        const demoClassicData = [
             {
                 totalSeconds: 89.5,
                 formattedTime: "01:29.5",
@@ -421,7 +657,9 @@ function initializeMockData() {
                 difficulty: "Easy",
                 difficultyId: "easy",
                 gameMode: "classic",
-                explorationRate: "85.2"
+                explorationRate: "85.2",
+                exploredCells: 65,
+                totalSafeCells: 71
             },
             {
                 totalSeconds: 145.3,
@@ -433,13 +671,49 @@ function initializeMockData() {
                 difficulty: "Medium",
                 difficultyId: "medium",
                 gameMode: "classic",
-                explorationRate: "92.1"
+                explorationRate: "92.1",
+                exploredCells: 200,
+                totalSafeCells: 216
+            },
+            {
+                totalSeconds: 65.8,
+                formattedTime: "01:05.8",
+                player: "DemoPlayer1",
+                date: new Date().toISOString(),
+                status: "lost",
+                isWin: false,
+                difficulty: "Easy",
+                difficultyId: "easy",
+                gameMode: "classic",
+                explorationRate: "45.2",
+                exploredCells: 32,
+                totalSafeCells: 71
+            }
+        ];
+        
+        const demoLivesData = [
+            {
+                totalSeconds: 120.7,
+                formattedTime: "02:00.7",
+                player: "DemoPlayer3",
+                date: new Date().toISOString(),
+                status: "win",
+                isWin: true,
+                difficulty: "Easy",
+                difficultyId: "easy",
+                gameMode: "lives",
+                explorationRate: "100.0",
+                exploredCells: 71,
+                totalSafeCells: 71,
+                livesLost: 2,
+                finalLives: 1
             }
         ];
         
         // 保存示例数据
-        localStorage.setItem('minesweeper_PlayerScore_easy', JSON.stringify([demoData[0]]));
-        localStorage.setItem('minesweeper_PlayerScore_medium', JSON.stringify([demoData[1]]));
+        localStorage.setItem('minesweeper_PlayerScore_easy', JSON.stringify([demoClassicData[0], demoClassicData[2]]));
+        localStorage.setItem('minesweeper_PlayerScore_medium', JSON.stringify([demoClassicData[1]]));
+        localStorage.setItem('minesweeper_lives_easy', JSON.stringify([demoLivesData[0]]));
         
         console.log('Demo data created');
     }
@@ -447,7 +721,7 @@ function initializeMockData() {
 
 // ====== 3D轮播功能 ======
 let currentSlide = 0;
-const totalSlides = 3;
+const totalSlides = 7; // 更新为7个slides
 let isAnimating = false;
 
 // 更新3D轮播显示
@@ -594,15 +868,6 @@ function setup3DCarousel() {
     updateCarousel3D();
 }
 
-// 自动轮播（可选）
-function startAutoPlay(interval = 5000) {
-    setInterval(() => {
-        if (!isAnimating) {
-            nextSlide();
-        }
-    }, interval);
-}
-
 // ====== 数据导出和调试功能 ======
 
 // 获取所有统计数据（调试用）
@@ -637,7 +902,7 @@ function clearAllStats() {
 
 // 页面加载时初始化
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Statistics page loaded - using real game data');
+    console.log('Enhanced Statistics page loaded - using real game data');
     
     // 初始化演示数据（仅在没有真实数据时）
     initializeMockData();
@@ -645,8 +910,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // 显示当前玩家统计
     displayCurrentPlayerStats();
     
-    // 生成排行榜（默认按最佳时间排序）
-    generateLeaderboard('bestTime');
+    // 生成所有排行榜（默认按最佳时间排序）
+    generateClassicLeaderboard('bestTime');
+    generateLivesLeaderboard('bestTime');
+    generateOverallLeaderboard('bestTime');
+    generateFailedLeaderboard('classic');
+    generateFailedLeaderboard('lives');
     
     // 设置排序控件
     setupSortControls();
@@ -655,7 +924,8 @@ document.addEventListener('DOMContentLoaded', function() {
     setupDifficultyButtons();
     
     // 显示默认难度统计
-    displayDifficultyStats('easy');
+    displayDifficultyStats('easy', 'classic');
+    displayDifficultyStats('easy', 'lives');
     
     // 设置3D轮播
     setup3DCarousel();
