@@ -6,6 +6,13 @@
     <link rel="stylesheet" href="../style/keyboardController.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GamePage</title>
+    <style>
+        /* Adição direta no head para centralizar o conteúdo visual */
+        .game_area_wrapper {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -16,7 +23,7 @@
         <div class="game_window">
             <!-- 游戏模式选择（包含键盘控制） -->
             <div class="mode_selection">
-                <button class="mode_btn active" id="classicModeBtn" onclick="switchGameMode(false)">
+                <button class="mode_btn" id="classicModeBtn" onclick="switchGameMode(false)">
                     🎯 Classic Mode
                 </button>
                 <button class="mode_btn" id="livesModeBtn" onclick="switchGameMode(true)">
@@ -25,13 +32,16 @@
                 
                 <!-- 键盘控制部分 -->
                 <div class="keyboard_section">
-                    <button id="keyboardModeBtn" onclick="toggleKeyboardMode()">
+                    <button class="mode_btn" id="keyboardModeBtn" onclick="toggleKeyboardMode()">
                         ⌨️ Keyboard OFF
                     </button>
-                    <div id="keyboardStatus">
+                    <div class="mode_btn" id="keyboardStatus">
                         WASD:Move, J:Explore, K:Flag, ESC:Exit
                     </div>
                 </div>
+                <button class="mode_btn" id="toggleBombStyleBtn" onclick="toggleBombStyle(true)">
+                    🐱 Cute cat bombs
+                </button>
             </div>
 
             <!-- 键盘控制说明（仅在键盘模式激活时显示） -->
@@ -59,7 +69,6 @@
                     <span class="mine_info">💣 <span id="totalMines">10</span></span>
                     <span class="flag_info">🚩 <span id="flagsLeft">10</span></span>
                     <span class="explored_info">🔍 <span id="exploredCells">0</span>/<span id="totalSafeCells">71</span></span>
-                    <!-- 生命显示 -->
                     <span class="lives_info" id="livesDisplay" style="display: none;">
                         <span id="livesValue">💖💖💖</span>
                     </span>
@@ -70,18 +79,20 @@
             <button id="startButton">Start Game</button>
             <button id="restartButton" style="display: none;">Restart</button>
             
-            <!-- 游戏区域：左边难度按钮，右边游戏板 -->
-            <div class="game_area">
-                <!-- 难度选择按钮 -->
-                <div class="difficulty_buttons">
-                    <button class="difficulty_btn active" id="easyBtn">Easy<br><small>9×9, 10 mines</small></button>
-                    <button class="difficulty_btn" id="mediumBtn">Medium<br><small>16×16, 40 mines</small></button>
-                    <button class="difficulty_btn" id="hardBtn">Hard<br><small>30×16, 99 mines</small></button>
-                </div>
-                
-                <!-- 游戏板 -->
-                <div class="game" id="gameBoard">
-                    <!-- 键盘光标将动态添加到这里 -->
+            <!-- ENVOLVIDO PARA CENTRALIZAR TUDO -->
+            <div class="game_area_wrapper">
+                <div class="game_area">
+                    <!-- Botões de dificuldade -->
+                    <div class="difficulty_buttons">
+                        <button class="difficulty_btn" id="easyBtn">Easy<br><small>9×9, 10 mines</small></button>
+                        <button class="difficulty_btn" id="mediumBtn">Medium<br><small>16×16, 40 mines</small></button>
+                        <button class="difficulty_btn" id="hardBtn">Hard<br><small>30×16, 99 mines</small></button>
+                    </div>
+                    
+                    <!-- Tabuleiro -->
+                    <div class="game" id="gameBoard">
+                        <!-- O conteúdo do tabuleiro é gerado dinamicamente -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -93,6 +104,6 @@
     </section>
     <script src="../script/timer.js"></script>
     <script src="../script/tabuleiro.js"></script>
-    <script src="../script/keyboardController.js"></script> <!-- 新增：键盘控制器 -->
+    <script src="../script/keyboardController.js"></script>
 </body>
 </html>

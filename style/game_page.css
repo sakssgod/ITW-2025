@@ -154,11 +154,12 @@ footer {
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 2.5vh;
+    font-size: 2vh;
     user-select: none;
     background-color: #c0c0c0;
     cursor: pointer;
 }
+
 
 /* Revealed cell style */
 .cell.revealed {
@@ -196,19 +197,18 @@ footer {
 /* Start Button Styles */
 #startButton {
     position: absolute;
-    margin-top: 5vh;
+    margin-top: 25vh;
     background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 8px;
+    padding: 2.5vh 5vh;
+    font-size: 3vh;
+    border-radius: 1.5vh;
     cursor: pointer;
     z-index: 10;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
 #startButton:hover {
     background-color: #45a049;
     transform: scale(1.05);
@@ -396,10 +396,14 @@ footer {
     align-items: center;
     gap: 30px;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 5vh;
+    margin-right: 25vh;
+    margin-bottom: 5vh;
     /* 移除 position: absolute */
 }
-
+.mode_btn{
+    margin-top: 5vh;
+}
 /* 难度按钮容器：竖着排列 */
 .difficulty_buttons {
     display: flex;
