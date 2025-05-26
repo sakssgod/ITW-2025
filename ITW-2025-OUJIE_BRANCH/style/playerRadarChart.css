@@ -1,0 +1,65 @@
+/* 包裹容器样式 */
+#playerRadarWrapper {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px) saturate(180%);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 让图表响应式适配容器 */
+#playerRadarChart {
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* Chart.js 默认字体样式增强 */
+.chartjs-render-monitor {
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    font-size: 14px;
+}
+
+
+/* 大屏时撑满内容区（或更大宽度） */
+@media screen and (min-width: 1250px) {
+    #playerRadarWrapper {
+        max-width: 100%;
+        width: 100%;
+        padding: 2rem 3rem;
+    }
+
+    #playerRadarChart {
+        width: 100% !important;
+        height: 400px !important;
+    }
+
+    #playerRadarWrapper {
+    margin-top: 2rem;
+    padding: 2px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px) saturate(180%);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease;
+    }
+    /* 假设外层内容容器叫 .content 或 .slide-content */
+    .content, .slide-content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    #playerRadarWrapper {
+    grid-column: 1 / -1; /* 在 grid 中强制占据整行 */
+    }
+
+
+}

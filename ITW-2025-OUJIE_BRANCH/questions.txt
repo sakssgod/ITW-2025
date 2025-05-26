@@ -1,0 +1,11 @@
+1. in messages.css put media
+2. change all the fucking style(text? background? put frames?)
+3. connect game page and statistics
+4. connect login/create acc and home page 2 for it to write a name while saying welcome
+5. forget password is not transferring to the needed page
+6. game page is not counting scores
+7. message game over need to be exactly on the page, not brouser
+8. implement all the functionallity to statistics page
+9. avatar and birth date(preset photos)
+gimp (application for changing color)
+

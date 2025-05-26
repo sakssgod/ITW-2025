@@ -1,0 +1,67 @@
+/* game-sounds.css - 扫雷游戏音效相关样式 */
+
+/* 音频元素默认隐藏 */
+audio {
+    display: none;
+}
+
+/* 音效开关按钮样式 */
+.sound-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid darkred;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 100;
+    font-size: 24px;
+}
+
+.sound-toggle:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Start Button 点击效果 */
+#startButton.sound-click {
+    animation: startButtonPulse 0.5s ease-out;
+}
+
+@keyframes startButtonPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0.5vh 1vh rgba(0,0,0,0.2);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0.5vh 2vh rgba(76, 175, 80, 0.5);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0.5vh 1vh rgba(0,0,0,0.2);
+    }
+}
+
+/* 点击效果动画 */
+.click-effect {
+    animation: clickPulse 0.3s ease-out;
+}
+
+@keyframes clickPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

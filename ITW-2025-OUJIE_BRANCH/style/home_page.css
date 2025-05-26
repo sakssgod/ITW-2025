@@ -1,0 +1,121 @@
+h2{text-align:center;}
+body{
+    background-image:url("../media/cat_on_fire.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;               
+}
+
+a:link {
+    color: rgb(173, 46, 0);
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: darkorange;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    cursor: pointer;
+    color: darkred;
+    background-color: transparent;
+    text-decoration: underline;
+}
+a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+.title{
+  text-align:center;
+  color: firebrick;
+}
+
+.subtitle{
+  text-align:center;
+  color:rgb(235, 14, 14);
+}
+
+
+
+
+@media screen and (max-width: 480px) {
+    body{
+        background-image:url("../media/cat_on_fire.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;               
+    }
+    a:link {
+        color: rgb(173, 46, 0);
+        background-color: transparent;
+        text-decoration: none;
+    }
+    a:visited {
+        color: darkorange;
+        background-color: transparent;
+        text-decoration: none;
+    }
+    a:hover {
+        cursor: pointer;
+        color: darkred;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    a:active {
+        color: red;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    .title{
+      text-align:center;
+      color:firebrick;
+    }
+    
+    .subtitle{
+        text-align: center;
+        color: rgb(235, 14, 14);
+    }
+}
+@media screen and (min-width: 720px) and (max-width: 900px) {
+    body{
+        background-image:url("../media/cat_on_fire.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;               
+    }
+    a:link {
+        color: rgb(173, 46, 0);
+        background-color: transparent;
+        text-decoration: none;
+    }
+    a:visited {
+        color: darkorange;
+        background-color: transparent;
+        text-decoration: none;
+    }
+    a:hover {
+        cursor: pointer;
+        color: darkred;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    a:active {
+        color: red;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    .title{
+      text-align:center;
+      color:firebrick;
+    }
+    
+    .subtitle{
+      text-align:center;
+      color: rgb(235, 14, 14);
+    }
+}        

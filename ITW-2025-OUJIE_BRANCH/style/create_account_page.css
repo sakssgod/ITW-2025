@@ -1,0 +1,336 @@
+body{
+    background-image:url("../media/cat_on_fire.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;               
+}
+
+nav {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+}
+
+.icon{
+    width: 6vh;
+    height: 6vh;
+    margin-left: 1.5vh;
+}
+
+.sign{
+    color: white;
+    top: 1em;
+    left: 1em;
+}
+
+.content{
+    display: block;
+    flex-direction: column;
+    gap: 3vh;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 4vh;
+}
+
+label {
+    display: block;
+    margin-bottom: 1vh;
+    margin-top: 2vh;
+    color: firebrick;
+    font-weight: bold;
+    font-size: 3vh;
+}
+
+input {
+    width: 40vh;
+    padding: 1.5vh;
+    border: 0.2vh solid #ccc;
+    border-radius: 1.5vh;
+    background-color: rgba(255, 255, 255, 0.6);
+    font-size: 2vh;
+    outline: none;
+}
+
+input::placeholder {
+    color: rgb(199, 112, 80);
+}
+
+.button-link {
+    display: inline-block;
+    text-align: center;
+    margin-top: 2vh;
+    padding: 1.5vh;
+    font-size: 2vh;
+    border: none;
+    border-radius: 1.5vh;
+    background-color: rgba(160, 30, 30, 0.9);
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+.button-link:hover {
+    background-color: rgba(129, 0, 0, 0.8);
+    transform: scale(1.03);
+}
+
+.button-link:visited{
+    display: inline-block;
+    text-align: center;
+    margin-top: 2vh;
+    padding: 1.5vh;
+    font-size: 2vh;
+    border: none;
+    border-radius: 1.5vh;
+    background-color: rgba(160, 30, 30, 0.9);
+    color: white;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 720px) and (max-width: 900px) {
+    body{
+        background-image:url("../media/cat_on_fire.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;               
+    }
+    
+    nav {
+        position: fixed;
+        top: 1em;
+        right: 1em;
+    }
+    
+    .icon{
+        width: 6vh;
+        height: 6vh;
+        margin-left: 1.5vh;
+    }
+    
+    .sign{
+        color: white;
+        top: 1em;
+        left: 1em;
+    }
+    
+    .content{
+        display: block;
+        flex-direction: column;
+        gap: 3vh;
+        text-align: center;
+    }
+    
+    .input-group {
+        margin-bottom: 4vh;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 1vh;
+        margin-top: 2vh;
+        color: firebrick;
+        font-weight: bold;
+        font-size: 3vh;
+    }
+    
+    input {
+        width: 40vh;
+        padding: 1.5vh;
+        border: 0.2vh solid #ccc;
+        border-radius: 1.5vh;
+        background-color: rgba(255, 255, 255, 0.6);
+        font-size: 2vh;
+        outline: none;
+    }
+    
+    input::placeholder {
+        color: rgb(199, 112, 80);
+    }
+    
+    .button-link {
+        display: inline-block;
+        text-align: center;
+        margin-top: 2vh;
+        padding: 1.5vh;
+        font-size: 2vh;
+        border: none;
+        border-radius: 1.5vh;
+        background-color: rgba(160, 30, 30, 0.9);
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+      
+    .button-link:hover {
+        background-color: rgba(129, 0, 0, 0.8);
+        transform: scale(1.03);
+    }
+    
+    .button-link:visited{
+        display: inline-block;
+        text-align: center;
+        margin-top: 2vh;
+        padding: 1.5vh;
+        font-size: 2vh;
+        border: none;
+        border-radius: 1.5vh;
+        background-color: rgba(160, 30, 30, 0.9);
+        color: white;
+        text-decoration: none;
+    }
+
+}
+
+@media screen and (min-width: 480px) {
+    body{
+        background-image:url("../media/cat_on_fire.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;               
+    }
+    
+    nav {
+        position: fixed;
+        top: 1em;
+        right: 1em;
+    }
+    
+    .icon{
+        width: 6vh;
+        height: 6vh;
+        margin-left: 1.5vh;
+    }
+    
+    .sign{
+        color: white;
+        top: 1em;
+        left: 1em;
+    }
+    
+    .content{
+        display: block;
+        flex-direction: column;
+        gap: 3vh;
+        text-align: center;
+    }
+    
+    .input-group {
+        margin-bottom: 4vh;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 1vh;
+        margin-top: 2vh;
+        color: firebrick;
+        font-weight: bold;
+        font-size: 3vh;
+    }
+    
+    input {
+        width: 40vh;
+        padding: 1.5vh;
+        border: 0.2vh solid #ccc;
+        border-radius: 1.5vh;
+        background-color: rgba(255, 255, 255, 0.6);
+        font-size: 2vh;
+        outline: none;
+    }
+    
+    input::placeholder {
+        color: rgb(199, 112, 80);
+    }
+    
+    .button-link {
+        display: inline-block;
+        text-align: center;
+        margin-top: 2vh;
+        padding: 1.5vh;
+        font-size: 2vh;
+        border: none;
+        border-radius: 1.5vh;
+        background-color: rgba(160, 30, 30, 0.9);
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+      
+    .button-link:hover {
+        background-color: rgba(129, 0, 0, 0.8);
+        transform: scale(1.03);
+    }
+    
+    .button-link:visited{
+        display: inline-block;
+        text-align: center;
+        margin-top: 2vh;
+        padding: 1.5vh;
+        font-size: 2vh;
+        border: none;
+        border-radius: 1.5vh;
+        background-color: rgba(160, 30, 30, 0.9);
+        color: white;
+        text-decoration: none;
+    }
+
+}
+
+ 
+/* 头像选择样式 */
+.avatar-selection {
+    margin: 2vh 0;
+}
+
+.avatar-options {
+    display: flex;
+    justify-content: center;
+    gap: 1vh;
+    flex-wrap: wrap;
+    margin-top: 1vh;
+}
+
+.avatar-option {
+    cursor: pointer;
+    border: 0.3vh solid transparent;
+    border-radius: 50%;
+    transition: border-color 0.3s ease;
+}
+
+.avatar-option img {
+    width: 8vh;
+    height: 8vh;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.avatar-option.selected {
+    border-color: firebrick;
+}
+
+.avatar-option:hover {
+    border-color: rgba(160, 30, 30, 0.7);
+}
+
+/* 日期输入样式 */
+input[type="date"] {
+    width: 40vh;
+    padding: 1.5vh;
+    border: 0.2vh solid #ccc;
+    border-radius: 1.5vh;
+    background-color: rgba(255, 255, 255, 0.6);
+    font-size: 2vh;
+    outline: none;
+    color: rgb(199, 112, 80);
+}
+
+input[type="date"]:focus {
+    background-color: rgba(255, 255, 255, 0.8);
+}

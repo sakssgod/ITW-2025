@@ -1,0 +1,149 @@
+body{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image:url("../media/cat_on_fire.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;        
+    background-color: rgba(207, 207, 208, 0.5);
+    background-blend-mode: lighten;          
+}
+
+
+.images_spot{
+    display: flex; 
+    justify-content: center;
+    flex-wrap: wrap; 
+    gap: 18vh;
+    margin-top: 6vh; 
+    margin-bottom: 7vh;
+}
+img{
+    justify-content: center;
+    width: auto;
+    height: 30.5vh;
+}
+h2{
+    color: darkred;
+}
+.banner_button_image{
+    width: 8.5vh;
+    height: auto;
+    justify-content: space-between;
+}
+.page-title-container{
+    margin-top: 1vh;
+}
+
+#bomb{
+    width: 15vh;
+    margin-top: -4vh;
+    margin-left: 3vh;
+}
+.video_tutuorial{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 18vh;
+    margin-top: 3.5vh; 
+}
+.rules_text{
+    text-indent: 5vh;
+    margin-left: 1.5vh;
+    font-size: 3vh;
+}
+.subtitle{
+    margin-left: 1.5vh;
+}
+video{
+    width:100vh;
+    height:60vh;
+}
+
+@media screen and (max-width: 720px) {
+    
+    
+
+    .header{
+
+        grid-template-columns: auto 10vh;
+
+    }
+    #title{
+
+        font-size: 6vh; 
+    }
+
+
+
+    
+}
+
+
+@media screen and (min-width: 720px) and (max-width: 900px) {
+    body{
+        background-image:url("../media/cat_on_fire.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;     
+        background-color:rgba(207, 207, 208, 0.5);
+        background-blend-mode: lighten;          
+    }
+    
+    
+    .images_spot{
+        display: flex; 
+        justify-content: center;
+        flex-wrap: wrap; 
+        gap: 18vh;
+        margin-top: 6vh; 
+        margin-bottom: 7vh;
+    }
+    img{
+        justify-content: center;
+        width: auto;
+        height: 34.5vh;
+    }
+    header{
+        display:grid;
+        grid-template-columns: auto 10vh;
+        grid-template-rows: auto;
+    }
+    #title{
+        text-align: center;
+        grid-row: 1/2;
+        font-size: 6vh;
+    }
+    .banner_button_image{
+        width: 8.5vh;
+        height: auto;
+        margin-top: 3.5vh;
+    }
+    .video_tutuorial{
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap; 
+        gap: 18vh;
+        margin-top: 3.5vh; 
+    }
+    .rules_text{
+        text-indent: 5vh;
+        margin-left: 1.5vh;
+        font-size: 3vh;
+    }
+    .subtitle{
+        margin-left: 1.5vh;
+    }
+    video{
+        width:100vh;
+        height:60vh;
+    }
+    h1 {
+        font-size: 8.5vh; 
+    }
+}

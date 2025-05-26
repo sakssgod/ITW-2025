@@ -1,0 +1,548 @@
+body {
+    display: grid;
+    grid-template-rows: 9vh auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 99%;
+    height: 98%;
+    background-image:url("../media/cat_on_fire.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-color: rgba(196, 193, 205, 0.15);
+    background-size: cover;
+    background-blend-mode: lighten;    
+}
+
+header{
+    display:grid;
+    grid-template-columns: auto 18vh;
+    grid-template-rows: auto;
+}
+#title{
+    text-align: center;
+    grid-row: 1/2;
+    font-size: 8.5vh;
+    margin-left: 17vh;
+    margin-top: 1.5vh;
+    color: darkred;
+}
+
+.content{
+    display: grid;
+    grid-template-rows: auto 11.5vh;
+}
+
+#house{
+    margin-top: 3vh;
+}
+
+.banner_button_image{
+    width: 8.5vh;
+    height: auto;
+}
+
+.game_window{
+    display: flex;
+    display: grid;
+    grid-template-rows: auto auto;
+    place-items: center; /* isto combina justify e align */
+}
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    width: 88vh;
+    height: 63vh;
+    border: 0.15vh solid black;
+    background-color: rgba(196, 193, 205, 0.8);
+}
+
+footer {
+    display: flex; /* Mudança de grid para flex */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 60vh; /* Espaço entre os botões */
+}
+
+#minesweeper-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#minesweeper-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25vh;
+    border: 0.625vh solid #333; /* 加粗的黑色边框 */
+    border-radius: 1.25vh; /* 圆角边框 */
+    background-color: rgba(255, 255, 255, 0.9); /* 半透明背景 */
+    box-shadow: 0vh 0vh 1.875vh rgba(0, 0, 0, 0.5); /* 添加阴影效果 */
+}
+
+#mycanv {
+    border: 0.375vh solid red; /* 让 Canvas 也有红色边框 */
+    border-radius: 0.625vh; /* 轻微圆角 */
+    background-color: #ddd; /* 灰色背景，区分游戏区域 */
+}
+
+#gnav {
+    height: 3.75vh;
+    text-align: center;
+}
+#mine-total {
+    width: 3.75vh;
+    text-align: center;
+}
+
+.game{
+    border-style: solid;
+    background-color: rgba(196, 193, 205, 0.8);
+    border-color: black;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+}
+
+.cell {
+    border-top: 0.278vh solid #ffffff;
+    border-left: 0.278vh solid #ffffff;
+    border-right: 0.278vh solid #7b7b7b;
+    border-bottom: 0.278vh solid #7b7b7b;
+}
+
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+}
+
+@media screen and (max-width: 720px) {
+    #title{
+        font-size: 6vh;
+    }
+    .banner_button_image{
+        width: 6vh;
+        height: auto;
+    }
+}
+@media screen and (min-width: 720px) and (max-width: 900px) {
+    #title{
+        font-size: 7vh;
+    }
+    .banner_button_image{
+        width: 7vh;
+        height: auto;
+    }  
+}
+
+/* Additional CSS styles for cell states */
+
+/* Cell state styles */
+.cell {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-top: 0.278vh solid #ffffff;
+    border-left: 0.278vh solid #ffffff;
+    border-right: 0.278vh solid #7b7b7b;
+    border-bottom: 0.278vh solid #7b7b7b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 2.5vh;
+    user-select: none;
+    background-color: #c0c0c0;
+    cursor: pointer;
+}
+
+
+/* Revealed cell style */
+.cell.revealed {
+    border: 0.1vh solid #7b7b7b;
+    background-color: #d9d9d9;
+}
+
+
+/* Adjacent mine count colors */
+.cell.adjacent-1 { color: #0066ff; font-weight: bold; }
+.cell.adjacent-2 { color: #00aa00; font-weight: bold; }
+.cell.adjacent-3 { color: #ff0000; font-weight: bold; }
+.cell.adjacent-4 { color: #000080; font-weight: bold; }
+.cell.adjacent-5 { color: #800000; font-weight: bold; }
+.cell.adjacent-6 { color: #008080; font-weight: bold; }
+.cell.adjacent-7 { color: #000000; font-weight: bold; }
+.cell.adjacent-8 { color: #666666; font-weight: bold; }
+
+.cell.mine {
+    font-size: 2.5vh;
+    text-align: center;
+    line-height: 1;
+    background-image: none;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Estilo alternativo: imagem bombcat.png */
+.cell.mine.bomb-image {
+    font-size: 0; /* Esconde o emoji */
+    background-image: url("../media/bombcat.png");
+}
+
+/* Start Button Styles */
+#startButton {
+    position: absolute;
+    margin-top: 25vh;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 2.5vh 5vh;
+    font-size: 3vh;
+    border-radius: 1.5vh;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 0.5vh 1vh rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#startButton:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+#restartButton {
+    position: absolute;
+    margin-top: 25vh;
+    background-color: #d23c31;
+    color: white;
+    border: none;
+    padding: 2.5vh 5vh;
+    font-size: 3vh;
+    border-radius: 1.5vh;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 0.5vh 1vh rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#restartButton:hover {
+    background-color: #da190b;
+    transform: scale(1.05);
+}
+
+/* Game board overlay when not started */
+.game-not-started {
+    pointer-events: none;
+    opacity: 0.5;
+    position: relative;
+}
+
+.game_info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3.75vh;
+    flex-wrap: wrap; /* 🆕 允许换行 */
+    
+}
+
+.timer{
+    font-size: 2.5vh;
+    font-weight: bold;
+    color: darkred;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1vh 2vh;
+    border-radius: 1vh;
+    border: 0.25vh solid darkred;
+}
+
+.mine_counter {
+    display: flex;
+    gap: 1.875vh;
+    flex-wrap: wrap; /* 🆕 允许换行 */
+}
+
+.flag_info {
+    border-color: #4444ff;
+    color: #0000cc;
+}
+
+/* Flagged cell style */
+.cell.flagged {
+    background-color: #ffdddd;
+    border-color: #ff6666;
+}
+
+/* 在你的 .mine_info, .flag_info 样式后面添加这些 */
+
+.mine_info, .flag_info, .explored_info, .lives_info {
+    font-size: 2.5vh;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1vh 1.5vh;
+    border-radius: 0.75vh;
+    border: 0.25vh solid #666;
+}
+
+.mine_info {
+    border-color: #ff4444;
+    color: #cc0000;
+}
+
+.flag_info {
+    border-color: #4444ff;
+    color: #0000cc;
+}
+
+/* 新增：探索格子计数器样式 */
+.explored_info {
+    border-color: #44aa44;
+    color: #006600;
+}
+
+/* 🆕 新增：生命计数器样式 */
+.lives_info {
+    border-color: #e91e63;
+    color: #c2185b;
+    animation: none; /* 默认无动画 */
+}
+
+/* 🆕 失去生命时的震动动画 */
+.lives_info.life_lost {
+    animation: lifeLost 0.6s ease-in-out;
+}
+
+@keyframes lifeLost {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-0.375vh); }
+    20%, 40%, 60%, 80% { transform: translateX(0.375vh); }
+}
+
+/* Questioned cell style */
+.cell.questioned {
+    background-color: #ffffdd;
+    border-color: #ffcc66;
+}
+
+/* End Button Styles - 放在右边和计数器一起 */
+#endButton {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 1vh 1.5vh;        /* ✅ 更小的padding */
+    font-size: 2.5vh;          /* ✅ 更小的字体 */
+    border-radius: 0.75vh;       /* ✅ 更小的圆角 */
+    cursor: pointer;
+    box-shadow: 0 0.25vh 0.5vh rgba(0,0,0,0.2);  /* ✅ 更小的阴影 */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;        /* ✅ 新增粗体 */
+}
+
+#endButton:hover {
+    background-color: #f57c00;
+    transform: scale(1.05);
+}
+
+/* ========== 🆕 游戏模式选择样式 ========== */
+
+.mode_selection {
+    display: flex;
+    justify-content: center;
+    gap: 1.875vh;
+    margin-bottom: 1.875vh;
+    flex-wrap: wrap;
+}
+
+.mode_btn {
+    padding: 1.25vh 2.5vh;
+    border: 0.25vh solid #666;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border-radius: 1vh;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 2.5vh;
+    transition: all 0.3s ease;
+    min-width: 15vh;
+    text-align: center;
+}
+
+.mode_btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: translateY(-0.25vh);
+    box-shadow: 0 0.5vh 1vh rgba(0,0,0,0.2);
+}
+
+.mode_btn.active {
+    background-color: #2196F3;
+    color: white;
+    border-color: #1976D2;
+    box-shadow: 0 0.25vh 0.5vh rgba(33, 150, 243, 0.3);
+}
+
+.mode_btn.active:hover {
+    background-color: #1976D2;
+}
+
+/* ========== 在你现有CSS文件末尾添加这些样式 ========== */
+
+/* 游戏区域布局：左边按钮，右边游戏板 */
+.game_area {
+    display: flex;
+    align-items: center;
+    gap: 3.75vh;
+    justify-content: center;
+    margin-top: 5vh;
+    margin-right: 25vh;
+    margin-bottom: 5vh;
+    /* 移除 position: absolute */
+}
+.mode_btn{
+    margin-top: 5vh;
+}
+/* 难度按钮容器：竖着排列 */
+.difficulty_buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875vh;
+}
+
+/* 难度按钮样式 */
+.difficulty_btn {
+    padding: 2vh 3vh;
+    border: 0.25vh solid #666;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border-radius: 1vh;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 2.5vh;              /* 改小字体 */
+    transition: all 0.3s ease;
+    min-width: 12.5vh;             /* 增加最小宽度 */
+    text-align: center;
+    line-height: 1.3;             /* 新增行高 */
+}
+
+/* 新增：小字体样式 */
+.difficulty_btn small {
+    font-size:2vh;
+    font-weight: normal;
+    color: #666;
+}
+
+.difficulty_btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: translateY(-0.25vh);
+    box-shadow: 0 0.5vh 1vh rgba(0,0,0,0.2);
+}
+
+.difficulty_btn.active {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #45a049;
+    box-shadow: 0 0.25vh 0.5vh rgba(0,0,0,0.3);
+}
+
+/* 新增：激活状态下的小字体颜色 */
+.difficulty_btn.active small {
+    color: #e8f5e8;
+}
+
+.difficulty_btn.active:hover {
+    background-color: #45a049;
+}
+
+/* 小屏幕响应式 */
+@media screen and (max-width: 720px) {
+    .game_area {
+        flex-direction: column;
+        gap: 2.5vh;
+    }
+    
+    .difficulty_buttons {
+        flex-direction: row;
+        gap: 1.25vh;
+    }
+    
+    .difficulty_btn {
+        min-width: 8.75vh;
+        padding: 1vh 1.5vh;
+        font-size: 1.25vh;
+    }
+    
+    .difficulty_btn small {
+        font-size: 1vh;
+    }
+
+    /* 🆕 小屏幕下的模式选择 */
+    .mode_selection {
+        gap: 1.25vh;
+    }
+    
+    .mode_btn {
+        min-width: 12.5vh;
+        padding: 1vh 2vh;
+        font-size: 1.5vh;
+    }
+    
+    .game_info {
+        gap: 1.875vh;
+    }
+    
+    .mine_counter {
+        gap: 1.25vh;
+    }
+}
+
+/* 禁用状态的难度按钮样式 */
+.difficulty_btn.disabled,
+.difficulty_btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background-color: rgba(200, 200, 200, 0.5) !important;
+    color: #999 !important;
+    border-color: #ccc !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.difficulty_btn.disabled:hover,
+.difficulty_btn:disabled:hover {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background-color: rgba(200, 200, 200, 0.5) !important;
+    color: #999 !important;
+    border-color: #ccc !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.difficulty_btn.disabled small,
+.difficulty_btn:disabled small {
+    color: #bbb !important;
+}
+
+/* 🆕 临时消息样式 */
+.temporary-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 2vh 3vh;
+    border-radius: 1vh;
+    font-size: 2.25vh;
+    font-weight: bold;
+    z-index: 1000;
+    animation: messageAnimation 0.3s ease;
+}
+
+@keyframes messageAnimation {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}

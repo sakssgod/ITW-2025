@@ -1,0 +1,481 @@
+body{
+    background-image:url("../media/cat_on_fire.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;               
+}
+
+nav {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+}
+
+.icon{
+    width: 6vh;
+    height: 6vh;
+    margin-left: 1.5vh;
+}
+
+#forget{
+    color: rgb(146, 77, 77);
+    text-align: center;
+    text-decoration: none;
+}
+
+.sign{
+    color: white;
+    top: 1em;
+    left: 1em;
+}
+
+section {
+    display: block;
+    flex-direction: column;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 4vh;
+}
+
+label {
+    display: block;
+    margin-bottom: 1vh;
+    margin-top: 3vh;
+    color: firebrick;
+    font-weight: bold;
+    font-size: 3vh;
+}
+
+input {
+    width: 40vh;
+    padding: 1.5vh;
+    border: 0.2vh solid #ccc;
+    border-radius: 1.5vh;
+    background-color: rgba(255, 255, 255, 0.6);
+    font-size: 2vh;
+    outline: none;
+}
+
+input::placeholder {
+    color: rgb(199, 112, 80);
+}
+
+/* 按钮容器 - 实现左右对称布局 */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 3vh;
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+    flex-wrap: wrap;
+}
+
+/* Sign Up 按钮样式 */
+#signup-btn {
+    display: inline-block;
+    text-align: center;
+    padding: 1.5vh 3vh;
+    font-size: 2vh;
+    border: none;
+    border-radius: 1.5vh;
+    background-color: rgba(30, 160, 60, 0.9); /* 绿色背景 */
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    min-width: 15vh;
+    box-sizing: border-box;
+}
+
+#signup-btn:hover {
+    background-color: rgba(20, 140, 50, 0.9);
+    transform: scale(1.03);
+}
+
+#signup-btn:visited {
+    color: white;
+    text-decoration: none;
+}
+
+/* Log In 按钮样式 */
+#login-btn {
+    display: inline-block;
+    text-align: center;
+    padding: 1.5vh 3vh;
+    font-size: 2vh;
+    border: none;
+    border-radius: 1.5vh;
+    background-color: rgba(160, 30, 30, 0.9); /* 红色背景 */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    min-width: 15vh;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+#login-btn:hover {
+    background-color: rgba(129, 0, 0, 0.8);
+    transform: scale(1.03);
+}
+
+/* 旧的 button-link 样式保持兼容性 */
+.button-link {
+    display: inline-block;
+    text-align: center;
+    margin-top: 2vh;
+    padding: 1.5vh;
+    font-size: 2vh;
+    border: none;
+    border-radius: 1.5vh;
+    background-color: rgba(160, 30, 30, 0.9);
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+  
+.button-link:hover {
+    background-color: rgba(129, 0, 0, 0.8);
+    transform: scale(1.03);
+}
+
+.button-link:visited{
+    display: inline-block;
+    text-align: center;
+    margin-top: 2vh;
+    padding: 1.5vh;
+    font-size: 2vh;
+    border: none;
+    border-radius: 1.5vh;
+    background-color: rgba(160, 30, 30, 0.9);
+    color: white;
+    text-decoration: none;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 600px) {
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 2vh;
+    }
+    
+    #signup-btn,
+    #login-btn {
+        width: 40vh;
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body{
+        background-image:url("../media/cat_on_fire.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;               
+    }
+    
+    nav {
+        position: fixed;
+        top: 1em;
+        right: 1em;
+    }
+    
+    .icon{
+        width: 6vh;
+        height: 6vh;
+        margin-left: 1.5vh;
+    }
+    
+    #forget{
+        color: rgb(146, 77, 77);
+        text-align: center;
+        text-decoration: none;
+        color: white;
+    }
+    
+    .sign{
+        color: white;
+    }
+    
+    section {
+        display: block;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .input-group {
+        margin-bottom: 4vh;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 1vh;
+        margin-top: 3vh;
+        color: firebrick;
+        font-weight: bold;
+        font-size: 3vh;
+    }
+    
+    input {
+        width: 40vh;
+        padding: 1.5vh;
+        border: 0.2vh solid #ccc;
+        border-radius: 1.5vh;
+        background-color: rgba(255, 255, 255, 0.6);
+        font-size: 2vh;
+        outline: none;
+    }
+    
+    input::placeholder {
+        color: rgb(199, 112, 80);
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 3vh;
+        margin-top: 3vh;
+        margin-bottom: 2vh;
+        flex-wrap: wrap;
+    }
+
+    #signup-btn {
+        display: inline-block;
+        text-align: center;
+        padding: 1.5vh 3vh;
+        font-size: 2vh;
+        border: none;
+        border-radius: 1.5vh;
+        background-color: rgba(30, 160, 60, 0.9);
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        min-width: 15vh;
+        box-sizing: border-box;
+    }
+    
+    #signup-btn:hover {
+        background-color: rgba(20, 140, 50, 0.9);
+        transform: scale(1.03);
+    }
+    
+    #signup-btn:visited {
+        color: white;
+        text-decoration: none;
+    }
+
+    #login-btn {
+        display: inline-block;
+        text-align: center;
+        padding: 1.5vh 3vh;
+        font-size: 2vh;
+        border: none;
+        border-radius: 1.5vh;
+        background-color: rgba(160, 30, 30, 0.9);
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        min-width: 15vh;
+        box-sizing: border-box;
+        font-family: inherit;
+    }
+
+    #login-btn:hover {
+        background-color: rgba(129, 0, 0, 0.8);
+        transform: scale(1.03);
+    }
+
+    .button-link {
+        display: inline-block;
+        text-align: center;
+        margin-top: 2vh;
+        padding: 1.5vh;
+        font-size: 2vh;
+        border: none;
+        border-radius: 1.5vh;
+        background-color: rgba(160, 30, 30, 0.9);
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+      
+    .button-link:hover {
+        background-color: rgba(129, 0, 0, 0.8);
+        transform: scale(1.03);
+    }
+    
+    .button-link:visited{
+        display: inline-block;
+        text-align: center;
+        margin-top: 2vh;
+        padding: 1.5vh;
+        font-size: 2vh;
+        border: none;
+        border-radius: 1.5vh;
+        background-color: rgba(160, 30, 30, 0.9);
+        color: white;
+        text-decoration: none;
+    }
+}
+
+@media screen and (min-width: 720px) and (max-width: 900px) {
+    body{
+        background-image:url("../media/cat_on_fire.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;               
+    }
+    
+    nav {
+        position: fixed;
+        top: 1em;
+        right: 1em;
+    }
+    
+    .icon{
+        width: 6vh;
+        height: 6vh;
+        margin-left: 1.5vh;
+    }
+    
+    #forget{
+        color: rgb(146, 77, 77);
+        text-align: center;
+        text-decoration: none;
+    }
+    
+    .sign{
+        color: white;
+    }
+    
+    section {
+        display: block;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .input-group {
+        margin-bottom: 4vh;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 1vh;
+        margin-top: 3vh;
+        color: firebrick;
+        font-weight: bold;
+        font-size: 3vh;
+    }
+    
+    input {
+        width: 40vh;
+        padding: 1.5vh;
+        border: 0.2vh solid #ccc;
+        border-radius: 1.5vh;
+        background-color: rgba(255, 255, 255, 0.6);
+        font-size: 2vh;
+        outline: none;
+    }
+    
+    input::placeholder {
+        color: rgb(199, 112, 80);
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 4vh;
+        margin-top: 3vh;
+        margin-bottom: 2vh;
+        flex-wrap: wrap;
+    }
+
+    #signup-btn {
+        display: inline-block;
+        text-align: center;
+        padding: 1.5vh 3vh;
+        font-size: 2vh;
+        border: none;
+        border-radius: 1.5vh;
+        background-color: rgba(30, 160, 60, 0.9);
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        min-width: 15vh;
+        box-sizing: border-box;
+    }
+    
+    #signup-btn:hover {
+        background-color: rgba(20, 140, 50, 0.9);
+        transform: scale(1.03);
+    }
+    
+    #signup-btn:visited {
+        color: white;
+        text-decoration: none;
+    }
+
+    #login-btn {
+        display: inline-block;
+        text-align: center;
+        padding: 1.5vh 3vh;
+        font-size: 2vh;
+        border: none;
+        border-radius: 1.5vh;
+        background-color: rgba(160, 30, 30, 0.9);
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        min-width: 15vh;
+        box-sizing: border-box;
+        font-family: inherit;
+    }
+
+    #login-btn:hover {
+        background-color: rgba(129, 0, 0, 0.8);
+        transform: scale(1.03);
+    }
+
+    .button-link {
+        display: inline-block;
+        text-align: center;
+        margin-top: 2vh;
+        padding: 1.5vh;
+        font-size: 2vh;
+        border: none;
+        border-radius: 1.5vh;
+        background-color: rgba(160, 30, 30, 0.9);
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+      
+    .button-link:hover {
+        background-color: rgba(129, 0, 0, 0.8);
+        transform: scale(1.03);
+    }
+    
+    .button-link:visited{
+        display: inline-block;
+        text-align: center;
+        margin-top: 2vh;
+        padding: 1.5vh;
+        font-size: 2vh;
+        border: none;
+        border-radius: 1.5vh;
+        background-color: rgba(160, 30, 30, 0.9);
+        color: white;
+        text-decoration: none;
+    }
+}

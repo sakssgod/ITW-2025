@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../style/game-nav.css">
+        <link rel="stylesheet" href="../style/statistics_page.css">
+        <link rel="stylesheet" href="../style/rules_page.css">
+        <title>RulesPage</title>
+    </head>
+    <body>
+        <header>
+            <nav class="game-nav">
+                <div class="nav-left">
+                    <a href="home_page2.html">
+                        <img src="../media/house_red.png" 
+                        alt="Home" 
+                        title="Home page" 
+                        class="nav-icon">
+                    </a>
+                </div>
+                <div class="page-title-container">
+                    <h1 id="page-title">Rules </h1>
+                </div>
+                
+                <div class="nav-right">
+                    <div id="user-display" class="desktop-only">
+                        <span id="username-display">sakss</span>
+                        <img id="avatar-display" src="../media/cat1.jpeg" class="user-avatar" alt="User Avatar">
+                    </div>
+                    
+                    <a href="game_page.html" class="desktop-only">
+                        <img src="../media/bomba_white.png" 
+                        alt="Play Game" 
+                        title="Play Game" 
+                        class="nav-icon game-icon">
+                    </a>
+                    
+                    <!-- 移动端菜单图标 -->
+                    <div class="mobile-menu-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </nav>
+
+                    <div class="mobile-menu">
+            <div class="mobile-menu-user">
+                <img id="mobile-avatar" src="../media/cat1.jpeg" class="user-avatar" alt="User Avatar">
+                <span id="mobile-username">sakss</span>
+            </div>
+            <a href="game_page.html" class="mobile-menu-item">
+                <img src="../media/bomba_white.png" class="menu-icon" alt="Play Game"> Play Game
+            </a>
+            <!-- 可以添加更多菜单项 -->
+        </div>
+
+
+
+        </header>
+        <section class="content">
+            <h2 class="subtitle">Normal mode</h2>
+            <p class="rules_text">Minesweeper is a game where mines are hidden in a grid of squares. Safe squares have numbers telling you how many mines touch the square. You can use the number clues to solve the game by opening all of the safe squares. If you click on a mine you lose the game!</p>
+            <p class="rules_text">Windows Minesweeper always makes the first click safe. You open squares with the left mouse button and put flags on mines with the right mouse button. Pressing the right mouse button again changes your flag into a questionmark. When you open a square that does not touch any mines, it will be empty and the adjacent squares will automatically open in all directions until reaching squares that contain numbers. A common strategy for starting games is to randomly click until you get a big opening with lots of numbers.</p>  
+            <p class="rules_text">If you flag all of the mines touching a number, chording on the number opens the remaining squares. Chording is when you press both mouse buttons at the same time. This can save you a lot of work! However, if you place the correct number of flags on the wrong squares, chording will explode the mines.</p>
+            <div class="images_spot">
+                <img src="../media/mine_1.png" alt="First example of the game, a game that the player won!">
+                <img src="../media/mine_2.png" alt="Second example of the game, a game that the player is mid-game">
+                <img src="../media/mine_3.jpg" alt="Third example of the game, a game that the player lost because explode a mine">
+            </div>
+            <h2 class="subtitle">Tuturial - video</h2>
+            <div class="video_tutuorial">
+                <br>
+                <video controls width="600">
+                    <source src="../media/how_to_play_minesweeper.mp4" type="video/mp4">
+                    O teu navegador não suporta a reprodução de vídeos. 
+                    <a href="../media/how_to_play_minesweeper.mp4">Clica aqui para descarregar o vídeo.</a>
+                </video>            
+            </div>
+        </section>
+        <script src="../script/game-nav.js"></script>
+    </body>
+</html> 
