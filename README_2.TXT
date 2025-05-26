@@ -58,7 +58,7 @@ Além dos requisitos básicos, implementámos diversas funcionalidades adicionai
 
 Divisão do Trabalho
 
-Ruben – rules_page, game_page (33.33%)  
-Oujie – create_account_page, login_page, forget_password_page (33.33%)  
-Viktoriia – home_page, home_page2, statistics_page (33.33%)
+Ruben – (33.33%)  
+Oujie – (33.33%)  
+Viktoriia – (33.33%)
 
