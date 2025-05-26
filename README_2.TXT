@@ -32,7 +32,7 @@ O projeto cumpre todos os requisitos essenciais definidos no enunciado:
 
 ✅ Tabela de 10 melhores tempos por dificuldade, salva localmente
 
-（?） Design responsivo implementado em todas as páginas, exceto para os modos médio e difícil no gamepage.html 
+（?） Design responsivo implementado em todas as páginas, exceto para os modos médio e difícil no game_page.html 
 
 Funcionalidades Avançadas (6 Pontos)
 Além dos requisitos básicos, implementámos diversas funcionalidades adicionais:
