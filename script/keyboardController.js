@@ -1,3 +1,5 @@
+//ITW 2024/25 - Grupo 36 - TP 25 - Oujie Wu 62228;  Ruben Pereira 58378; Viktoriia Ivanova 60882
+
 // 键盘控制器 - 为扫雷游戏提供键盘操作功能
 // 需要在 tabuleiro.js 之后加载
 

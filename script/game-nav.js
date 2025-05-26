@@ -1,3 +1,4 @@
+//ITW 2024/25 - Grupo 36 - TP 25 - Oujie Wu 62228;  Ruben Pereira 58378; Viktoriia Ivanova 60882
 // 游戏导航栏通用功能 - 可在所有游戏页面共用
 
 // 在页面加载完成后初始化导航栏

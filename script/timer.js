@@ -1,3 +1,5 @@
+//ITW 2024/25 - Grupo 36 - TP 25 - Oujie Wu 62228;  Ruben Pereira 58378; Viktoriia Ivanova 60882
+
 // 简单独立的计时器 - 不依赖任何其他文件
 let gameSeconds = 0;           // 游戏秒数
 let gameTimerInterval = null;  // 计时器间隔
