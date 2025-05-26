@@ -8,4 +8,8 @@
 8. implement all the functionallity to statistics page
 9. avatar and birth date(preset photos)
 gimp (application for changing color)
+10.media
 
+
+
+mine - media, sound
