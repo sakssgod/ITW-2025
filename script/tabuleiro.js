@@ -54,6 +54,20 @@ function enableDifficultyButtons() {
 
 // 🆕 游戏模式切换函数 
 function switchGameMode(isLivesMode) {
+
+    const clickSound = document.getElementById('clickSound');
+    if (clickSound) {
+        clickSound.currentTime = 0;
+        clickSound.volume = 0.6;
+        clickSound.play().catch(e => console.log(`Error playing click sound: ${e}`));
+    }
+
+    // 🎵 淡出停止背景音乐
+    const fightSound = document.getElementById('fightSound');
+    if (fightSound) {
+        fadeOutAudio(fightSound, 800); // 800ms淡出
+    }
+
     // 如果游戏正在进行，询问确认
     if (gameStarted && !gameOver) {
         if (!confirm('Switching the game mode will end the current game. Are you sure you want to continue?')) {
@@ -138,6 +152,13 @@ function loseLife(row, col) {
         cellElement.style.backgroundColor = "#ff6666";
     }
 
+    // 🎵 播放失去生命音效（前两次踩雷）
+    const explosionSound = document.getElementById('trySound');
+    if (explosionSound) {
+        explosionSound.currentTime = 0;
+        explosionSound.volume = 0.8;
+        explosionSound.play().catch(e => console.log(`Error playing explosion sound: ${e}`));
+    }
     
     // 更新生命显示
     updateLivesDisplay();
@@ -152,6 +173,22 @@ function loseLife(row, col) {
     }
     
     if (currentLives <= 0) {
+        // 🎵 淡出停止背景音乐并播放游戏结束音效
+        const fightSound = document.getElementById('fightSound');
+        if (fightSound) {
+            fadeOutAudio(fightSound, 1000); // 1秒淡出
+        }
+        
+        // 延迟播放失败音效，让淡出效果更明显
+        setTimeout(() => {
+            const loseSound = document.getElementById('loseSound');
+            if (loseSound) {
+                loseSound.currentTime = 0;
+                loseSound.volume = 0.9;
+                loseSound.play().catch(e => console.log(`Error playing lose sound: ${e}`));
+            }
+        }, 500); // 500ms后播放失败音效
+        
         // 生命用尽，游戏结束
         endGame(false, 'Out of lives! Game over!');
     } else {
@@ -331,9 +368,38 @@ window.addEventListener("DOMContentLoaded", () => {
     const mediumBtn = document.getElementById('mediumBtn');
     const hardBtn = document.getElementById('hardBtn');
     
-    if (easyBtn) easyBtn.addEventListener('click', () => switchDifficulty(0));
-    if (mediumBtn) mediumBtn.addEventListener('click', () => switchDifficulty(1));
-    if (hardBtn) hardBtn.addEventListener('click', () => switchDifficulty(2));
+    if (easyBtn) easyBtn.addEventListener('click', () => {
+        // 播放按钮点击音效
+        const clickSound = document.getElementById('clickSound');
+        if (clickSound) {
+            clickSound.currentTime = 0;
+            clickSound.volume = 0.6;
+            clickSound.play().catch(e => console.log(`Error playing click sound: ${e}`));
+        }
+        switchDifficulty(0)
+    });
+
+    if (mediumBtn) mediumBtn.addEventListener('click', () => {
+        // 播放按钮点击音效
+        const clickSound = document.getElementById('clickSound');
+        if (clickSound) {
+            clickSound.currentTime = 0;
+            clickSound.volume = 0.6;
+            clickSound.play().catch(e => console.log(`Error playing click sound: ${e}`));
+        }
+        switchDifficulty(1);
+    });
+
+    if (hardBtn) hardBtn.addEventListener('click', () => {
+        // 播放按钮点击音效
+        const clickSound = document.getElementById('clickSound');
+        if (clickSound) {
+            clickSound.currentTime = 0;
+            clickSound.volume = 0.6;
+            clickSound.play().catch(e => console.log(`Error playing click sound: ${e}`));
+        }
+        switchDifficulty(2);
+    });
 });
 
 // 重启按钮事件监听
@@ -552,6 +618,7 @@ function calculateAdjacentMines() {
 
 // 🆕 修改 handleCellClick 函数以支持无风险开始和生命模式
 function handleCellClick(row, col) {
+
     // Verifica se o jogo já começou (se o tabuleiro tem a classe 'game-not-started', bloqueia o clique)
     const gameBoardElement = document.getElementById("gameBoard");
     if (gameBoardElement && gameBoardElement.classList.contains("game-not-started")) {
@@ -573,9 +640,17 @@ function handleCellClick(row, col) {
     }
     
     const cellElement = getCellElement(row, col);
+
     
     gameBoard[row][col].isRevealed = true;
     cellElement.classList.add("revealed");
+
+    const revealSound = document.getElementById('revealSound');
+    if (revealSound) {
+        revealSound.currentTime = 0;
+        revealSound.volume = 1;
+        revealSound.play().catch(e => console.log(`Error playing flag sound: ${e}`));
+    }
     
     // Incrementa contador de células exploradas (se existir essa função)
     if (typeof addExploredCell === 'function') {
@@ -642,6 +717,15 @@ function handleRightClick(row, col) {
         if (typeof addFlag === 'function') {
             addFlag();
         }
+        // 播放旗子音效
+        const switchSound = document.getElementById('switchSound');
+        if (switchSound) {
+            switchSound.currentTime = 0;
+            switchSound.volume = 1;
+            switchSound.play().catch(e => console.log(`Error playing flag sound: ${e}`));
+        }
+
+
         
     } else if (gameBoard[row][col].isFlagged && !gameBoard[row][col].isQuestioned) {
         // 状态2：旗帜 → 问号
@@ -655,6 +739,13 @@ function handleRightClick(row, col) {
         if (typeof removeFlag === 'function') {
             removeFlag();
         }
+
+        const switchSound= document.getElementById('switchSound');
+        if (switchSound) {
+            switchSound.currentTime = 0;
+            switchSound.volume = 1;
+            switchSound.play().catch(e => console.log(`Error playing flag sound: ${e}`));
+        }
         
     } else if (!gameBoard[row][col].isFlagged && gameBoard[row][col].isQuestioned) {
         // 状态3：问号 → 未标记
@@ -664,6 +755,13 @@ function handleRightClick(row, col) {
         cellElement.classList.remove("questioned");
         cellElement.innerHTML = "";
         
+        const switchSound = document.getElementById('switchSound');
+        if (switchSound) {
+            switchSound.currentTime = 0;
+            switchSound.volume = 1;
+            switchSound.play().catch(e => console.log(`Error playing flag sound: ${e}`));
+        }
+
         // 问号变为未标记，计数器不变
     }
     
@@ -743,6 +841,34 @@ function endGame(isWin, customMessage = null) {
     
     revealAllMines();
     document.getElementById("restartButton").style.display = "block";
+
+
+    // 添加音效逻辑在这里 - 在弹出消息框之前
+    // 🎵 停止背景音乐
+    const fightSound = document.getElementById('fightSound');
+    if (fightSound) {
+        fadeOutAudio(fightSound, 800); // 800ms淡出
+    }
+
+    // 播放胜利或失败音效
+    if (isWin) {
+        // 播放胜利音效
+        const winSound = document.getElementById('winSound');
+        if (winSound) {
+            winSound.currentTime = 0;
+            winSound.volume = 0.9;
+            winSound.play().catch(e => console.log(`Error playing win sound: ${e}`));
+        }
+    } else {
+        // 播放失败音效
+        const loseSound = document.getElementById('loseSound');
+        if (loseSound) {
+            loseSound.currentTime = 0;
+            loseSound.volume = 0.9;
+            loseSound.play().catch(e => console.log(`Error playing lose sound: ${e}`));
+            document.getElementById("exSound").play(); // 播放爆炸音效
+        }
+    }
     
     setTimeout(() => {
         const currentDifficulty = DIFFICULTY[currentDifficultyIndex];

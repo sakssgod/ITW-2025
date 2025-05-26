@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style/game_page.css">
     <link rel="stylesheet" href="../style/keyboardController.css">
+    <link rel="stylesheet" href="../style/game-sounds.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GamePage</title>
     <style>
@@ -15,6 +16,17 @@
     </style>
 </head>
 <body>
+    <audio id="startGameSound" src="../media/sound_effect/ola_[cut_1sec].mp3"></audio>
+    <audio id="clickSound" src="../media/sound_effect/Pokémon TCG Pocket - All Sound Effects_[cut_1sec].mp3"></audio>
+    <audio id="revealSound" src="../media/sound_effect/Pokémon TCG Pocket - All Sound Effects_[cut_0sec] (1).mp3"></audio>
+    <audio id="explosionSound" src="../media/sound_effect/ola_[cut_1sec] (1).mp3"></audio>
+    <audio id="exSound" src="../media/sound_effect/explotion_[cut_3sec].mp3"></audio>
+    <audio id="switchSound" src="../media/sound_effect/Pokémon TCG Pocket - All Sound Effects_[cut_0sec].mp3"></audio>
+    <audio id="winSound" src="../media/sound_effect/tuturu_1_mduEcc3.mp3"></audio>
+    <audio id="loseSound" src="../media/sound_effect/ola_[cut_1sec] (1).mp3"></audio>
+    <audio id="fightSound" src="../media/sound_effect/Pokémon TCG Pocket OST - Battle Expert BGM.mp3"></audio>
+    <audio id="trySound" src="../media/sound_effect/8-bit error game sound effects - wrong invalid denied unauthorized sounds_[cut_0sec].mp3"></audio>
+
     <header>
         <h1 id="title">Minesweeper</h1>
         <a href="home_page2.html"><img src="../media/house_red.png" alt="An house to come back to the home page" title="House-page" id="house" class="banner_button_image"></a>
@@ -96,6 +108,7 @@
                 </div>
             </div>
         </div>
+
         
         <footer>
             <a href="rules_page.html"><img src="../media/info_red.png" alt="An icon representing a button to go to the rules page" title="Rules" id="info" class="banner_button_image"> </a>
@@ -105,5 +118,6 @@
     <script src="../script/timer.js"></script>
     <script src="../script/tabuleiro.js"></script>
     <script src="../script/keyboardController.js"></script>
+    <!-- <script src="../script/game-sound.js"></script> -->
 </body>
 </html>

@@ -127,8 +127,42 @@ function checkAndStartTimer() {
     }
 }
 
+// 🎵 音频淡出函数
+function fadeOutAudio(audioElement, duration = 1000) {
+    if (!audioElement || audioElement.paused) return;
+    
+    const originalVolume = audioElement.volume;
+    const fadeSteps = 20; // 淡出步数
+    const stepDuration = duration / fadeSteps;
+    const volumeStep = originalVolume / fadeSteps;
+    
+    let currentStep = 0;
+    
+    const fadeInterval = setInterval(() => {
+        currentStep++;
+        const newVolume = originalVolume - (volumeStep * currentStep);
+        
+        if (newVolume <= 0 || currentStep >= fadeSteps) {
+            // 淡出完成
+            audioElement.pause();
+            audioElement.currentTime = 0;
+            audioElement.volume = originalVolume; // 恢复原始音量供下次播放
+            clearInterval(fadeInterval);
+        } else {
+            audioElement.volume = newVolume;
+        }
+    }, stepDuration);
+}
+
 // 结束游戏但不保存数据
 function endGameWithoutSaving() {
+
+    // 🎵 淡出停止背景音乐
+    const fightSound = document.getElementById('fightSound');
+    if (fightSound) {
+        fadeOutAudio(fightSound, 800); // 800ms淡出
+    }
+
     // 停止计时器
     stopGameTimer();
     
@@ -426,32 +460,54 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 监听Start按钮点击
     const startButton = document.getElementById('startButton');
-    if (startButton) {
-        startButton.addEventListener('click', function() {
-            // 隐藏开始按钮
-            startButton.style.display = 'none';
-            
-            // 显示结束游戏按钮
-            const endButton = document.getElementById('endButton');
-            if (endButton) {
-                endButton.style.display = 'block';
-            }
-            
-            // 移除游戏板的禁用状态（移除蒙版）
-            const gameBoard = document.getElementById('gameBoard');
-            if (gameBoard) {
-                gameBoard.classList.remove('game-not-started');
-            }
-            
-            // ✅ 新增：调用开始游戏函数，禁用难度按钮
-            if (typeof startGame === 'function') {
-                startGame();
-            }
-            
-            // 开始计时
-            checkAndStartTimer();
-        });
+    
+    startButton.addEventListener('click', function() {
+    // 播放开始游戏音效
+
+    // 备用方案，直接播放
+    const startSound = document.getElementById('startGameSound');
+    const fightSound = document.getElementById('fightSound');
+    if (startSound) {
+        startSound.currentTime = 0;
+        startSound.volume = 0.5;
+        startSound.play().catch(e => console.log(`Error playing start sound: ${e}`));
+        fightSound.currentTime = 0;
+        fightSound.volume = 0.2;
+        fightSound.play().catch(e => console.log(`Error playing fight sound: ${e}`));
     }
+
+    
+    // 添加动画类
+    this.classList.add('sound-click');
+    
+    // 动画结束后移除类
+    setTimeout(() => {
+        this.classList.remove('sound-click');
+    }, 500);
+    
+    // 隐藏开始按钮
+    startButton.style.display = 'none';
+    
+    // 显示结束游戏按钮
+    const endButton = document.getElementById('endButton');
+    if (endButton) {
+        endButton.style.display = 'block';
+    }
+    
+    // 移除游戏板的禁用状态（移除蒙版）
+    const gameBoard = document.getElementById('gameBoard');
+    if (gameBoard) {
+        gameBoard.classList.remove('game-not-started');
+    }
+    
+    // 调用开始游戏函数，禁用难度按钮
+    if (typeof startGame === 'function') {
+        startGame();
+    }
+    
+    // 开始计时
+    checkAndStartTimer();
+    });
     
     // 监听End按钮点击
     const endButton = document.getElementById('endButton');
@@ -468,6 +524,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const restartButton = document.getElementById('restartButton');
     if (restartButton) {
         restartButton.addEventListener('click', function() {
+
+
             // 重置计时器和计数器
             resetGameTimer();
             
