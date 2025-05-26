@@ -233,13 +233,6 @@ function setupLogin() {
         console.log("Login button not found - might be on a different page");
     }
     
-    const forgotLink = document.getElementById('forget');
-    if (forgotLink) {
-        forgotLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            alert("Password recovery not implemented yet!");
-        });
-    }
 }
 
 
@@ -289,3 +282,26 @@ document.addEventListener('DOMContentLoaded', function() {
     setupLogin();
     displayCurrentPlayer();
 });
+
+
+let selectedAvatar = null;
+        
+document.addEventListener('DOMContentLoaded', function() {
+    const avatarOptions = document.querySelectorAll('.avatar-option');
+            
+    avatarOptions.forEach(option => {
+
+        option.addEventListener('click', function() {
+
+            avatarOptions.forEach(opt => opt.classList.remove('selected'));
+
+                this.classList.add('selected');
+                selectedAvatar = this.dataset.avatar;
+
+        });
+    });
+});
+        
+function getSelectedAvatar() {
+    return selectedAvatar;
+}
